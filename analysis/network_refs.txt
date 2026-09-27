@@ -1,0 +1,571 @@
+Focused references to network endpoint strings
+Binary size: 3,080,192 bytes
+Candidate endpoint strings: 142
+
+STRING 0x000FF87C (1046652)
+  http://www.w3.org/XML/1998/namespace
+  REF none (direct file-offset pointer not found)
+
+STRING 0x000FF8C4 (1046724)
+  http://www.w3.org/2001/XMLSchema-instance
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00107654 (1078868)
+  https://%c-npns.app.nintendo.net/api/v1/
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00123E4C (1195596)
+  %s/ninja/ws/%s/tax_locations?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00127B0C (1211148)
+  %s/ninja/ws/my/transaction/%llu/receipt?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00127CB4 (1211572)
+  %s/samurai/ws/%s/titles?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x001622D4 (1450708)
+  %s/ninja/ws/my/wishlist/%llu/!delete?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00162360 (1450848)
+  %s/ninja/ws/my/wishlist/!put?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021EDEC (2223596)
+  https://
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021EED8 (2223832)
+  %s/ninja/ws/%s/title/%llu/ec_info?shop_id=1&lang=%s&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021EF68 (2223976)
+  %s/ninja/ws/my/wishlist/notice?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F000 (2224128)
+  %s/ninja/ws/%s/title/%014llu/!redeem?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F11C (2224412)
+  %s/samurai/ws/%s/news?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F1A0 (2224544)
+  %s/ninja/ws/my/balance/current?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F234 (2224692)
+  %s/ninja/ws/country/%s?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F334 (2224948)
+  %s/ninja/ws/%s/title/%llu/ec_info?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F464 (2225252)
+  %s/ninja/ws/%s/title/%llu/!purchase?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F510 (2225424)
+  %s/ninja/ws/my/wishlist?sort=registered&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F550 (2225488)
+  %s/ninja/ws/my/wishlist?sort=release&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F5EC (2225644)
+  %s/samurai/ws/%s/telops?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F674 (2225780)
+  %s/ninja/ws/my/wishlist/notice/!ack?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F7EC (2226156)
+  %s/ninja/ws/my/credit_card/?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F870 (2226288)
+  %s/ninja/ws/my/npns_status?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F8F0 (2226416)
+  %s/ninja/ws/my/language?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021F978 (2226552)
+  %s/ninja/ws/%s/coupon/!check?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FA10 (2226704)
+  %s/ninja/ws/%s/movie/%llu/!play?shop_id=1
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FADC (2226908)
+  %s/ninja/ws/%s/title/%llu/prepurchase_info?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FB7C (2227068)
+  %s/ninja/ws/my/votes?shop_id=1&limit=%u&offset=%u&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FC0C (2227212)
+  %s/ninja/ws/my/session/!open?_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FC84 (2227332)
+  %s/ninja/ws/my/tax_location?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FD78 (2227576)
+  %s/samurai/ws/%s/directory/~%s?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FDB4 (2227636)
+  %s/samurai/ws/%s/directory/%llu?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FE54 (2227796)
+  %s/samurai/ws/%s/languages?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0021FF88 (2228104)
+  %s/ninja/ws/my/owned_coupons?ns_uid=%llu&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002200A0 (2228384)
+  %s/ninja/ws/%s/title/public_status?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220168 (2228584)
+  %s/ninja/ws/%s/demo/%llu/!purchase?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002201F0 (2228720)
+  %s/ninja/ws/my/votes/!put?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002202E8 (2228968)
+  %s/ninja/ws/my/session/!close?_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002203D8 (2229208)
+  %s/ninja/ws/titles/id_pair?lang=%s&title_id%%5B%%5D=%s
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220520 (2229536)
+  https://tagaya-ctr.cdn.nintendo.net/tagaya/versionlist
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0022055C (2229596)
+  https://tagaya-dev-ctr.cdn.nintendo.net/tagaya/versionlist
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002205E8 (2229736)
+  %s/ninja/ws/my/balance/current/!cc_add?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002206D8 (2229976)
+  %s/ninja/ws/my/wishlist/!merge?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220804 (2230276)
+  %s/samurai/ws/%s/title/%llu?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002208B8 (2230456)
+  %s/samurai/ws/%s/movie/%llu?shop_id=1&lang=%s&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220954 (2230612)
+  %s/samurai/ws/%s/rankings?shop_id=1&device=4&lang=%s&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002209F4 (2230772)
+  %s/samurai/ws/%s/genres?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220AF0 (2231024)
+  %s/ninja/ws/my/shared_title_ids?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220B78 (2231160)
+  %s/ninja/ws/my/tax_location/!put?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220C00 (2231296)
+  %s/ninja/ws/my/owned_coupons?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220C84 (2231428)
+  %s/ninja/ws/my/votes/!delete?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220D08 (2231560)
+  %s/ninja/ws/redeemable_card/!check?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220E1C (2231836)
+  %s/samurai/ws/%s/contents?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00220F80 (2232192)
+  %s/ninja/ws/my/loyalty_account/!link?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0022100C (2232332)
+  %s/ninja/ws/my/credit_card/!delete?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221094 (2232468)
+  %s/ninja/ws/my/votes/!migrate_ctr?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221190 (2232720)
+  %s/samurai/ws/%s/searchcategory?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221300 (2233088)
+  %s/ninja/ws/my/tax_location/!delete?shop_id=1&_type=json
+  REF 0x0019D107 file_offset_be bytes=e3deffffeb0000a0e37080bde8ff7f00002213000070402de90050a0e10140a0e10260a0
+
+STRING 0x00221400 (2233344)
+  %s/samurai/ws/%s/movies?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221834 (2234420)
+  %s/samurai/ws/%s/directory/~%s?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221884 (2234500)
+  %s/samurai/ws/%s/directory/%llu?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221A30 (2234928)
+  %s/samurai/ws/%s/publishers?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221ABC (2235068)
+  %s/ninja/ws/my/loyalty_account/!unlink?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221B48 (2235208)
+  %s/ninja/ws/my/parental_control/!put?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221BD4 (2235348)
+  %s/ninja/ws/my/loyalty_account?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221C58 (2235480)
+  %s/ninja/ws/my/votable_titles/!put?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00221DDC (2235868)
+  %s/ninja/ws/my/session/!open_without_nna
+  REF none (direct file-offset pointer not found)
+
+STRING 0x00241750 (2365264)
+  X-Nintendo-ServiceToken
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0028AEFC (2666236)
+  https://samurai.ctr.shop.nintendo.net
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0028AF30 (2666288)
+  https://ninja.ctr.shop.nintendo.net
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0028AF58 (2666328)
+  https://ccif.ctr.shop.nintendo.net
+  REF none (direct file-offset pointer not found)
+
+STRING 0x0028AF80 (2666368)
+  https://eou.c.shop.nintendowifi.net
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002BAB08 (2861832)
+  https://
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D0B61 (2952033)
+  ",                 "phone_number":"0570-012-789",                 "url":"http://www.d3p.co.jp"             },             {                 "publisher":{"name":"GAE","id":92},                 "name":"
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D0C4D (2952269)
+  ",                 "phone_number":"0570-012-789",                 "url":"http://www.d3p.co.jp"             }         ],         "length":93     } }
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1440 (2954304)
+  https://ninja
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1450 (2954320)
+  https://tagaya.wup.shop.nintendo.net/tagaya_ctr/dev/tiger/versionlist%d
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1498 (2954392)
+  %s/samurai/ws/%s/title/%014llu/law_message?lang=%s&shop_id=1&_type=json&content_type=title
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D14F4 (2954484)
+  https://ccif
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1504 (2954500)
+  https://samurai
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1514 (2954516)
+  %s/ninja/ws/my/recommend_title?directory_id=%llu&friend_code=%016llX&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1570 (2954608)
+  %s/ninja/ws/%s/titles/online_prices?title%%5B%%5D=%s&lang=%s&include_coupon=true&shop_id=1&_type=json
+  REF 0x002CC294 file_offset_le bytes=00aa2c0078aa2c00000000000000000070152d0000000000fc89370000000000dc122d00
+
+STRING 0x002D15D8 (2954712)
+  %s/ninja/ws/service_hosts?country=%s&lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D161C (2954780)
+  %s/samurai/ws/%s/eshop_message/agreement_send_info?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D166C (2954860)
+  %s/samurai/ws/%s/title/%014llu/aocs?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D16B0 (2954928)
+  %s/ninja/ws/country/%s/replenish_amounts?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D16F8 (2955000)
+  %s/samurai/ws/%s/eshop_message/law_payment?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1740 (2955072)
+  %s/samurai/ws/%s/eshop_message/about?lang=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1784 (2955140)
+  %s/samurai/ws/%s/directories?lang=%s&pattern=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D17CC (2955212)
+  %s/ninja/ws/%s/title/%llu/prepurchase_info?%s=%s&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1814 (2955284)
+  %s/samurai/ws/%s/coupon/%llu/titles?lang=%s&limit=%u&offset=%u&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1868 (2955368)
+  %s/ninja/ws/my/abandoned_transactions?tracing_transaction_id=%llu&limit=%u&offset=%u&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D18D4 (2955476)
+  %s/ninja/ws/my/shared_titles?limit=%u&offset=%u&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D191C (2955548)
+  %s/ninja/ws/my/auto_billing/plans?limit=%u&offset=%u&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1968 (2955624)
+  %s/ninja/ws/my/transactions?limit=%u&offset=%u&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D19AC (2955692)
+  %s/ninja/ws/my/abandoned_transaction/%llu/receipt?tracing_transaction_id=%llu&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1A10 (2955792)
+  %s/ninja/ws/%s/titles/online_prices?title%%5B%%5D=%s&lang=%s&include_coupon=true&coupon_id=%llu&shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1A88 (2955912)
+  %s/ninja/ws/my/account/ctr/!migrate_without_nna?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1AD0 (2955984)
+  %s/ninja/ws/my/auto_billing/%014llu/!cancel?shop_id=1&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1B14 (2956052)
+  %s/samurai/ws/%s/publishers/contacts?shop_id=1&lang=%s&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1B58 (2956120)
+  %s/samurai/ws/%s/ranking/%u?shop_id=1&limit=%u&offset=%u&lang=%s&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1BA4 (2956196)
+  %s/ninja/ws/my/votable_titles?shop_id=1&limit=%u&offset=%u&_type=json
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1BEC (2956268)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/7RW9z5Cb71Fpt1OE/BGM1/JP_BGM1
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1C5C (2956380)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/vD1TyxppgptrZdfK/BGM1/KR_BGM1
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1CCC (2956492)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/CtfKXACbUPl8s7lk/BGM1/US_BGM1
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1D3C (2956604)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/BGM1/EU_BGM1
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1DAC (2956716)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/kRlrRG3XMEZShz9a/BGM1/TW_BGM1
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1E1C (2956828)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/7RW9z5Cb71Fpt1OE/BGM2/JP_BGM2
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1E8C (2956940)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/vD1TyxppgptrZdfK/BGM2/KR_BGM2
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1EFC (2957052)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/CtfKXACbUPl8s7lk/BGM2/US_BGM2
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1F6C (2957164)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/BGM2/EU_BGM2
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D1FDC (2957276)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/kRlrRG3XMEZShz9a/BGM2/TW_BGM2
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D204C (2957388)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/7RW9z5Cb71Fpt1OE/TIGER1/JP_ja
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D20BC (2957500)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/kRlrRG3XMEZShz9a/TIGER1/TW_tc
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D212C (2957612)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_de
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D219C (2957724)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_nl
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D220C (2957836)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/CtfKXACbUPl8s7lk/TIGER1/US_en
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D227C (2957948)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_en
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D22EC (2958060)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/AEU_en
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D235C (2958172)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/vD1TyxppgptrZdfK/TIGER1/KR_ko
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D23CC (2958284)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/CtfKXACbUPl8s7lk/TIGER1/US_fr
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D243C (2958396)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_fr
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D24AC (2958508)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/CtfKXACbUPl8s7lk/TIGER1/US_es
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D251C (2958620)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_es
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D258C (2958732)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_it
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D25FC (2958844)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/CtfKXACbUPl8s7lk/TIGER1/US_pt
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D266C (2958956)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_pt
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D26DC (2959068)
+  https://a248.e.akamai.net/f/248/103046/10m/npdl.c.app.nintendowifi.net/p01/nsa/AH3oZwrEbne6qHCO/TIGER1/EU_ru
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D4A38 (2968120)
+  https://samurai.wup.shop.nintendo.net/samurai/image/rating_system/201/ja/rating/1/icon
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D4A90 (2968208)
+  https://samurai.wup.shop.nintendo.net/samurai/image/rating_system/201/ja/rating/6/icon
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D4AE8 (2968296)
+  https://samurai.wup.shop.nintendo.net/samurai/image/JP/ja/movie/50040000000026/icon
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D4B3C (2968380)
+  https://samurai.wup.shop.nintendo.net/samurai/image/JP/ja/movie/50040000000026/banner
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D4E36 (2969142)
+  1.9Mbps","icon_url":"https://samurai.wup.shop.nintendo.net/samurai/image/JP/ja/movie/50040000000026/icon","banner_url":"https://samurai.wup.shop.nintendo.net/samurai/image/JP/ja/movie/50040000000026/banner","files":{"file":[{"format":"mp4","width":1280,"height":720,"dimension":"2d","play_time_sec":21,"quality":"HQ"},{"format":"mp4","width":853,"height":480,"dimension":"2d","play_time_sec":21,"quality":"LQ"},{"format":"moflex","width":400,"height":224,"dimension":"2d","play_time_sec":60}]},"rating_info":{"rating_system":{"name":"CERO","id":201},"rating":{"icon_url":"https://samurai.wup.shop.nintendo.net/samurai/image/rating_system/201/ja/rating/6/icon","name":"
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002D5225 (2970149)
+  ","id":190},"rating_info":{"rating_system":{"name":"CERO","id":201},"rating":{"icon_url":"https://samurai.wup.shop.nintendo.net/samurai/image/rating_system/201/ja/rating/1/icon","name":"A","age":0,"id":1}},"release_date_on_eshop":"2011-09-19","retail_sales":false,"eshop_sales":true,"movie_available":true,"demo_available":true,"aoc_available":true,"new":false}}
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFA8C (3078796)
+  /ninja/ws/my/votes?
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFAB4 (3078836)
+  /ninja/ws/my/credit_card/
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFAE7 (3078887)
+  /ninja/ws/country/
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFB13 (3078931)
+  /ninja/ws/my/credit_card/!delete
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFB34 (3078964)
+  ninja/ws/my/transaction/
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFB61 (3079009)
+  /ninja/ws/my/balance/current/!cc_add
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFB86 (3079046)
+  /ninja/ws/my/balance/current/!cc_prepare
+  REF none (direct file-offset pointer not found)
+
+STRING 0x002EFBAF (3079087)
+  /ninja/ws/my/balance/current/!wallet_add
+  REF none (direct file-offset pointer not found)
