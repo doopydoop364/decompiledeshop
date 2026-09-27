@@ -2,6 +2,10 @@ name: Extract network code context
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'analysis/find_network_code.py'
+      - 'eshop_decompile_v3.txt'
 
 permissions:
   contents: write
@@ -20,5 +24,9 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add analysis/network_code_context.txt
-          git diff --cached --quiet || git commit -m 'Add network code context'
-          git push
+          if git diff --cached --quiet; then
+            echo 'No context changes.'
+          else
+            git commit -m 'Add network code context'
+            git push
+          fi
