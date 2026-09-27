@@ -1,0 +1,34 @@
+name: Trace 3DS network addresses
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code_decompressed.bin'
+      - 'extheader.bin'
+      - 'analysis/trace_3ds_addresses.py'
+      - '.github/workflows/trace-3ds-addresses.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trace addresses
+        run: python3 analysis/trace_3ds_addresses.py
+
+      - name: Commit report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add analysis/network_address_refs.txt
+          if git diff --cached --quiet; then
+            echo 'No report changes.'
+          else
+            git commit -m 'Add 3DS network address reference report'
+            git push
+          fi

@@ -1,0 +1,33 @@
+name: Disassemble network reference context
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code_decompressed.bin'
+      - 'analysis/disassemble_network_refs.py'
+      - '.github/workflows/disassemble-network-refs.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate instruction context
+        run: python3 analysis/disassemble_network_refs.py
+
+      - name: Commit report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add analysis/network_instruction_context.txt
+          if git diff --cached --quiet; then
+            echo 'No report changes.'
+          else
+            git commit -m 'Add network instruction context'
+            git push
+          fi

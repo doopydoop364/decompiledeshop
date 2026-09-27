@@ -1,0 +1,31 @@
+name: Trace shared HTTP routine
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code_decompressed.bin'
+      - 'analysis/trace_shared_http.py'
+      - '.github/workflows/trace-shared-http.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate trace
+        run: python3 analysis/trace_shared_http.py
+      - name: Commit report
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add analysis/shared_http_trace.txt
+          if git diff --cached --quiet; then
+            echo 'No report changes.'
+          else
+            git commit -m 'Add shared HTTP routine trace'
+            git push
+          fi

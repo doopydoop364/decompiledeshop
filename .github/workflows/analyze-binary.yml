@@ -1,0 +1,90 @@
+name: Analyze eShop binary networking
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code.bin'
+      - 'code_decompressed.bin'
+      - '.github/workflows/analyze-binary.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Analyze binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p analysis
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          terms = re.compile(
+              rb'(nintendo|http|https|\.com|\.net|\.org|ssl|tls|socket|connect|'
+              rb'getaddrinfo|dns|host|hostname|server|cdn|api|url|download|content|'
+              rb'eshop|ecdn|nus|account|ticket|title|cert|certificate)',
+              re.I
+          )
+
+          def extract(path):
+              data = Path(path).read_bytes()
+              out = []
+              for m in re.finditer(rb'[ -~]{4,}', data):
+                  s = m.group().decode('ascii', 'replace')
+                  if terms.search(m.group()):
+                      out.append((m.start(), s))
+              return data, out
+
+          report = []
+          for name in ('code.bin', 'code_decompressed.bin'):
+              p = Path(name)
+              if not p.exists():
+                  continue
+              data, hits = extract(p)
+              report.append(f'=== {name} ===')
+              report.append(f'Size: {len(data):,} bytes')
+              report.append(f'Candidate network strings: {len(hits)}')
+              report.append('')
+              for off, s in hits:
+                  report.append(f'0x{off:08X} ({off:10d})  {s}')
+              report.append('')
+
+          Path('analysis/network_strings.txt').write_text(
+              '\n'.join(report), encoding='utf-8'
+          )
+          PY
+
+          {
+            echo '=== File information ==='
+            file code.bin code_decompressed.bin 2>/dev/null || true
+            echo
+            echo '=== SHA-256 ==='
+            sha256sum code.bin code_decompressed.bin 2>/dev/null || true
+            echo
+            echo '=== Interesting printable strings (all matches) ==='
+            cat analysis/network_strings.txt
+          } > analysis/network_report.txt
+
+      - name: Commit analysis report
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add analysis/network_strings.txt analysis/network_report.txt
+          if git diff --cached --quiet; then
+            echo 'No report changes.'
+          else
+            git commit -m 'Add binary network analysis report'
+            git push
+          fi
