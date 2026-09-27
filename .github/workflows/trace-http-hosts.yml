@@ -6,6 +6,9 @@ on:
       - "analysis/trace_http_hosts.py"
       - "code_decompressed.bin"
       - ".github/workflows/trace-http-hosts.yml"
+permissions:
+  contents: write
+
 jobs:
   trace:
     runs-on: ubuntu-latest
