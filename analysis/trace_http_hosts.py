@@ -20,7 +20,7 @@ def off_for_va(v):
     return None
 def s_at(off):
     if off is None or off<0 or off>=len(data): return None
-    b=data[off:off+512]; z=b.find(b"\\0")
+    b=data[off:off+512]; z=b.find(b"\0")
     if z<0: z=min(len(b),200)
     try:
         s=b[:z].decode("ascii")
