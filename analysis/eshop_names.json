@@ -1,0 +1,1246 @@
+{
+  "source": "eshop_decompile_v3.txt",
+  "original_sha256": "41758d0a01039d1e580c7b21e87548be7ad8860eb7e777a1f311b5b1758cd6ef",
+  "renamed_sha256": "e03157a20d9b66d2d7eb45afaa905b472e99b00e90c431f1207784e62563fb44",
+  "symbols": [
+    {
+      "original": "FUN_00100000",
+      "name": "runtime_entry_00100000",
+      "address": "00100000",
+      "confidence": "high",
+      "evidence": "Calls initialization and cleanup routines, then software_interrupt(3)."
+    },
+    {
+      "original": "FUN_00100024",
+      "name": "zero_startup_memory_00100024",
+      "address": "00100024",
+      "confidence": "high",
+      "evidence": "Writes zero words over the half-open range in the two literal-pool pointers."
+    },
+    {
+      "original": "FUN_00100186",
+      "name": "cstring_append_00100186",
+      "address": "00100186",
+      "confidence": "high",
+      "evidence": "Scans destination terminator, then copies source including its terminator."
+    },
+    {
+      "original": "FUN_002a8f8c",
+      "name": "cstring_length_002a8f8c",
+      "address": "002a8f8c",
+      "confidence": "high",
+      "evidence": "Alignment-aware byte/word scan for the first NUL, returning pointer distance."
+    },
+    {
+      "original": "FUN_002a8f1c",
+      "name": "cstring_copy_002a8f1c",
+      "address": "002a8f1c",
+      "confidence": "high",
+      "evidence": "Copies source bytes through the first NUL, with a word-aligned fast path."
+    },
+    {
+      "original": "FUN_002a0964",
+      "name": "string16_length_002a0964",
+      "address": "002a0964",
+      "confidence": "high",
+      "evidence": "Counts nonzero 16-bit code units; encoding is not assumed."
+    },
+    {
+      "original": "FUN_002a7030",
+      "name": "heap_allocate_aligned4_002a7030",
+      "address": "002a7030",
+      "confidence": "medium",
+      "evidence": "Calls allocator virtual slot 0x1c with requested size and alignment 4; checks allocation failure."
+    },
+    {
+      "original": "FUN_002a8ea8",
+      "name": "heap_allocate_aligned4_002a8ea8",
+      "address": "002a8ea8",
+      "confidence": "medium",
+      "evidence": "Calls allocator virtual slot 0x1c with requested size and alignment 4; checks allocation failure."
+    },
+    {
+      "original": "FUN_002a8eac",
+      "name": "heap_allocate_aligned4_002a8eac",
+      "address": "002a8eac",
+      "confidence": "medium",
+      "evidence": "Calls allocator virtual slot 0x1c with requested size and alignment 4; checks allocation failure."
+    },
+    {
+      "original": "FUN_002a8ef8",
+      "name": "heap_free_if_nonnull_002a8ef8",
+      "address": "002a8ef8",
+      "confidence": "medium",
+      "evidence": "Null guard before allocator virtual slot 0x24; paired with allocation at callers."
+    },
+    {
+      "original": "FUN_002a8ffc",
+      "name": "heap_free_if_nonnull_002a8ffc",
+      "address": "002a8ffc",
+      "confidence": "medium",
+      "evidence": "Null guard before allocator virtual slot 0x24; paired with allocation at callers."
+    },
+    {
+      "original": "FUN_002a7bec",
+      "name": "heap_free_if_nonnull_002a7bec",
+      "address": "002a7bec",
+      "confidence": "medium",
+      "evidence": "Null guard before allocator virtual slot 0x24; paired with allocation at callers."
+    },
+    {
+      "original": "FUN_002a7f5c",
+      "name": "heap_free_wrapper_002a7f5c",
+      "address": "002a7f5c",
+      "confidence": "medium",
+      "evidence": "Forwards to the null-guarded allocator release routine."
+    },
+    {
+      "original": "FUN_002a9080",
+      "name": "heap_allocate_with_retry_002a9080",
+      "address": "002a9080",
+      "confidence": "high",
+      "evidence": "Converts zero size to one and retries allocation after invoking failure handler."
+    },
+    {
+      "original": "FUN_002a8f84",
+      "name": "heap_allocate_wrapper_002a8f84",
+      "address": "002a8f84",
+      "confidence": "medium",
+      "evidence": "Forwards to the allocation retry loop."
+    },
+    {
+      "original": "FUN_002a7f64",
+      "name": "heap_allocate_or_report_002a7f64",
+      "address": "002a7f64",
+      "confidence": "medium",
+      "evidence": "Calls allocation retry routine and reports error code 3 if result is null."
+    },
+    {
+      "original": "FUN_002a9020",
+      "name": "runtime_report_error_002a9020",
+      "address": "002a9020",
+      "confidence": "medium",
+      "evidence": "Dispatches error code and optionally formatted message to a registered callback."
+    },
+    {
+      "original": "FUN_002a783c",
+      "name": "guard_set_once_002a783c",
+      "address": "002a783c",
+      "confidence": "high",
+      "evidence": "Returns zero if guard is already set, otherwise sets it and returns one; no atomicity implied."
+    },
+    {
+      "original": "FUN_00101d64",
+      "name": "string_storage_add_reference_00101d64",
+      "address": "00101d64",
+      "confidence": "high",
+      "evidence": "Increments reference count unless the storage is the shared sentinel; used by string copy."
+    },
+    {
+      "original": "FUN_002a8e0c",
+      "name": "cow_string_copy_construct_002a8e0c",
+      "address": "002a8e0c",
+      "confidence": "medium",
+      "evidence": "Copies shared data and increments count, or clones data when reference count is -1."
+    },
+    {
+      "original": "FUN_002a8e48",
+      "name": "cow_string_construct_from_cstring_002a8e48",
+      "address": "002a8e48",
+      "confidence": "medium",
+      "evidence": "Measures source, allocates if nonempty, and copies characters into string storage."
+    },
+    {
+      "original": "FUN_002a8b94",
+      "name": "cow_string_assign_cstring_002a8b94",
+      "address": "002a8b94",
+      "confidence": "medium",
+      "evidence": "Measures input and replaces existing contents; empty input clears or releases shared storage."
+    },
+    {
+      "original": "FUN_002a81f0",
+      "name": "copy_bytes_forward_002a81f0",
+      "address": "002a81f0",
+      "confidence": "high",
+      "evidence": "Copies byte_count bytes from source to destination using aligned bulk and tail paths; preserves decompiled return ABI."
+    },
+    {
+      "original": "FUN_0029b7a0",
+      "name": "copy_bytes_forward_0029b7a0",
+      "address": "0029b7a0",
+      "confidence": "high",
+      "evidence": "Copies byte_count bytes from source to destination using aligned bulk and tail paths; preserves decompiled return ABI."
+    },
+    {
+      "original": "FUN_002a8d5c",
+      "name": "copy_bytes_return_destination_002a8d5c",
+      "address": "002a8d5c",
+      "confidence": "high",
+      "evidence": "Calls forward byte copy then returns original first parameter; additional parameters missing in recovered signature."
+    },
+    {
+      "original": "FUN_0029e4f0",
+      "name": "compare_bytes_0029e4f0",
+      "address": "0029e4f0",
+      "confidence": "high",
+      "evidence": "Compares byte sequences up to byte_count and returns first differing byte difference."
+    },
+    {
+      "original": "FUN_002954f4",
+      "name": "callback_assign_002954f4",
+      "address": "002954f4",
+      "confidence": "medium",
+      "evidence": "Releases existing owned callback payload, copies management metadata, and clones source payload through callback at +8."
+    },
+    {
+      "original": "FUN_002a6188",
+      "name": "scheduled_callback_initialize_002a6188",
+      "address": "002a6188",
+      "confidence": "medium",
+      "evidence": "Initializes vtable, callback management fields and flag at +0x20; related assignment routine stores scheduling state."
+    },
+    {
+      "original": "FUN_002965d8",
+      "name": "layout_find_pane_handle_002965d8",
+      "address": "002965d8",
+      "confidence": "medium",
+      "evidence": "Calls layout virtual lookup +0x2c with pane name and recursive flag 1, then initializes handle; callers pass N_root_00 etc."
+    },
+    {
+      "original": "FUN_002f3764",
+      "name": "layout_find_typed_pane_handle_002f3764",
+      "address": "002f3764",
+      "confidence": "medium",
+      "evidence": "Looks up named pane and walks its type ancestry before storing the validated pane in a handle."
+    },
+    {
+      "original": "FUN_0023ff00",
+      "name": "pane_handle_initialize_0023ff00",
+      "address": "0023ff00",
+      "confidence": "medium",
+      "evidence": "Stores pane, owner, owner-derived generation and initialized flag."
+    },
+    {
+      "original": "FUN_0021b50c",
+      "name": "message_lookup_text_0021b50c",
+      "address": "0021b50c",
+      "confidence": "medium",
+      "evidence": "Uses message index and active section to return a relative-offset text entry, with range check."
+    },
+    {
+      "original": "FUN_00143304",
+      "name": "message_file_create_00143304",
+      "address": "00143304",
+      "confidence": "high",
+      "evidence": "Allocates reader and resolves LBL1, TXT2, ATR1 and TSY1 section indices."
+    },
+    {
+      "original": "FUN_0029b318",
+      "name": "section_find_fourcc_0029b318",
+      "address": "0029b318",
+      "confidence": "high",
+      "evidence": "Scans 16-byte section records comparing four bytes of tag; returns index or 0xffffffff."
+    },
+    {
+      "original": "FUN_00380364",
+      "name": "http_extract_set_cookie_00380364",
+      "address": "00380364",
+      "confidence": "medium",
+      "evidence": "Requests Set-Cookie header into a 0xc00-byte buffer and assigns output string on success; returns true when lookup returns zero."
+    },
+    {
+      "original": "FUN_0037e418",
+      "name": "layout_find_active_root_pane_0037e418",
+      "address": "0037e418",
+      "confidence": "medium",
+      "evidence": "Chooses one of two layouts according to state at +0x398 and obtains N_root_00."
+    },
+    {
+      "original": "FUN_0015b0d4",
+      "name": "field_2f4_is_zero_0015b0d4",
+      "address": "0015b0d4",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x2f4) == '\\0';"
+    },
+    {
+      "original": "FUN_001797dc",
+      "name": "get_field_1af0_undefined4_001797dc",
+      "address": "001797dc",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x1af0);"
+    },
+    {
+      "original": "FUN_0019bbbc",
+      "name": "get_field_8_undefined8_0019bbbc",
+      "address": "0019bbbc",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 8);"
+    },
+    {
+      "original": "FUN_001a1d3c",
+      "name": "set_field_1348_undefined1_001a1d3c",
+      "address": "001a1d3c",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0x1348) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_001a334c",
+      "name": "get_field_3fc0_undefined4_001a334c",
+      "address": "001a334c",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x3fc0);"
+    },
+    {
+      "original": "FUN_001a3358",
+      "name": "get_field_3fbc_undefined4_001a3358",
+      "address": "001a3358",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x3fbc);"
+    },
+    {
+      "original": "FUN_001e0be4",
+      "name": "get_field_148_undefined8_001e0be4",
+      "address": "001e0be4",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x148);"
+    },
+    {
+      "original": "FUN_00221f84",
+      "name": "get_field_3fc4_undefined4_00221f84",
+      "address": "00221f84",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x3fc4);"
+    },
+    {
+      "original": "FUN_00221f90",
+      "name": "get_field_3fb8_undefined4_00221f90",
+      "address": "00221f90",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x3fb8);"
+    },
+    {
+      "original": "FUN_002221ec",
+      "name": "set_field_1b5_undefined1_002221ec",
+      "address": "002221ec",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0x1b5) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_0023400c",
+      "name": "get_field_30_undefined8_0023400c",
+      "address": "0023400c",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x30);"
+    },
+    {
+      "original": "FUN_0023fafc",
+      "name": "field_4_is_nonzero_0023fafc",
+      "address": "0023fafc",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(int *)(param_1 + 4) != 0;"
+    },
+    {
+      "original": "FUN_0024a6e0",
+      "name": "field_4_is_nonzero_0024a6e0",
+      "address": "0024a6e0",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(int *)(param_1 + 4) != 0;"
+    },
+    {
+      "original": "FUN_00271000",
+      "name": "get_field_249c_undefined4_00271000",
+      "address": "00271000",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x249c);"
+    },
+    {
+      "original": "FUN_00272284",
+      "name": "get_field_2e50_undefined4_00272284",
+      "address": "00272284",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x2e50);"
+    },
+    {
+      "original": "FUN_00272438",
+      "name": "field_cf8_is_zero_00272438",
+      "address": "00272438",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0xcf8) == '\\0';"
+    },
+    {
+      "original": "FUN_00272458",
+      "name": "get_field_249c_undefined4_00272458",
+      "address": "00272458",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x249c);"
+    },
+    {
+      "original": "FUN_00278c64",
+      "name": "set_field_d_undefined1_00278c64",
+      "address": "00278c64",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0xd) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_0027c8e4",
+      "name": "get_field_21b0_undefined4_0027c8e4",
+      "address": "0027c8e4",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x21b0);"
+    },
+    {
+      "original": "FUN_0027d570",
+      "name": "get_field_1f38_undefined4_0027d570",
+      "address": "0027d570",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x1f38);"
+    },
+    {
+      "original": "FUN_002838a4",
+      "name": "set_field_3fc4_undefined4_002838a4",
+      "address": "002838a4",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined4 *)(param_1 + 0x3fc4) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_002892ec",
+      "name": "get_field_1f2c_undefined4_002892ec",
+      "address": "002892ec",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x1f2c);"
+    },
+    {
+      "original": "FUN_0028cda4",
+      "name": "field_4_is_nonzero_0028cda4",
+      "address": "0028cda4",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(int *)(param_1 + 4) != 0;"
+    },
+    {
+      "original": "FUN_0028d048",
+      "name": "set_field_d_undefined1_0028d048",
+      "address": "0028d048",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0xd) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_0028e630",
+      "name": "field_860_is_zero_0028e630",
+      "address": "0028e630",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x860) == '\\0';"
+    },
+    {
+      "original": "FUN_002930c8",
+      "name": "field_18_is_nonzero_002930c8",
+      "address": "002930c8",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(int *)(param_1 + 0x18) != 0;"
+    },
+    {
+      "original": "FUN_002930d0",
+      "name": "field_10_is_nonzero_002930d0",
+      "address": "002930d0",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(int *)(param_1 + 0x10) != 0;"
+    },
+    {
+      "original": "FUN_002946f8",
+      "name": "field_2680_is_zero_002946f8",
+      "address": "002946f8",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x2680) == '\\0';"
+    },
+    {
+      "original": "FUN_002958f4",
+      "name": "get_field_210c_undefined4_002958f4",
+      "address": "002958f4",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x210c);"
+    },
+    {
+      "original": "FUN_00299c28",
+      "name": "get_field_20_undefined8_00299c28",
+      "address": "00299c28",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x20);"
+    },
+    {
+      "original": "FUN_002ce858",
+      "name": "field_8_is_nonzero_002ce858",
+      "address": "002ce858",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(int *)(param_1 + 8) != 0;"
+    },
+    {
+      "original": "FUN_002ce868",
+      "name": "field_c_is_nonzero_002ce868",
+      "address": "002ce868",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(int *)(param_1 + 0xc) != 0;"
+    },
+    {
+      "original": "FUN_002d494c",
+      "name": "set_field_83_undefined1_002d494c",
+      "address": "002d494c",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0x83) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_002d4954",
+      "name": "set_field_f4_undefined1_002d4954",
+      "address": "002d4954",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0xf4) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_002d4b38",
+      "name": "set_field_f0_undefined1_002d4b38",
+      "address": "002d4b38",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0xf0) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_002f1838",
+      "name": "set_field_d4_undefined4_002f1838",
+      "address": "002f1838",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined4 *)(param_1 + 0xd4) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_002f1848",
+      "name": "set_field_99_undefined1_002f1848",
+      "address": "002f1848",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0x99) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_002f1850",
+      "name": "set_field_d0_undefined4_002f1850",
+      "address": "002f1850",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined4 *)(param_1 + 0xd0) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_002f7740",
+      "name": "set_field_335_undefined1_002f7740",
+      "address": "002f7740",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0x335) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_00300450",
+      "name": "set_field_335_undefined1_00300450",
+      "address": "00300450",
+      "confidence": "high",
+      "evidence": "Exact single-store setter: *(undefined1 *)(param_1 + 0x335) = param_2;\n  return;"
+    },
+    {
+      "original": "FUN_00309a9c",
+      "name": "get_field_38_undefined8_00309a9c",
+      "address": "00309a9c",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x38);"
+    },
+    {
+      "original": "FUN_0032a1c4",
+      "name": "get_field_40_undefined8_0032a1c4",
+      "address": "0032a1c4",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x40);"
+    },
+    {
+      "original": "FUN_0036f8b0",
+      "name": "field_4e0_is_zero_0036f8b0",
+      "address": "0036f8b0",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x4e0) == '\\0';"
+    },
+    {
+      "original": "FUN_0036fb98",
+      "name": "get_field_12c_undefined4_0036fb98",
+      "address": "0036fb98",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 300);"
+    },
+    {
+      "original": "FUN_0036fba8",
+      "name": "get_field_2330_undefined1_0036fba8",
+      "address": "0036fba8",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x2330);"
+    },
+    {
+      "original": "FUN_0036fbb4",
+      "name": "get_field_2498_undefined1_0036fbb4",
+      "address": "0036fbb4",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x2498);"
+    },
+    {
+      "original": "FUN_0036fc24",
+      "name": "get_field_2350_undefined1_0036fc24",
+      "address": "0036fc24",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x2350);"
+    },
+    {
+      "original": "FUN_0036fc30",
+      "name": "get_field_2358_undefined4_0036fc30",
+      "address": "0036fc30",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x2358);"
+    },
+    {
+      "original": "FUN_0036fcb8",
+      "name": "field_2320_is_zero_0036fcb8",
+      "address": "0036fcb8",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x2320) == '\\0';"
+    },
+    {
+      "original": "FUN_0036fd00",
+      "name": "get_field_3898_undefined1_0036fd00",
+      "address": "0036fd00",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x3898);"
+    },
+    {
+      "original": "FUN_0036fd6c",
+      "name": "field_28e8_is_zero_0036fd6c",
+      "address": "0036fd6c",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x28e8) == '\\0';"
+    },
+    {
+      "original": "FUN_0036fd94",
+      "name": "get_field_1f3c_undefined4_0036fd94",
+      "address": "0036fd94",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x1f3c);"
+    },
+    {
+      "original": "FUN_0036fda0",
+      "name": "get_field_1f38_undefined1_0036fda0",
+      "address": "0036fda0",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x1f38);"
+    },
+    {
+      "original": "FUN_0036fe0c",
+      "name": "get_field_3284_undefined4_0036fe0c",
+      "address": "0036fe0c",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x3284);"
+    },
+    {
+      "original": "FUN_0036fe38",
+      "name": "get_field_2498_undefined1_0036fe38",
+      "address": "0036fe38",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x2498);"
+    },
+    {
+      "original": "FUN_0036fe44",
+      "name": "get_field_1f20_undefined1_0036fe44",
+      "address": "0036fe44",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x1f20);"
+    },
+    {
+      "original": "FUN_0036fe50",
+      "name": "get_field_1f24_undefined4_0036fe50",
+      "address": "0036fe50",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x1f24);"
+    },
+    {
+      "original": "FUN_0036fe94",
+      "name": "get_field_23dc_undefined4_0036fe94",
+      "address": "0036fe94",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x23dc);"
+    },
+    {
+      "original": "FUN_00370178",
+      "name": "get_field_2334_undefined4_00370178",
+      "address": "00370178",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x2334);"
+    },
+    {
+      "original": "FUN_00370b78",
+      "name": "get_field_2f64_undefined4_00370b78",
+      "address": "00370b78",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x2f64);"
+    },
+    {
+      "original": "FUN_00370d70",
+      "name": "field_1f18_is_zero_00370d70",
+      "address": "00370d70",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x1f18) == '\\0';"
+    },
+    {
+      "original": "FUN_003713b8",
+      "name": "get_field_1f30_undefined1_003713b8",
+      "address": "003713b8",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x1f30);"
+    },
+    {
+      "original": "FUN_0037d1d8",
+      "name": "field_2098_is_zero_0037d1d8",
+      "address": "0037d1d8",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x2098) == '\\0';"
+    },
+    {
+      "original": "FUN_0037d258",
+      "name": "field_20b0_is_zero_0037d258",
+      "address": "0037d258",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x20b0) == '\\0';"
+    },
+    {
+      "original": "FUN_0037e134",
+      "name": "get_field_30_undefined8_0037e134",
+      "address": "0037e134",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x30);"
+    },
+    {
+      "original": "FUN_0037e4dc",
+      "name": "get_field_1db0_undefined1_0037e4dc",
+      "address": "0037e4dc",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x1db0);"
+    },
+    {
+      "original": "FUN_0037e4e8",
+      "name": "get_field_1dc0_undefined1_0037e4e8",
+      "address": "0037e4e8",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x1dc0);"
+    },
+    {
+      "original": "FUN_0037e538",
+      "name": "get_field_1f30_undefined4_0037e538",
+      "address": "0037e538",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x1f30);"
+    },
+    {
+      "original": "FUN_0037e544",
+      "name": "get_field_1f20_undefined1_0037e544",
+      "address": "0037e544",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x1f20);"
+    },
+    {
+      "original": "FUN_0037e550",
+      "name": "get_field_206c_undefined1_0037e550",
+      "address": "0037e550",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x206c);"
+    },
+    {
+      "original": "FUN_0037e55c",
+      "name": "get_field_20a9_undefined1_0037e55c",
+      "address": "0037e55c",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined1 *)(param_1 + 0x20a9);"
+    },
+    {
+      "original": "FUN_0037f238",
+      "name": "get_field_20_undefined8_0037f238",
+      "address": "0037f238",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x20);"
+    },
+    {
+      "original": "FUN_0038059c",
+      "name": "get_field_28_undefined8_0038059c",
+      "address": "0038059c",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x28);"
+    },
+    {
+      "original": "FUN_003805ac",
+      "name": "get_field_20_undefined8_003805ac",
+      "address": "003805ac",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x20);"
+    },
+    {
+      "original": "FUN_0038174c",
+      "name": "get_field_4268_undefined4_0038174c",
+      "address": "0038174c",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 17000);"
+    },
+    {
+      "original": "FUN_00381b08",
+      "name": "get_field_18_undefined8_00381b08",
+      "address": "00381b08",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined8 *)(param_1 + 0x18);"
+    },
+    {
+      "original": "FUN_00381c68",
+      "name": "field_2798_is_zero_00381c68",
+      "address": "00381c68",
+      "confidence": "high",
+      "evidence": "Exact field predicate: return *(char *)(param_1 + 0x2798) == '\\0';"
+    },
+    {
+      "original": "FUN_00381eac",
+      "name": "get_field_480_undefined4_00381eac",
+      "address": "00381eac",
+      "confidence": "high",
+      "evidence": "Exact single-load getter: return *(undefined4 *)(param_1 + 0x480);"
+    },
+    {
+      "original": "thunk_FUN_002a8e0c",
+      "name": "forward_cow_string_copy_construct_002a8e04",
+      "address": "002a8e04",
+      "confidence": "high",
+      "evidence": "Exact forwarding wrapper to cow_string_copy_construct_002a8e0c; recovered signature retained."
+    },
+    {
+      "original": "DAT_00100040",
+      "name": "startup_zero_region_begin_00100040",
+      "address": "00100040",
+      "confidence": "high",
+      "evidence": "Beginning pointer of startup zero-fill range; literal-pool slot, not necessarily the storage itself."
+    },
+    {
+      "original": "DAT_00100044",
+      "name": "startup_zero_region_end_00100044",
+      "address": "00100044",
+      "confidence": "high",
+      "evidence": "End pointer of startup zero-fill range; literal-pool slot."
+    },
+    {
+      "original": "DAT_00101d74",
+      "name": "empty_string_storage_sentinel_00101d74",
+      "address": "00101d74",
+      "confidence": "high",
+      "evidence": "Storage sentinel excluded from reference count increment."
+    }
+  ],
+  "locals": {
+    "00100024": {
+      "puVar1": "zero_region_end",
+      "puVar2": "word_cursor"
+    },
+    "00100186": {
+      "param_1": "destination",
+      "param_2": "source",
+      "pcVar1": "scan_cursor",
+      "pcVar3": "write_cursor",
+      "cVar2": "character"
+    },
+    "002a8f8c": {
+      "param_1": "text",
+      "pcVar5": "scan_cursor",
+      "pcVar6": "next_cursor",
+      "iVar7": "length_candidate"
+    },
+    "002a8f1c": {
+      "param_1": "destination",
+      "param_2": "source",
+      "puVar7": "write_cursor"
+    },
+    "002a0964": {
+      "param_1": "text_cursor",
+      "iVar1": "code_unit_count"
+    },
+    "002a7030": {
+      "param_1": "byte_count",
+      "iVar1": "allocation"
+    },
+    "002a8ea8": {
+      "param_1": "byte_count",
+      "iVar1": "allocation"
+    },
+    "002a8eac": {
+      "param_1": "byte_count",
+      "iVar1": "allocation"
+    },
+    "002a8ef8": {
+      "param_1": "allocation"
+    },
+    "002a8ffc": {
+      "param_1": "allocation"
+    },
+    "002a7bec": {
+      "param_1": "allocation"
+    },
+    "002a9080": {
+      "param_1": "byte_count",
+      "piVar1": "handler_slot",
+      "pcVar2": "allocation_failure_handler",
+      "iVar3": "allocation"
+    },
+    "002a7f64": {
+      "iVar1": "allocation"
+    },
+    "002a9020": {
+      "param_1": "error_code",
+      "puVar1": "error_callback_slot"
+    },
+    "002a783c": {
+      "param_1": "guard"
+    },
+    "00101d64": {
+      "param_1": "reference_count"
+    },
+    "002a8e0c": {
+      "param_1": "destination_string",
+      "param_2": "source_string",
+      "iVar1": "source_data_or_new_storage",
+      "uVar2": "length"
+    },
+    "002a8e48": {
+      "param_1": "destination_string",
+      "param_2": "source_text",
+      "iVar1": "length",
+      "uVar2": "character_buffer"
+    },
+    "002a8b94": {
+      "param_1": "destination_string",
+      "param_2": "source_text",
+      "iVar1": "length",
+      "piVar2": "result_string"
+    },
+    "002a81f0": {
+      "param_1": "destination",
+      "param_2": "source",
+      "param_3": "byte_count"
+    },
+    "0029b7a0": {
+      "param_1": "destination",
+      "param_2": "source",
+      "param_3": "byte_count"
+    },
+    "002a8d5c": {
+      "param_1": "destination"
+    },
+    "0029e4f0": {
+      "param_1": "left",
+      "param_2": "right",
+      "param_3": "byte_count",
+      "iVar1": "difference",
+      "uVar2": "left_word",
+      "uVar3": "right_word"
+    },
+    "002954f4": {
+      "param_1": "destination_callback",
+      "param_2": "source_callback",
+      "pcVar2": "destroy_payload",
+      "uVar1": "cloned_payload"
+    },
+    "002a6188": {
+      "param_1": "callback",
+      "uVar1": "vtable"
+    },
+    "002965d8": {
+      "param_1": "output_handle",
+      "param_2": "layout_owner",
+      "param_3": "pane_name",
+      "piVar1": "layout",
+      "uVar2": "pane"
+    },
+    "002f3764": {
+      "param_1": "output_handle",
+      "param_2": "layout_owner",
+      "param_3": "pane_name",
+      "piVar2": "pane",
+      "piVar4": "type_cursor",
+      "iVar3": "handle"
+    },
+    "0023ff00": {
+      "param_1": "handle",
+      "param_2": "owner",
+      "param_3": "pane",
+      "uVar1": "owner_generation"
+    },
+    "0021b50c": {
+      "param_1": "message_catalog",
+      "iVar1": "message_index",
+      "iVar3": "section_index",
+      "piVar2": "text_section"
+    },
+    "00143304": {
+      "param_1": "file_data",
+      "puVar1": "message_file",
+      "uVar2": "section_index"
+    },
+    "0029b318": {
+      "param_1": "file_reader",
+      "param_2": "section_tag",
+      "uVar2": "section_index",
+      "iVar1": "tag_matches"
+    },
+    "00380364": {
+      "param_1": "request",
+      "param_2": "output_cookie",
+      "iVar1": "header_found",
+      "auStack_c18": "header_buffer"
+    },
+    "0037e418": {
+      "param_1": "output_handle",
+      "param_2": "view",
+      "iVar1": "alternate_layout_active"
+    },
+    "0015b0d4": {
+      "param_1": "object_base"
+    },
+    "001797dc": {
+      "param_1": "object_base"
+    },
+    "0019bbbc": {
+      "param_1": "object_base"
+    },
+    "001a1d3c": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "001a334c": {
+      "param_1": "object_base"
+    },
+    "001a3358": {
+      "param_1": "object_base"
+    },
+    "001e0be4": {
+      "param_1": "object_base"
+    },
+    "00221f84": {
+      "param_1": "object_base"
+    },
+    "00221f90": {
+      "param_1": "object_base"
+    },
+    "002221ec": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "0023400c": {
+      "param_1": "object_base"
+    },
+    "0023fafc": {
+      "param_1": "object_base"
+    },
+    "0024a6e0": {
+      "param_1": "object_base"
+    },
+    "00271000": {
+      "param_1": "object_base"
+    },
+    "00272284": {
+      "param_1": "object_base"
+    },
+    "00272438": {
+      "param_1": "object_base"
+    },
+    "00272458": {
+      "param_1": "object_base"
+    },
+    "00278c64": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "0027c8e4": {
+      "param_1": "object_base"
+    },
+    "0027d570": {
+      "param_1": "object_base"
+    },
+    "002838a4": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "002892ec": {
+      "param_1": "object_base"
+    },
+    "0028cda4": {
+      "param_1": "object_base"
+    },
+    "0028d048": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "0028e630": {
+      "param_1": "object_base"
+    },
+    "002930c8": {
+      "param_1": "object_base"
+    },
+    "002930d0": {
+      "param_1": "object_base"
+    },
+    "002946f8": {
+      "param_1": "object_base"
+    },
+    "002958f4": {
+      "param_1": "object_base"
+    },
+    "00299c28": {
+      "param_1": "object_base"
+    },
+    "002ce858": {
+      "param_1": "object_base"
+    },
+    "002ce868": {
+      "param_1": "object_base"
+    },
+    "002d494c": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "002d4954": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "002d4b38": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "002f1838": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "002f1848": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "002f1850": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "002f7740": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "00300450": {
+      "param_1": "object_base",
+      "param_2": "value"
+    },
+    "00309a9c": {
+      "param_1": "object_base"
+    },
+    "0032a1c4": {
+      "param_1": "object_base"
+    },
+    "0036f8b0": {
+      "param_1": "object_base"
+    },
+    "0036fb98": {
+      "param_1": "object_base"
+    },
+    "0036fba8": {
+      "param_1": "object_base"
+    },
+    "0036fbb4": {
+      "param_1": "object_base"
+    },
+    "0036fc24": {
+      "param_1": "object_base"
+    },
+    "0036fc30": {
+      "param_1": "object_base"
+    },
+    "0036fcb8": {
+      "param_1": "object_base"
+    },
+    "0036fd00": {
+      "param_1": "object_base"
+    },
+    "0036fd6c": {
+      "param_1": "object_base"
+    },
+    "0036fd94": {
+      "param_1": "object_base"
+    },
+    "0036fda0": {
+      "param_1": "object_base"
+    },
+    "0036fe0c": {
+      "param_1": "object_base"
+    },
+    "0036fe38": {
+      "param_1": "object_base"
+    },
+    "0036fe44": {
+      "param_1": "object_base"
+    },
+    "0036fe50": {
+      "param_1": "object_base"
+    },
+    "0036fe94": {
+      "param_1": "object_base"
+    },
+    "00370178": {
+      "param_1": "object_base"
+    },
+    "00370b78": {
+      "param_1": "object_base"
+    },
+    "00370d70": {
+      "param_1": "object_base"
+    },
+    "003713b8": {
+      "param_1": "object_base"
+    },
+    "0037d1d8": {
+      "param_1": "object_base"
+    },
+    "0037d258": {
+      "param_1": "object_base"
+    },
+    "0037e134": {
+      "param_1": "object_base"
+    },
+    "0037e4dc": {
+      "param_1": "object_base"
+    },
+    "0037e4e8": {
+      "param_1": "object_base"
+    },
+    "0037e538": {
+      "param_1": "object_base"
+    },
+    "0037e544": {
+      "param_1": "object_base"
+    },
+    "0037e550": {
+      "param_1": "object_base"
+    },
+    "0037e55c": {
+      "param_1": "object_base"
+    },
+    "0037f238": {
+      "param_1": "object_base"
+    },
+    "0038059c": {
+      "param_1": "object_base"
+    },
+    "003805ac": {
+      "param_1": "object_base"
+    },
+    "0038174c": {
+      "param_1": "object_base"
+    },
+    "00381b08": {
+      "param_1": "object_base"
+    },
+    "00381c68": {
+      "param_1": "object_base"
+    },
+    "00381eac": {
+      "param_1": "object_base"
+    }
+  }
+}
