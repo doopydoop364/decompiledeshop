@@ -910,7 +910,7 @@ uint FUN_00100808(uint param_1, uint param_2, uint param_3)
 
   *(uint *)(param_3 + 0xc) = param_2;
   *(uint *)(param_3 + 0x14) = LAB_001007fd;
-  *(uint *)(param_3 + 0x20) = LAB_00100dd5;
+  *(uint *)(param_3 + 0x20) = FUN_00100dd4;
   *(uint *)(param_3 + 0x10) = 0;
   uVar7 = FUN_00100de8(param_1, param_3);
   return uVar7;
@@ -1420,6 +1420,18 @@ void FUN_00100d18(uint param_1, uint param_2, uint param_3)
   *(uint *)(param_1 + 0x20) = *(uint *)(param_1 + 0x20) + uVar5;
   FUN_002a8b58(param_1);
   return;
+}
+
+
+// ==== Function @ 00100dd4  file_off 000dd4  THUMB  size 0x12  insns 8 ====
+// id: FUN_00100dd4  name_confidence: UNNAMED  discovery: prologue
+// callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=1 ret=r0
+uint FUN_00100dd4(uint param_1)
+{
+  uint uVar2;
+
+  uVar2 = FUN_002a89a4();
+  return *(byte *)(*(uint *)uVar2 + param_1) << 0x1f >> 0x1f;
 }
 
 
@@ -4674,7 +4686,7 @@ uint FUN_00102daa(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 00102e0c  file_off 002e0c  THUMB  size 0x1f0  insns 236 ====
-// id: FUN_00102e0c  name_confidence: UNNAMED  discovery: call
+// id: FUN_00102e0c  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (0010387a)  callees: 6  sig: nparams=4 ret=r0
 uint FUN_00102e0c(uint param_1, uint param_2, uint param_3, uint param_4)
 {
@@ -4870,17 +4882,8 @@ uint FUN_00102e0c(uint param_1, uint param_2, uint param_3, uint param_4)
 }
 
 
-// ==== Function @ 00102ffa  file_off 002ffa  THUMB  size 0x2  insns 1 ====
-// id: FUN_00102ffa  name_confidence: UNNAMED  discovery: prologue
-// callers: 0 (none direct; callback/vtable?)  callees: 0  sig: nparams=1 ret=void
-void FUN_00102ffa(uint param_1)
-{
-  /* unresolved indirect jump: fall-through out of function at 0x102ffc */
-}
-
-
 // ==== Function @ 00102ffc  file_off 002ffc  THUMB  size 0x20  insns 8 ====
-// id: FUN_00102ffc  name_confidence: UNNAMED  discovery: call
+// id: FUN_00102ffc  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (0010322c)  callees: 1  sig: nparams=4 ret=r0
 uint FUN_00102ffc(uint param_1, uint param_2, uint param_3, uint param_4)
 {
@@ -4890,7 +4893,7 @@ uint FUN_00102ffc(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 0010301c  file_off 00301c  THUMB  size 0x18  insns 10 ====
-// id: FUN_0010301c  name_confidence: UNNAMED  discovery: call
+// id: FUN_0010301c  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (001031a0)  callees: 2  sig: nparams=2 ret=r0
 uint FUN_0010301c(uint param_1, uint param_2)
 {
@@ -4988,7 +4991,7 @@ void FUN_001030d8(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 00103168  file_off 003168  THUMB  size 0x34  insns 24 ====
-// id: FUN_00103168  name_confidence: UNNAMED  discovery: call
+// id: FUN_00103168  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (00102ffc)  callees: 0  sig: nparams=1 ret=void
 void FUN_00103168(uint param_1)
 {
@@ -5146,7 +5149,7 @@ uint FUN_00103268(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 001032e8  file_off 0032e8  THUMB  size 0x2e  insns 22 ====
-// id: FUN_001032e8  name_confidence: UNNAMED  discovery: call
+// id: FUN_001032e8  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (00103594)  callees: 1  sig: nparams=4 ret=void
 void FUN_001032e8(uint param_1, uint param_2, uint param_3, uint param_4)
 {
@@ -5251,7 +5254,7 @@ uint FUN_0010332c(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 001033f4  file_off 0033f4  THUMB  size 0x140  insns 143 ====
-// id: FUN_001033f4  name_confidence: UNNAMED  discovery: call
+// id: FUN_001033f4  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (0010389c)  callees: 5  sig: nparams=4 ret=r0
 uint FUN_001033f4(uint param_1, uint param_2, uint param_3, uint param_4)
 {
@@ -5417,7 +5420,7 @@ uint FUN_00103540(uint param_1)
 
 
 // ==== Function @ 0010355c  file_off 00355c  THUMB  size 0x1a  insns 11 ====
-// id: FUN_0010355c  name_confidence: UNNAMED  discovery: call
+// id: FUN_0010355c  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (001038fc)  callees: 2  sig: nparams=1 ret=r0
 uint FUN_0010355c(uint param_1)
 {
@@ -5645,7 +5648,7 @@ uint FUN_001036ec(void)
 
 
 // ==== Function @ 00103734  file_off 003734  THUMB  size 0x24  insns 14 ====
-// id: FUN_00103734  name_confidence: UNNAMED  discovery: call
+// id: FUN_00103734  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (001036ec)  callees: 1  sig: nparams=2 ret=void
 void FUN_00103734(uint param_1, uint param_2)
 {
@@ -5908,17 +5911,18 @@ void FUN_001038fc(uint param_1, uint param_2)
 }
 
 
-// ==== Function @ 0010398e  file_off 00398e  THUMB  size 0x2  insns 1 ====
-// id: FUN_0010398e  name_confidence: UNNAMED  discovery: prologue
-// callers: 0 (none direct; callback/vtable?)  callees: 0  sig: nparams=3 ret=void
-void FUN_0010398e(uint param_1, uint param_2, uint param_3)
+// ==== Function @ 0010397c  file_off 00397c  THUMB  size 0x14  insns 7 ====
+// id: FUN_0010397c  name_confidence: UNNAMED  discovery: prologue
+// callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=1 ret=r0
+uint FUN_0010397c(uint param_1)
 {
-  /* unresolved indirect jump: fall-through out of function at 0x103990 */
+  FUN_002a892c(*(uint *)param_1, LAB_00103577);
+  return param_1;
 }
 
 
 // ==== Function @ 00103990  file_off 003990  THUMB  size 0x14  insns 9 ====
-// id: FUN_00103990  name_confidence: UNNAMED  discovery: call
+// id: FUN_00103990  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (00103a3e)  callees: 1  sig: nparams=2 ret=r0
 uint FUN_00103990(uint param_1, uint param_2)
 {
@@ -226677,7 +226681,7 @@ uint FUN_0021aecc(uint param_1, uint param_2, uint param_3, uint param_4)
   local_20 = LAB_0010082d;
   local_34 = 4;
   local_30 = 0x7fffffff;
-  local_18 = LAB_00100dd5;
+  local_18 = FUN_00100dd4;
   uVar15 = FUN_00121690();
   return (*(code *)local_14)(uVar15);  /* indirect tail call */
 }
@@ -346705,7 +346709,7 @@ uint FUN_002a77c4(void)
 
 
 // ==== Function @ 002a7804  file_off 1a7804  THUMB  size 0x38  insns 23 ====
-// id: FUN_002a7804  name_confidence: UNNAMED  discovery: call
+// id: FUN_002a7804  name_confidence: UNNAMED  discovery: prologue
 // callers: 4 (001031a0, 0010332c, 001033f4, 00103594)  callees: 4  sig: nparams=4 ret=void
 void FUN_002a7804(uint param_1, uint param_2, uint param_3, uint param_4)
 {
@@ -346738,13 +346742,23 @@ uint once_guard_acquire(uint param_1)
 }
 
 
+// ==== Function @ 002a7854  file_off 1a7854  THUMB  size 0x10  insns 4 ====
+// id: FUN_002a7854  name_confidence: UNNAMED  discovery: prologue
+// callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=4 ret=void
+void FUN_002a7854(uint param_1, uint param_2, uint param_3, uint param_4)
+{
+  FUN_002a7902(&DAT_004509b4, param_2, param_3, param_4);
+  return;
+}
+
+
 // ==== Function @ 002a7864  file_off 1a7864  THUMB  size 0x9e  insns 73 ====
 // id: FUN_002a7864  name_confidence: UNNAMED  discovery: prologue
-// callers: 2 (002a7902, 002a796c)  callees: 1  sig: nparams=2 ret=r0
-uint FUN_002a7864(uint param_1, uint param_2)
+// callers: 2 (002a7902, 002a796c)  callees: 1  sig: nparams=2 ret=void
+void FUN_002a7864(uint param_1, uint param_2)
 {
   uint uVar6, uVar7, uVar8, uVar9, uVar11, uVar12, uVar13, uVar14;
-  uint uVar17, uVar18, uVar19, uVar21, uVar22, uVar23, uVar25;
+  uint uVar17, uVar18, uVar19, uVar21, uVar22, uVar23;
 
   if ((param_2 & ~(0 - param_2)) != 0) {
     uVar6 = param_1 + 1;
@@ -346771,17 +346785,16 @@ uint FUN_002a7864(uint param_1, uint param_2)
       uVar7 = uVar7 + 1;
     } while ((int)uVar7 < 5);
     *(byte *)uVar6 = 0;
-    return param_1;
+    return;
   }
   if (param_2 == 4) {
     uVar23 = get_addr_of_DAT_0044ea70();
     uVar18 = *(uint *)(uVar23 + 8);
   LAB_002a78d2:
     if (uVar18 == 0) {
-      return 0x118;
+      return;
     }
-    uVar25 = uVar18 >> 2 << 2;
-    return *(uint *)(uVar25 - 4) + uVar25;
+    return;
   }
   if ((int)param_2 > 4) {
     if (param_2 == 8) {
@@ -346795,7 +346808,7 @@ uint FUN_002a7864(uint param_1, uint param_2)
       goto LAB_002a78d2;
     }
   LAB_002a78a8:
-    return 0;
+    return;
   }
   if (param_2 == 1) {
     uVar19 = get_addr_of_DAT_0044ea70();
@@ -346813,68 +346826,68 @@ uint FUN_002a7864(uint param_1, uint param_2)
 
 // ==== Function @ 002a7902  file_off 1a7902  THUMB  size 0x6a  insns 50 ====
 // id: FUN_002a7902  name_confidence: UNNAMED  discovery: prologue
-// callers: 0 (none direct; callback/vtable?)  callees: 3  sig: nparams=4 ret=r0
-uint FUN_002a7902(uint param_1, uint param_2, uint param_3, uint param_4)
+// callers: 1 (002a7854)  callees: 3  sig: nparams=4 ret=void
+void FUN_002a7902(uint param_1, uint param_2, uint param_3, uint param_4)
 {
-  uint uVar2, uVar3, uVar11, uVar12, uVar13, uVar14, uVar15, uVar16;
-  uint uVar17, uVar21, uVar23;
+  uint uVar2, uVar10, uVar11, uVar12, uVar13, uVar14, uVar15, uVar16;
+  uint uVar20;
 
   local_18 = param_4;
   if (param_2 == 0 || param_2 >> 5 != 0) {
   LAB_002a7940:
-    return 0;
+    return;
   }
   if (param_3 == 0) {
   LAB_002a791c:
-    uVar23 = FUN_002a7864(param_1, param_2);
-    return uVar23;
+    FUN_002a7864(param_1, param_2);
+    return;
   }
   uVar2 = *(byte *)param_3;
   if (uVar2 != 0x2a) {
-    uVar3 = FUN_002a796c(param_1, param_2, param_3, uVar2);
-    return uVar3;
+    FUN_002a796c(param_1, param_2, param_3, uVar2);
+    return;
   }
   if (*(byte *)(param_3 + 1) == 0) {
     goto LAB_002a7940;
   }
-  uVar11 = param_2;
-  uVar12 = param_3 + 1;
-  uVar13 = 0;
+  uVar10 = param_2;
+  uVar11 = param_3 + 1;
+  uVar12 = 0;
   local_18 = param_1;
   do {
-    uVar14 = 0;
-    uVar15 = uVar14;
+    uVar13 = 0;
+    uVar14 = uVar13;
     do {
-      uVar16 = *(byte *)uVar12;
-      uVar12 = uVar12 + 1;
-      if (uVar16 > 0x39) {
-        uVar17 = uVar16 - 0x57;
+      uVar15 = *(byte *)uVar11;
+      uVar11 = uVar11 + 1;
+      if (uVar15 > 0x39) {
+        uVar16 = uVar15 - 0x57;
       }
       else {
-        uVar17 = uVar16 - 0x30;
+        uVar16 = uVar15 - 0x30;
       }
-      uVar14 = uVar14 << 4 | uVar17;
-      uVar15 = uVar15 + 1;
-    } while ((int)uVar15 < 8);
-    if ((1 << (uVar13 & 0xff) & uVar11) != 0) {
-      uVar21 = get_addr_of_DAT_0044ea70();
-      *(uint *)(uVar21 + (uVar13 << 2)) = uVar14;
+      uVar13 = uVar13 << 4 | uVar16;
+      uVar14 = uVar14 + 1;
+    } while ((int)uVar14 < 8);
+    if ((1 << (uVar12 & 0xff) & uVar10) != 0) {
+      uVar20 = get_addr_of_DAT_0044ea70();
+      *(uint *)(uVar20 + (uVar12 << 2)) = uVar13;
     }
-    uVar13 = uVar13 + 1;
-  } while ((int)uVar13 < 5);
+    uVar12 = uVar12 + 1;
+  } while ((int)uVar12 < 5);
   param_1 = local_18;
-  param_2 = uVar11;
+  param_2 = uVar10;
   goto LAB_002a791c;
 }
 
 
 // ==== Function @ 002a796c  file_off 1a796c  THUMB  size 0x9c  insns 66 ====
 // id: FUN_002a796c  name_confidence: UNNAMED  discovery: prologue
-// callers: 1 (002a7902)  callees: 4  sig: nparams=4 ret=r0
-uint FUN_002a796c(uint param_1, uint param_2, uint param_3, uint param_4)
+// callers: 1 (002a7902)  callees: 4  sig: nparams=4 ret=void
+void FUN_002a796c(uint param_1, uint param_2, uint param_3, uint param_4)
 {
-  uint uVar8, uVar9, uVar10, in_r8, uVar17, uVar18, uVar24, uVar25;
-  uint uVar31, uVar32, uVar39, uVar40;
+  uint uVar8, uVar9, uVar10, in_r8, uVar19, uVar27, uVar33, uVar34;
+  uint uVar35, uVar41, uVar44;
 
   if ((int)(param_2 << 0x1e) >= 0) {
   LAB_002a798e:
@@ -346886,46 +346899,41 @@ uint FUN_002a796c(uint param_1, uint param_2, uint param_3, uint param_4)
         LAB_002a79dc:
           if ((int)(param_2 << 0x1b) >= 0) {
           LAB_002a79f6:
-            uVar8 = FUN_002a7864(param_1, param_2);
+            FUN_002a7864(param_1, param_2);
           }
           else {
-            uVar8 = &DAT_003d8f64;
-            uVar39 = uVar8;
-            if (uVar8 != 0) {
-              uVar40 = get_addr_of_DAT_0044ea70();
-              *(uint *)(uVar40 + 0x10) = uVar39;
+            uVar41 = in_r8;
+            if (&DAT_003d8f64 != 0) {
+              uVar44 = get_addr_of_DAT_0044ea70();
+              *(uint *)(uVar44 + 0x10) = &DAT_003d8f64;
               goto LAB_002a79f6;
             }
           }
         }
         else {
-          uVar8 = FUN_00121694(&DAT_003d8f64, param_3);
-          uVar31 = uVar8;
-          if (uVar8 != 0) {
-            uVar32 = get_addr_of_DAT_0044ea70();
-            *(uint *)(uVar32 + 0xc) = uVar31;
+          uVar33 = FUN_00121694(&DAT_003d8f64, param_3);
+          uVar34 = uVar33;
+          if (uVar33 != 0) {
+            uVar35 = get_addr_of_DAT_0044ea70();
+            *(uint *)(uVar35 + 0xc) = uVar34;
             goto LAB_002a79dc;
           }
         }
       }
       else {
-        uVar8 = &DAT_003d8f64;
         in_r8 = in_r8;
-        uVar24 = uVar8;
-        if (uVar8 != 0) {
-          uVar25 = get_addr_of_DAT_0044ea70();
-          *(uint *)(uVar25 + 8) = uVar24;
+        if (&DAT_003d8f64 != 0) {
+          uVar27 = get_addr_of_DAT_0044ea70();
+          *(uint *)(uVar27 + 8) = &DAT_003d8f64;
           goto LAB_002a79c2;
         }
       }
     }
     else {
-      uVar8 = &DAT_003d8f64;
       in_r8 = in_r8;
-      uVar17 = uVar8;
-      if (uVar8 != 0) {
-        uVar18 = get_addr_of_DAT_0044ea70();
-        *(uint *)uVar18 = uVar17;
+      if (&DAT_003d8f64 != 0) {
+        uVar19 = get_addr_of_DAT_0044ea70();
+        *(uint *)uVar19 = &DAT_003d8f64;
         goto LAB_002a79a8;
       }
     }
@@ -346939,12 +346947,12 @@ uint FUN_002a796c(uint param_1, uint param_2, uint param_3, uint param_4)
       goto LAB_002a798e;
     }
   }
-  return uVar8;
+  return;
 }
 
 
 // ==== Function @ 002a7a08  file_off 1a7a08  THUMB  size 0x4c  insns 32 ====
-// id: FUN_002a7a08  name_confidence: UNNAMED  discovery: call
+// id: FUN_002a7a08  name_confidence: UNNAMED  discovery: prologue
 // callers: 2 (00102daa, 002a7aac)  callees: 4  sig: nparams=4 ret=r0
 uint FUN_002a7a08(uint param_1, uint param_2, uint param_3, uint param_4)
 {
@@ -348300,7 +348308,7 @@ void FUN_002a88e4(uint param_1, uint param_2, uint param_3, uint param_4)
 
 // ==== Function @ 002a892c  file_off 1a892c  THUMB  size 0xc  insns 4 ====
 // id: FUN_002a892c  name_confidence: UNNAMED  discovery: call
-// callers: 8 (0010167c, 00101764, 001038fc, 001488e8, ...)  callees: 2  sig: nparams=2 ret=void
+// callers: 9 (0010167c, 00101764, 001038fc, 0010397c, ...)  callees: 2  sig: nparams=2 ret=void
 void FUN_002a892c(uint param_1, uint param_2)
 {
   uint uVar1;
@@ -348377,7 +348385,7 @@ uint returns_const_0_002a899c(void)
 
 // ==== Function @ 002a89a4  file_off 1a89a4  ARM  size 0x10  insns 4 ====
 // id: FUN_002a89a4  name_confidence: UNNAMED  discovery: call
-// callers: 20 (00102742, 001027cc, 00102a86, 0010332c, ...)  callees: 1  sig: nparams=0 ret=r0
+// callers: 21 (00100dd4, 00102742, 001027cc, 00102a86, ...)  callees: 1  sig: nparams=0 ret=r0
 uint FUN_002a89a4(void)
 {
   uint uVar1;

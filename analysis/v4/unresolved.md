@@ -4,10 +4,10 @@ Machine-derived; see baseline.json.
 
 ## Uncovered TEXT regions
 
-- unclassified (possible unreferenced code/data): 1179 regions, 45250 bytes
-- zero_padding: 484 regions, 1918 bytes
+- unclassified (possible unreferenced code/data): 1179 regions, 45218 bytes
+- zero_padding: 485 regions, 1920 bytes
 - string/ascii data: 1397 regions, 52090 bytes
-- data (non-code words): 524 regions, 17912 bytes
+- data (non-code words): 523 regions, 17892 bytes
 - pointer/literal table: 107 regions, 1384 bytes
 
 ## Largest unclassified gaps (candidate unreferenced code/data; not decompiled)

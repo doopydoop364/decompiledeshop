@@ -1,5 +1,5 @@
-instructions checked: 658869  mnemonic-compatible: 650804 (98.776%)
-branch/call targets checked: 108240 matching: 108239
+instructions checked: 658886  mnemonic-compatible: 650821 (98.776%)
+branch/call targets checked: 108243 matching: 108242
 
 top mismatches (capstone, objdump) count example:
 ('mov', 'nop') 3081 (1064488, 'mov', 'r0, r0', ('nop', '@ (mov r0, r0)'))

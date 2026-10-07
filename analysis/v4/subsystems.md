@@ -23,7 +23,7 @@ Counts are from string anchors and the call graph; membership is evidence-based,
 - `shop_list_titles` @0022ae24 - trace log "Shop::ListTitles();"
 - `shop_log_failure_reason` @0022b7c0 - maps NIM failure kinds to log text (Need System Update, Server is under Maintainance, Invalid Country...)
 - `shop_log_download_failure_reason` @00230088 - same failure-text mapping plus download-specific cases (Title Already Downloaded, Task Already Exists)
-- `shop_download_dtl` @002309a8 - logs "DTL downloaded successfully." / "DTL download failure"
+- `shop_register_npns_and_download_dtl` @002309a8 - logs "DTL downloaded successfully." / "DTL download failure"; S8 cross-check: its first action is a call to npns_register_device, so the earlier plain "download_dtl" name was too narrow
 - `npns_register_device` @00230d18 - log text "Register device to NPNS..." plus nn::npns::RegisterDeviceRequest error strings in the same function
 - `title_set_tag_and_external_seed` @00235ef4 - logs SetTitleTag() / SetExternalSeed() / ExternalSeed already exists
 - `parse_playable_date` @0030f5c0 - logs PARSE/GET PLAYABLE DATE FAILED

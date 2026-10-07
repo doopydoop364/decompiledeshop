@@ -125,6 +125,7 @@ def pass1(N, body, fn, callers, callees, strs, sx):
      (0x2a8ef8, 'heap_free_nullable', 'MEDIUM', 'null guard then allocator object vtable slot 0x24 (free)', [r'0x24']),
      (0x2a9080, 'heap_alloc_retry', 'MEDIUM', 'maps size 0 to 1 and loops on heap_alloc_checked until non-null, invoking a failure handler in between (operator new shape)', [r'= 1;']),
      (0x2a8f84, 'heap_alloc_wrapper', 'MEDIUM', 'forwards to heap_alloc_retry', []),
+     (0x103b48, 'app_main', 'MEDIUM', 'only direct caller is crt_entry_point; performs service/system initialisation (open_fs_user_session, allocator setup, object construction) and does not return; callers=%d', [r'open_fs_user_session|FUN_00103f00']),
      (0x2747e4, 'snprintf', 'HIGH', 'varargs: (buf,size,fmt,...) -> end=buf+size-1, formatted by core routine; callers pass literal format strings (%s, %llu ...)', [r'param_2 != 0']),
     ]
     for a, nm, conf, ev, pats in cur:
@@ -189,7 +190,7 @@ def pass_thunks(N, body, fn, callers, callees, strs, sx, it):
 ANCHORS = [  # (name, must-contain strings ('=' prefix = exact), must-not, evidence)
  ('npns_register_device', ['Register device to NPNS'], [], 'log text "Register device to NPNS..." plus nn::npns::RegisterDeviceRequest error strings in the same function'),
  ('npns_unregister_device', ['Unregister device from NPNS'], [], 'log text "Unregister device from NPNS..." plus UnregisterDeviceRequest error strings'),
- ('shop_download_dtl', ['DTL downloaded successfully'], [], 'logs "DTL downloaded successfully." / "DTL download failure"'),
+ ('shop_register_npns_and_download_dtl', ['DTL downloaded successfully'], [], 'logs "DTL downloaded successfully." / "DTL download failure"; S8 cross-check: its first action is a call to npns_register_device, so the earlier plain "download_dtl" name was too narrow'),
  ('shop_log_failure_reason', ['Need System Update', 'Cannot Set IVS'], ['Title Already Downloaded'], 'maps NIM failure kinds to log text (Need System Update, Server is under Maintainance, Invalid Country...)'),
  ('shop_log_download_failure_reason', ['Need System Update', 'Title Already Downloaded'], [], 'same failure-text mapping plus download-specific cases (Title Already Downloaded, Task Already Exists)'),
  ('shop_list_titles', ['Shop::ListTitles'], [], 'trace log "Shop::ListTitles();"'),

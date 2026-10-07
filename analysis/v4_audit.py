@@ -19,7 +19,7 @@ for f in fs:
     lines = body.splitlines()
     for i in range(len(lines) - 1):
         l = lines[i].strip(); n = lines[i + 1].strip()
-        if (l.startswith('return') or l.startswith('goto ') or l == 'break;' or l == 'continue;') and n and not n.startswith(('}', 'LAB_', 'case ', 'default:', 'else', '//')) and not re.match(r'^\w+:$', n):
+        if (l.startswith('return ') or l == 'return;' or l.startswith('goto ') or l == 'break;' or l == 'continue;') and n and not n.startswith(('}', 'LAB_', 'case ', 'default:', 'else', '//')) and not re.match(r'^\w+:$', n):
             C['unreachable_statement_after_jump'] += 1; ex['unreach'].append(a); break
     if len(re.findall(r'goto ', body)) > 20: C['functions_with_gt20_gotos'] += 1
     if 'unresolved indirect jump' in body: C['unresolved_indirect_jump'] += 1

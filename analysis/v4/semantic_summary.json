@@ -1,13 +1,13 @@
 {
- "named": 657,
+ "named": 658,
  "by_confidence": {
   "HIGH": 510,
-  "MEDIUM": 147
+  "MEDIUM": 148
  },
  "log": [
   [
    "S1-library",
-   525
+   526
   ],
   [
    "S2-strings",
@@ -30,5 +30,5 @@
    0
   ]
  ],
- "functions": 12718
+ "functions": 12719
 }
