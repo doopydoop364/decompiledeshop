@@ -4,7 +4,7 @@ Machine-derived; see baseline.json.
 
 ## Uncovered TEXT regions
 
-- unclassified (possible unreferenced code/data): 1179 regions, 45346 bytes
+- unclassified (possible unreferenced code/data): 1179 regions, 45250 bytes
 - zero_padding: 484 regions, 1918 bytes
 - string/ascii data: 1397 regions, 52090 bytes
 - data (non-code words): 524 regions, 17912 bytes
@@ -14,10 +14,10 @@ Machine-derived; see baseline.json.
 
 - 0027f730 +0x8d0
 - 0027f01c +0x710
-- 001353e8 +0x6c8
-- 0013b9e8 +0x6c8
+- 00135408 +0x6a8
+- 0013ba08 +0x6a8
 - 0024f9dc +0x644
-- 00141fe8 +0x5d8
+- 00142008 +0x5b8
 - 00272794 +0x51c
 - 00208518 +0x2cc
 - 0012fca8 +0x28c

@@ -1,19 +1,106 @@
 address,name,confidence,evidence,pass
 00100000,crt_entry_point,HIGH,first TEXT word (process entry); calls init routines then svc ExitProcess,S1-library
 00100024,crt_zero_startup_region,HIGH,zero-fills the word range between two literal-pool pointers (startup BSS clear),S1-library
+0010036c,store_ptr_DAT_003ce39c_into_obj,MEDIUM,stores the static address DAT_003ce39c at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+001022bc,store_ptr_DAT_00450aa8_into_obj_001022bc,MEDIUM,stores the static address DAT_00450aa8 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
 00103f00,open_fs_user_session,MEDIUM,"passes the service name ""fs:USER"" to the service-session open routine",S2-anchors
+00105470,svc_GetResourceLimit,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to GetResourceLimit),S1-library
+00105c14,get_addr_of_DAT_004450b0,HIGH,body returns the address of global DAT_004450b0,S1-library
+001064a4,get_addr_of_DAT_0043e3e4,HIGH,body returns the address of global DAT_0043e3e4,S1-library
+00109164,nop_return_00109164,HIGH,body is only `return;`,S1-library
+0010916c,nop_return_0010916c,HIGH,body is only `return;`,S1-library
+00109170,svc_CreateAddressArbiter,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateAddressArbiter),S1-library
+001095a4,get_addr_of_DAT_004450b8,HIGH,body returns the address of global DAT_004450b8,S1-library
+0010e254,nop_return_0010e254,HIGH,body is only `return;`,S1-library
+0010e804,svc_CreateThread,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateThread),S1-library
+0010e844,svc_GetSystemTick,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to GetSystemTick),S1-library
+00116e08,nop_return_00116e08,HIGH,body is only `return;`,S1-library
+0011754c,nop_return_0011754c,HIGH,body is only `return;`,S1-library
+00117694,nop_return_00117694,HIGH,body is only `return;`,S1-library
+0011a0e4,nop_return_0011a0e4,HIGH,body is only `return;`,S1-library
+0011b778,nop_return_0011b778,HIGH,body is only `return;`,S1-library
+0011c22c,nop_return_0011c22c,HIGH,body is only `return;`,S1-library
+0011c230,nop_return_0011c230,HIGH,body is only `return;`,S1-library
+0011c27c,svc_ConnectToPort,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to ConnectToPort),S1-library
+0011cd6c,svc_SendSyncRequest_0011cd6c,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+0011cd94,svc_SendSyncRequest_0011cd94,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+00120040,get_addr_of_DAT_004509e0,HIGH,body returns the address of global DAT_004509e0,S1-library
+00120fec,nop_return_00120fec,HIGH,body is only `return;`,S1-library
+00120ff0,svc_SleepThread_00120ff0,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SleepThread),S1-library
+001213d8,nop_return_001213d8,HIGH,body is only `return;`,S1-library
+00121618,svc_SendSyncRequest_00121618,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+00121640,returns_param_1_00121640,HIGH,identity function,S1-library
+001221d0,nop_return_001221d0,HIGH,body is only `return;`,S1-library
+00122600,svc_CreateMemoryBlock,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateMemoryBlock),S1-library
+0012261c,svc_CreateMutex,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateMutex),S1-library
+00122634,svc_DuplicateHandle,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to DuplicateHandle),S1-library
+00122748,returns_param_1_00122748,HIGH,identity function,S1-library
+001311e8,nop_return_001311e8,HIGH,body is only `return;`,S1-library
+001313dc,nop_return_001313dc,HIGH,body is only `return;`,S1-library
+00131468,returns_param_1_00131468,HIGH,identity function,S1-library
+001314b8,nop_return_001314b8,HIGH,body is only `return;`,S1-library
+001377e8,nop_return_001377e8,HIGH,body is only `return;`,S1-library
+001379dc,nop_return_001379dc,HIGH,body is only `return;`,S1-library
+00137a68,returns_param_1_00137a68,HIGH,identity function,S1-library
+00137ab8,nop_return_00137ab8,HIGH,body is only `return;`,S1-library
+0013dde8,nop_return_0013dde8,HIGH,body is only `return;`,S1-library
+0013dfdc,nop_return_0013dfdc,HIGH,body is only `return;`,S1-library
+0013e068,returns_param_1_0013e068,HIGH,identity function,S1-library
+0013e0b8,nop_return_0013e0b8,HIGH,body is only `return;`,S1-library
+001467c4,get_addr_of_DAT_0043cbdc,HIGH,body returns the address of global DAT_0043cbdc,S1-library
+001484b4,get_addr_of_DAT_003e226c,HIGH,body returns the address of global DAT_003e226c,S1-library
+0014fa10,nop_return_0014fa10,HIGH,body is only `return;`,S1-library
+001507f8,get_addr_of_DAT_003e225c,HIGH,body returns the address of global DAT_003e225c,S1-library
 0016b9fc,get_char_at_0x38c,HIGH,single load: return *(char*)(param_1+0x38c),S1-library
 001797dc,get_uint_at_0x1af0,HIGH,single load: return *(uint*)(param_1+0x1af0),S1-library
 00192124,get_char_at_0x3f9,HIGH,single load: return *(char*)(param_1+0x3f9),S1-library
 0019bbbc,get_uint_at_8_0019bbbc,HIGH,single load: return *(uint*)(param_1+8),S1-library
+001a0cac,nop_return_001a0cac,HIGH,body is only `return;`,S1-library
 001a1d3c,set_byte_at_0x1348,HIGH,single store: *(byte*)(param_1+0x1348)=param_2,S1-library
 001a334c,get_uint_at_0x3fc0,HIGH,single load: return *(uint*)(param_1+0x3fc0),S1-library
 001a3358,get_uint_at_0x3fbc,HIGH,single load: return *(uint*)(param_1+0x3fbc),S1-library
 001ac210,get_char_at_0xd4,HIGH,single load: return *(char*)(param_1+0xd4),S1-library
+001b8c40,svc_0xeccccc,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to 0xeccccc),S1-library
+001baa48,returns_const_1_001baa48,HIGH,body is only `return 1;`,S1-library
 001cef38,set_uint_at_0x290,HIGH,single store: *(uint*)(param_1+0x290)=param_2,S1-library
 001e0be4,get_uint_at_0x148,HIGH,single load: return *(uint*)(param_1+0x148),S1-library
+001e251c,store_ptr_DAT_003cae24_into_obj,MEDIUM,stores the static address DAT_003cae24 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+001e3888,nop_return_001e3888,HIGH,body is only `return;`,S1-library
+001e3ce0,returns_const_0xe0c046f8_001e3ce0,HIGH,body is only `return 0xe0c046f8;`,S1-library
+001e3cec,returns_const_0xe0c046f8_001e3cec,HIGH,body is only `return 0xe0c046f8;`,S1-library
+001e3d08,returns_const_0xe0c046f8_001e3d08,HIGH,body is only `return 0xe0c046f8;`,S1-library
+001e3d14,returns_const_0xe0c046f8_001e3d14,HIGH,body is only `return 0xe0c046f8;`,S1-library
+001e3d20,returns_const_0xe0c046f8_001e3d20,HIGH,body is only `return 0xe0c046f8;`,S1-library
+001e3f4c,returns_const_0xe0c046f8_001e3f4c,HIGH,body is only `return 0xe0c046f8;`,S1-library
+001e4eb4,returns_const_0xe0c046f8_001e4eb4,HIGH,body is only `return 0xe0c046f8;`,S1-library
+001e558c,svc_SendSyncRequest_001e558c,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001e58ec,nop_return_001e58ec,HIGH,body is only `return;`,S1-library
+001e5b80,nop_return_001e5b80,HIGH,body is only `return;`,S1-library
+001e6950,svc_SendSyncRequest_001e6950,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001e7750,svc_SendSyncRequest_001e7750,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
 001e8b14,set_ushort_at_0x34,HIGH,single store: *(ushort*)(param_1+0x34)=param_2,S1-library
 001e8d28,set_byte_at_0x38,HIGH,single store: *(byte*)(param_1+0x38)=param_2,S1-library
+001e9114,svc_SendSyncRequest_001e9114,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001e9640,svc_SendSyncRequest_001e9640,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001e9964,svc_SendSyncRequest_001e9964,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001e9b34,svc_SendSyncRequest_001e9b34,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001e9d20,svc_SendSyncRequest_001e9d20,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001e9d54,svc_SendSyncRequest_001e9d54,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001eb214,nop_return_001eb214,HIGH,body is only `return;`,S1-library
+001eb5ec,nop_return_001eb5ec,HIGH,body is only `return;`,S1-library
+001ec48c,nop_return_001ec48c,HIGH,body is only `return;`,S1-library
+001ec63c,nop_return_001ec63c,HIGH,body is only `return;`,S1-library
+001eec14,svc_SendSyncRequest_001eec14,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001eec80,svc_SendSyncRequest_001eec80,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001eecec,svc_SendSyncRequest_001eecec,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001eed1c,svc_SendSyncRequest_001eed1c,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001eef94,nop_return_001eef94,HIGH,body is only `return;`,S1-library
+001efaf8,svc_SendSyncRequest_001efaf8,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001efca8,svc_SendSyncRequest_001efca8,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001f0794,svc_SendSyncRequest_001f0794,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001f0944,svc_SendSyncRequest_001f0944,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001f0e30,svc_SendSyncRequest_001f0e30,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+001f1d24,returns_const_0x2370,HIGH,body is only `return 0x2370;`,S1-library
 001facbc,nlib_exi_ExiDecoder_cpp_001facbc,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\ExiDecoder.cpp (assert/log macro __FILE__),S2-anchors
 001fadc8,nlib_exi_ExiDecoder_cpp_001fadc8,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\ExiDecoder.cpp (assert/log macro __FILE__),S2-anchors
 001fb064,nlib_exi_ExiDecoder_cpp_001fb064,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\ExiDecoder.cpp (assert/log macro __FILE__),S2-anchors
@@ -40,9 +127,24 @@ address,name,confidence,evidence,pass
 00202b74,nlib_exi_XmlTextStreamReader_cpp_00202b74,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\XmlTextStreamReader.cpp (assert/log macro __FILE__),S2-anchors
 00202e98,nlib_exi_XmlStreamReaderInline_h_00202e98,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\XmlStreamReaderInline.h (assert/log macro __FILE__),S2-anchors
 00207624,build_npns_api_url,MEDIUM,formats https://%c-npns.app.nintendo.net/api/v1/,S2-anchors
+00208f24,svc_SendSyncRequest_00208f24,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+00209da4,nop_return_00209da4,HIGH,body is only `return;`,S1-library
+00209da8,nop_return_00209da8,HIGH,body is only `return;`,S1-library
+0020b890,svc_SendSyncRequest_0020b890,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+0020bfb0,svc_SendSyncRequest_0020bfb0,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+0020bfe0,svc_SendSyncRequest_0020bfe0,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+0020cdc8,svc_SendSyncRequest_0020cdc8,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
 00212c50,set_byte_at_0x20,HIGH,single store: *(byte*)(param_1+0x20)=param_2,S1-library
+00219b8c,returns_param_1_00219b8c,HIGH,identity function,S1-library
+0021aec8,nop_return_0021aec8,HIGH,body is only `return;`,S1-library
+0021b0b8,returns_param_1_0021b0b8,HIGH,identity function,S1-library
+0021b1ac,nop_return_0021b1ac,HIGH,body is only `return;`,S1-library
+0021b1b4,nop_return_0021b1b4,HIGH,body is only `return;`,S1-library
+0021d788,nop_return_0021d788,HIGH,body is only `return;`,S1-library
 0021d790,get_uint_at_0x0,HIGH,single load of *(uint*)param_1,S1-library
 0021d7a0,get_char_at_0x20,HIGH,single load: return *(char*)(param_1+0x20),S1-library
+0021d828,nop_return_0021d828,HIGH,body is only `return;`,S1-library
+0021e448,nop_return_0021e448,HIGH,body is only `return;`,S1-library
 00221f84,get_uint_at_0x3fc4,HIGH,single load: return *(uint*)(param_1+0x3fc4),S1-library
 00221f90,get_uint_at_0x3fb8,HIGH,single load: return *(uint*)(param_1+0x3fb8),S1-library
 00223dc8,build_url_ninja_ws_ID_tax_locations,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/%s/tax_locations?lang=%s&shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings
@@ -50,14 +152,20 @@ address,name,confidence,evidence,pass
 00227c54,build_url_samurai_ws_ID_titles,MEDIUM,"snprintf with the only service format ""%s/samurai/ws/%s/titles?lang=%s&shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings
 0022ae24,shop_list_titles,MEDIUM,"trace log ""Shop::ListTitles();""",S2-anchors
 0022b7c0,shop_log_failure_reason,MEDIUM,"maps NIM failure kinds to log text (Need System Update, Server is under Maintainance, Invalid Country...)",S2-anchors
+0022bbf0,svc_SendSyncRequest_0022bbf0,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
 0022f2e8,strstr,HIGH,"nested NUL-terminated scan: returns pointer to first occurrence of needle (param_2) in haystack (param_1), 0 if none",S1-library
 00230088,shop_log_download_failure_reason,MEDIUM,"same failure-text mapping plus download-specific cases (Title Already Downloaded, Task Already Exists)",S2-anchors
 002309a8,shop_download_dtl,MEDIUM,"logs ""DTL downloaded successfully."" / ""DTL download failure""",S2-anchors
 00230d18,npns_register_device,MEDIUM,"log text ""Register device to NPNS..."" plus nn::npns::RegisterDeviceRequest error strings in the same function",S2-anchors
-0023400c,get_uint_at_0x30,HIGH,single load: return *(uint*)(param_1+0x30),S1-library
+0023400c,get_uint_at_0x30_0023400c,HIGH,single load: return *(uint*)(param_1+0x30),S1-library
 002349fc,get_char_at_0x144,HIGH,single load: return *(char*)(param_1+0x144),S1-library
 00235ef4,title_set_tag_and_external_seed,MEDIUM,logs SetTitleTag() / SetExternalSeed() / ExternalSeed already exists,S2-anchors
+002373a4,returns_param_1_002373a4,HIGH,identity function,S1-library
 00246bdc,get_uint_at_4_00246bdc,HIGH,single load: return *(uint*)(param_1+4),S1-library
+002485cc,nop_return_002485cc,HIGH,body is only `return;`,S1-library
+0024a1ec,store_ptr_DAT_003cc644_into_obj,MEDIUM,stores the static address DAT_003cc644 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+0024f0c4,returns_param_1_0024f0c4,HIGH,identity function,S1-library
+00253454,nop_return_00253454,HIGH,body is only `return;`,S1-library
 00256f40,nlib_exi_ExiCoder_cpp_00256f40,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\ExiCoder.cpp (assert/log macro __FILE__),S2-anchors
 0025809c,nlib_exi_ExiCoder_h_0025809c,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\ExiCoder.h (assert/log macro __FILE__),S2-anchors
 0025837c,nlib_exi_ExiString_cpp_0025837c,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\ExiString.cpp (assert/log macro __FILE__),S2-anchors
@@ -66,30 +174,56 @@ address,name,confidence,evidence,pass
 002591b8,nlib_exi_BitByteStreamReader_cpp_002591b8,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\BitByteStreamReader.cpp (assert/log macro __FILE__),S2-anchors
 0025ade4,nlib_exi_BitByteStreamReader_cpp_0025ade4,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\BitByteStreamReader.cpp (assert/log macro __FILE__),S2-anchors
 0025b468,nlib_exi_BitByteStreamReader_h_0025b468,MEDIUM,references its own source path d:\cibuild\nlib\exi\...\BitByteStreamReader.h (assert/log macro __FILE__),S2-anchors
+00261548,get_addr_of_DAT_003e1e30,HIGH,body returns the address of global DAT_003e1e30,S1-library
 00262274,build_url_ninja_ws_my_wishlist_ID_delete,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/wishlist/%llu/!delete?shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings
 00262310,build_url_ninja_ws_my_wishlist_put,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/wishlist/!put?shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings
 002648b0,get_char_at_0x40a,HIGH,single load: return *(char*)(param_1+0x40a),S1-library
+002663a0,store_ptr_DAT_003cad00_into_obj,MEDIUM,stores the static address DAT_003cad00 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
 002687d8,get_char_at_0x295,HIGH,single load: return *(char*)(param_1+0x295),S1-library
 002687e4,set_byte_at_0x294,HIGH,single store: *(byte*)(param_1+0x294)=param_2,S1-library
 0026a218,get_char_at_0x38,HIGH,single load: return *(char*)(param_1+0x38),S1-library
+0026a220,get_addr_of_DAT_003e2258,HIGH,body returns the address of global DAT_003e2258,S1-library
 00271000,get_uint_at_0x249c_00271000,HIGH,single load: return *(uint*)(param_1+0x249c),S1-library
 00272284,get_uint_at_0x2e50,HIGH,single load: return *(uint*)(param_1+0x2e50),S1-library
 00272458,get_uint_at_0x249c_00272458,HIGH,single load: return *(uint*)(param_1+0x249c),S1-library
 002747e4,snprintf,HIGH,"varargs: (buf,size,fmt,...) -> end=buf+size-1, formatted by core routine; callers pass literal format strings (%s, %llu ...)",S1-library
+002773f4,returns_param_1_thunk_002773f4,MEDIUM,forwarding wrapper: only tail-calls returns_param_1,S9-propagate
 0027c8e4,get_uint_at_0x21b0,HIGH,single load: return *(uint*)(param_1+0x21b0),S1-library
 0027d570,get_uint_at_0x1f38,HIGH,single load: return *(uint*)(param_1+0x1f38),S1-library
+00281168,nop_return_00281168,HIGH,body is only `return;`,S1-library
+0028157c,nop_return_0028157c,HIGH,body is only `return;`,S1-library
 00283670,get_char_at_0x3c9,HIGH,single load: return *(char*)(param_1+0x3c9),S1-library
 002838a4,set_uint_at_0x3fc4,HIGH,single store: *(uint*)(param_1+0x3fc4)=param_2,S1-library
 002892ec,get_uint_at_0x1f2c,HIGH,single load: return *(uint*)(param_1+0x1f2c),S1-library
 0028d04c,set_byte_at_0xd,HIGH,single store: *(byte*)(param_1+0xd)=param_2,S1-library
+0028d3b0,get_addr_of_DAT_003e1d60_0028d3b0,HIGH,body returns the address of global DAT_003e1d60,S1-library
 0028f14c,get_char_at_0x3c0,HIGH,single load: return *(char*)(param_1+0x3c0),S1-library
+0028f6d4,store_ptr_DAT_00450aa8_into_obj_0028f6d4,MEDIUM,stores the static address DAT_00450aa8 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+0029270c,nop_return_0029270c,HIGH,body is only `return;`,S1-library
+002933a4,nop_return_002933a4,HIGH,body is only `return;`,S1-library
 00293e34,get_char_at_0x2d4,HIGH,single load: return *(char*)(param_1+0x2d4),S1-library
 002958f4,get_uint_at_0x210c,HIGH,single load: return *(uint*)(param_1+0x210c),S1-library
+00296a18,nop_return_00296a18,HIGH,body is only `return;`,S1-library
 00299c28,get_uint_at_0x20_00299c28,HIGH,single load: return *(uint*)(param_1+0x20),S1-library
+0029a3f4,store_ptr_DAT_00450a98_into_obj,MEDIUM,stores the static address DAT_00450a98 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+0029c420,svc_SendSyncRequest_0029c420,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
+0029c500,svc_ArbitrateAddress,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to ArbitrateAddress),S1-library
+0029cc90,svc_WaitSynchronizationN,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to WaitSynchronizationN),S1-library
+0029cf24,get_addr_of_DAT_003eef68,HIGH,body returns the address of global DAT_003eef68,S1-library
+0029d634,svc_GetProcessId,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to GetProcessId),S1-library
 0029e4e4,memcmp_thunk,MEDIUM,forwarding wrapper: only tail-calls memcmp,S9-propagate
 0029e4f0,memcmp,HIGH,"compares word-wise then byte-wise for count bytes, returns first byte difference",S1-library
+0029ee6c,svc_CreateEvent,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateEvent),S1-library
+0029f74c,get_addr_of_DAT_0044de58,HIGH,body returns the address of global DAT_0044de58,S1-library
 002a0964,strlen16,HIGH,counts nonzero 16-bit units (UTF-16 style length),S1-library
+002a5230,get_addr_of_DAT_00445360,HIGH,body returns the address of global DAT_00445360,S1-library
+002a680c,svc_Break,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to Break),S1-library
+002a69c4,svc_ControlMemory,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to ControlMemory),S1-library
+002a7504,nop_return_002a7504,HIGH,body is only `return;`,S1-library
 002a783c,once_guard_acquire,HIGH,if *p==0 {*p=1; return 1} else return 0 (non-atomic once-flag),S1-library
+002a8984,get_addr_of_DAT_0044ea70,HIGH,body returns the address of global DAT_0044ea70,S1-library
+002a8990,get_addr_of_DAT_0044ea84,HIGH,body returns the address of global DAT_0044ea84,S1-library
+002a899c,returns_const_0_002a899c,HIGH,body is only `return 0;`,S1-library
 002a8eac,heap_alloc_checked,MEDIUM,"calls allocator object (DAT_003e25a0) vtable slot 0x1c with (size, 4); calls an error handler if null; 84 callers",S1-library
 002a8ef8,heap_free_nullable,MEDIUM,null guard then allocator object vtable slot 0x24 (free),S1-library
 002a8f1c,strcpy,HIGH,copies bytes (word fast-path with zero-byte test) through the first NUL; dest returned unchanged,S1-library
@@ -102,19 +236,56 @@ address,name,confidence,evidence,pass
 002b3194,get_uint_at_0xc_002b3194,HIGH,single load: return *(uint*)(param_1+0xc),S1-library
 002b5664,get_uint_at_0x1c_002b5664,HIGH,single load: return *(uint*)(param_1+0x1c),S1-library
 002b6cc0,get_uint_at_0x1c_002b6cc0,HIGH,single load: return *(uint*)(param_1+0x1c),S1-library
+002b9cd8,returns_const_0_002b9cd8,HIGH,body is only `return 0;`,S1-library
+002ba4b4,returns_const_0_002ba4b4,HIGH,body is only `return 0;`,S1-library
+002c5884,store_ptr_DAT_003cbe4c_into_obj,MEDIUM,stores the static address DAT_003cbe4c at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+002ca9f0,store_ptr_DAT_003cc258_into_obj,MEDIUM,stores the static address DAT_003cc258 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+002d48a4,nop_return_002d48a4,HIGH,body is only `return;`,S1-library
 002d494c,set_byte_at_0x83,HIGH,single store: *(byte*)(param_1+0x83)=param_2,S1-library
 002d4954,set_byte_at_0xf4,HIGH,single store: *(byte*)(param_1+0xf4)=param_2,S1-library
 002d4b38,set_byte_at_0xf0,HIGH,single store: *(byte*)(param_1+0xf0)=param_2,S1-library
+002db9d0,nop_return_002db9d0,HIGH,body is only `return;`,S1-library
+002ddd98,returns_param_1_002ddd98,HIGH,identity function,S1-library
+002deaa8,store_ptr_DAT_003ccaa4_into_obj,MEDIUM,stores the static address DAT_003ccaa4 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+002dead4,returns_param_1_002dead4,HIGH,identity function,S1-library
+002e0da4,returns_const_0x300c,HIGH,body is only `return 0x300c;`,S1-library
+002e1010,nop_return_002e1010,HIGH,body is only `return;`,S1-library
+002e5dd0,nop_return_002e5dd0,HIGH,body is only `return;`,S1-library
 002e7c90,set_byte_at_0x38c,HIGH,single store: *(byte*)(param_1+0x38c)=param_2,S1-library
 002e7ca0,set_uint_at_0x39c,HIGH,single store: *(uint*)(param_1+0x39c)=param_2,S1-library
 002e8394,set_byte_at_0x3c9,HIGH,single store: *(byte*)(param_1+0x3c9)=param_2,S1-library
+002ec1c0,returns_param_1_002ec1c0,HIGH,identity function,S1-library
+002ec2d4,nop_return_002ec2d4,HIGH,body is only `return;`,S1-library
+002ed968,returns_const_0_002ed968,HIGH,body is only `return 0;`,S1-library
+002ed9d0,returns_const_0_002ed9d0,HIGH,body is only `return 0;`,S1-library
+002ed9d8,store_ptr_DAT_003cd040_into_obj,MEDIUM,stores the static address DAT_003cd040 at offset 0 of param_1 and returns it (typical vtable-pointer constructor),S1-library
+002eda08,returns_param_1_002eda08,HIGH,identity function,S1-library
+002edf28,nop_return_002edf28,HIGH,body is only `return;`,S1-library
+002ee5c4,nop_return_002ee5c4,HIGH,body is only `return;`,S1-library
+002ee808,returns_param_1_002ee808,HIGH,identity function,S1-library
+002ef23c,nop_return_002ef23c,HIGH,body is only `return;`,S1-library
+002efac0,get_addr_of_DAT_004405a0,HIGH,body returns the address of global DAT_004405a0,S1-library
+002f0294,get_addr_of_DAT_0044062c,HIGH,body returns the address of global DAT_0044062c,S1-library
 002f1838,set_uint_at_0xd4,HIGH,single store: *(uint*)(param_1+0xd4)=param_2,S1-library
 002f1850,set_uint_at_0xd0,HIGH,single store: *(uint*)(param_1+0xd0)=param_2,S1-library
+0030044c,returns_param_1_0030044c,HIGH,identity function,S1-library
 003017f8,set_byte_at_0x338,HIGH,single store: *(byte*)(param_1+0x338)=param_2,S1-library
+00308298,returns_const_0_00308298,HIGH,body is only `return 0;`,S1-library
+003082a0,returns_const_0_003082a0,HIGH,body is only `return 0;`,S1-library
 00308374,set_uint_at_0x48,HIGH,single store: *(uint*)(param_1+0x48)=param_2,S1-library
 003085fc,set_byte_at_0x59,HIGH,single store: *(byte*)(param_1+0x59)=param_2,S1-library
+003098dc,nop_return_003098dc,HIGH,body is only `return;`,S1-library
 00309a9c,get_uint_at_0x38_00309a9c,HIGH,single load: return *(uint*)(param_1+0x38),S1-library
+0030a76c,returns_param_1_0030a76c,HIGH,identity function,S1-library
+0030a770,returns_param_1_0030a770,HIGH,identity function,S1-library
+0030a874,returns_param_1_0030a874,HIGH,identity function,S1-library
+0030a8c0,returns_param_1_0030a8c0,HIGH,identity function,S1-library
+0030a9ac,returns_param_1_0030a9ac,HIGH,identity function,S1-library
+0030a9f8,returns_param_1_0030a9f8,HIGH,identity function,S1-library
+0030ac0c,returns_param_1_0030ac0c,HIGH,identity function,S1-library
+0030ac10,returns_param_1_thunk_0030ac10,MEDIUM,forwarding wrapper: only tail-calls returns_param_1,S9-propagate
 0030f5c0,parse_playable_date,MEDIUM,logs PARSE/GET PLAYABLE DATE FAILED,S2-anchors
+00311cdc,nop_return_00311cdc,HIGH,body is only `return;`,S1-library
 003184a0,get_uint_at_0x18_003184a0,HIGH,single load: return *(uint*)(param_1+0x18),S1-library
 00319560,npns_unregister_device,MEDIUM,"log text ""Unregister device from NPNS..."" plus UnregisterDeviceRequest error strings",S2-anchors
 0031ca64,get_uint_at_0x20_0031ca64,HIGH,single load: return *(uint*)(param_1+0x20),S1-library
@@ -189,6 +360,17 @@ address,name,confidence,evidence,pass
 00321c90,build_url_samurai_ws_ID_coupon_ID_titles,MEDIUM,"snprintf with the only service format ""%s/samurai/ws/%s/coupon/%llu/titles?lang=%s&limit=%u&offset=%u&shop...""; builds the request URL for that endpoint",S2-strings
 00321d14,build_url_ninja_ws_my_abandoned_transactions,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/abandoned_transactions?tracing_transaction_id=%llu&l...""; builds the request URL for that endpoint",S2-strings
 00321d8c,build_url_ninja_ws_my_session_open_without_nna,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/session/!open_without_nna""; builds the request URL for that endpoint",S2-strings
+003221dc,get_addr_of_DAT_003e1d90,HIGH,body returns the address of global DAT_003e1d90,S1-library
+00322224,get_addr_of_DAT_003e1d6c,HIGH,body returns the address of global DAT_003e1d6c,S1-library
+0032226c,get_addr_of_DAT_003e1d7c,HIGH,body returns the address of global DAT_003e1d7c,S1-library
+003222b4,get_addr_of_DAT_003e1d8c,HIGH,body returns the address of global DAT_003e1d8c,S1-library
+003222fc,get_addr_of_DAT_003e1d88,HIGH,body returns the address of global DAT_003e1d88,S1-library
+0032236c,get_addr_of_DAT_003e1d80,HIGH,body returns the address of global DAT_003e1d80,S1-library
+003223b4,get_addr_of_DAT_003e1d84,HIGH,body returns the address of global DAT_003e1d84,S1-library
+003223fc,get_addr_of_DAT_003e1d68,HIGH,body returns the address of global DAT_003e1d68,S1-library
+00322444,get_addr_of_DAT_003e1d74,HIGH,body returns the address of global DAT_003e1d74,S1-library
+0032248c,get_addr_of_DAT_003e1d70,HIGH,body returns the address of global DAT_003e1d70,S1-library
+003224d4,get_addr_of_DAT_003e1d78,HIGH,body returns the address of global DAT_003e1d78,S1-library
 003233a8,shop_initialize,MEDIUM,trace log InitializeForShop / Shop::SetApplicationId / SetTin / NeedsSystemUpdate,S2-anchors
 00323b68,shop_unregister,MEDIUM,"trace log ""Shop::Unregister();""",S2-anchors
 00323c60,shop_start_download_content,MEDIUM,trace logs RegisterTask / StartDownload / Download Content -> Failure/Cancel/SD Error,S2-anchors
@@ -199,10 +381,25 @@ address,name,confidence,evidence,pass
 00325e24,shop_delete_saved_credit_card,MEDIUM,"trace log ""Shop::DeleteSavedCreditCard();""",S2-anchors
 0032a1c4,get_uint_at_0x40_0032a1c4,HIGH,single load: return *(uint*)(param_1+0x40),S1-library
 00334190,http_set_origin_header,MEDIUM,"passes ""Origin"" with the ninja shop host to the header-add call",S2-anchors
+0033c5d0,get_addr_of_DAT_003e1d5c_0033c5d0,HIGH,body returns the address of global DAT_003e1d5c,S1-library
 00340cf8,http_set_service_token_header,MEDIUM,adds the X-Nintendo-ServiceToken request header,S2-anchors
+003468ec,get_addr_of_DAT_003b3934,HIGH,body returns the address of global DAT_003b3934,S1-library
+00348884,returns_param_1_00348884,HIGH,identity function,S1-library
+00348954,returns_param_1_00348954,HIGH,identity function,S1-library
+00348958,returns_param_1_00348958,HIGH,identity function,S1-library
+00348960,returns_param_1_00348960,HIGH,identity function,S1-library
+00349120,returns_param_1_00349120,HIGH,identity function,S1-library
+0034916c,returns_param_1_0034916c,HIGH,identity function,S1-library
+00350be4,nop_return_00350be4,HIGH,body is only `return;`,S1-library
 003559dc,set_byte_at_0x48,HIGH,single store: *(byte*)(param_1+0x48)=param_2,S1-library
 00355a24,set_byte_at_0x50,HIGH,single store: *(byte*)(param_1+0x50)=param_2,S1-library
+0035725c,nop_return_0035725c,HIGH,body is only `return;`,S1-library
+0036f4c4,get_addr_of_DAT_0043c458_0036f4c4,HIGH,body returns the address of global DAT_0043c458,S1-library
+0036f4d0,returns_const_0_0036f4d0,HIGH,body is only `return 0;`,S1-library
 0036f758,get_char_at_0x328,HIGH,single load: return *(char*)(param_1+0x328),S1-library
+0036f844,nop_return_0036f844,HIGH,body is only `return;`,S1-library
+0036f84c,returns_const_1_0036f84c,HIGH,body is only `return 1;`,S1-library
+0036f854,get_addr_of_DAT_0043c970,HIGH,body returns the address of global DAT_0043c970,S1-library
 0036fb98,get_uint_at_0x12c,HIGH,single load: return *(uint*)(param_1+0x12c),S1-library
 0036fba8,get_byte_at_0x2330,HIGH,single load: return *(byte*)(param_1+0x2330),S1-library
 0036fbb4,get_byte_at_0x2498_0036fbb4,HIGH,single load: return *(byte*)(param_1+0x2498),S1-library
@@ -216,35 +413,103 @@ address,name,confidence,evidence,pass
 0036fe44,get_byte_at_0x1f20_0036fe44,HIGH,single load: return *(byte*)(param_1+0x1f20),S1-library
 0036fe50,get_uint_at_0x1f24,HIGH,single load: return *(uint*)(param_1+0x1f24),S1-library
 0036fe94,get_uint_at_0x23dc,HIGH,single load: return *(uint*)(param_1+0x23dc),S1-library
+0036ff50,returns_const_0_0036ff50,HIGH,body is only `return 0;`,S1-library
 0036ff8c,get_byte_at_0x43c,HIGH,single load: return *(byte*)(param_1+0x43c),S1-library
+00370118,returns_const_1_00370118,HIGH,body is only `return 1;`,S1-library
 00370178,get_uint_at_0x2334,HIGH,single load: return *(uint*)(param_1+0x2334),S1-library
 003704ec,get_char_at_0x4c8,HIGH,single load: return *(char*)(param_1+0x4c8),S1-library
+00370734,returns_const_1_00370734,HIGH,body is only `return 1;`,S1-library
 0037073c,get_uint_at_0xcc,HIGH,single load: return *(uint*)(param_1+0xcc),S1-library
 00370804,get_uint_at_0xc8,HIGH,single load: return *(uint*)(param_1+0xc8),S1-library
 0037080c,get_uint_at_0xd0,HIGH,single load: return *(uint*)(param_1+0xd0),S1-library
+00370824,returns_const_3_00370824,HIGH,body is only `return 3;`,S1-library
+003709f8,returns_const_6_003709f8,HIGH,body is only `return 6;`,S1-library
 00370a30,get_uint_at_0xc4,HIGH,single load: return *(uint*)(param_1+0xc4),S1-library
+00370a38,returns_const_1_00370a38,HIGH,body is only `return 1;`,S1-library
 00370b78,get_uint_at_0x2f64,HIGH,single load: return *(uint*)(param_1+0x2f64),S1-library
+00370c8c,returns_const_0_00370c8c,HIGH,body is only `return 0;`,S1-library
+00371044,returns_const_5_00371044,HIGH,body is only `return 5;`,S1-library
+003711d8,returns_const_5_003711d8,HIGH,body is only `return 5;`,S1-library
 003712b0,get_byte_at_0x3c_003712b0,HIGH,single load: return *(byte*)(param_1+0x3c),S1-library
 003713b8,get_byte_at_0x1f30,HIGH,single load: return *(byte*)(param_1+0x1f30),S1-library
+003714ec,returns_const_2_003714ec,HIGH,body is only `return 2;`,S1-library
+003714f4,returns_const_4_003714f4,HIGH,body is only `return 4;`,S1-library
+00371554,returns_const_7_00371554,HIGH,body is only `return 7;`,S1-library
+003719d0,returns_const_7_003719d0,HIGH,body is only `return 7;`,S1-library
+00372124,nop_return_00372124,HIGH,body is only `return;`,S1-library
+00372134,get_addr_of_DAT_003ef984,HIGH,body returns the address of global DAT_003ef984,S1-library
+00372140,get_addr_of_DAT_003ef8c0,HIGH,body returns the address of global DAT_003ef8c0,S1-library
+0037214c,get_addr_of_DAT_003ef7d0,HIGH,body returns the address of global DAT_003ef7d0,S1-library
+00372408,get_addr_of_DAT_003ef874,HIGH,body returns the address of global DAT_003ef874,S1-library
+00372414,get_addr_of_DAT_003ef8a4,HIGH,body returns the address of global DAT_003ef8a4,S1-library
+00372420,get_addr_of_DAT_003ef8a8,HIGH,body returns the address of global DAT_003ef8a8,S1-library
+00372564,get_addr_of_DAT_003ef0a0,HIGH,body returns the address of global DAT_003ef0a0,S1-library
+00372570,get_addr_of_DAT_003ef0ac,HIGH,body returns the address of global DAT_003ef0ac,S1-library
+003725f8,get_addr_of_DAT_003ef87c,HIGH,body returns the address of global DAT_003ef87c,S1-library
+00372604,get_addr_of_DAT_003ef89c,HIGH,body returns the address of global DAT_003ef89c,S1-library
+00373d44,get_addr_of_DAT_003ef8bc,HIGH,body returns the address of global DAT_003ef8bc,S1-library
 00374468,get_uint_at_0x1c_00374468,HIGH,single load: return *(uint*)(param_1+0x1c),S1-library
+00374ec4,get_addr_of_DAT_003ef8b0,HIGH,body returns the address of global DAT_003ef8b0,S1-library
 00374ed0,get_uint_at_0x1c_00374ed0,HIGH,single load: return *(uint*)(param_1+0x1c),S1-library
 00374ed8,get_uint_at_0x1c_00374ed8,HIGH,single load: return *(uint*)(param_1+0x1c),S1-library
+00374ee0,get_addr_of_DAT_003ef010,HIGH,body returns the address of global DAT_003ef010,S1-library
+00374f78,get_addr_of_DAT_003ef97c,HIGH,body returns the address of global DAT_003ef97c,S1-library
+00374f84,get_addr_of_DAT_003ef08c,HIGH,body returns the address of global DAT_003ef08c,S1-library
+00374f90,get_addr_of_DAT_003ef00c,HIGH,body returns the address of global DAT_003ef00c,S1-library
+00374fd4,get_addr_of_DAT_003ef888,HIGH,body returns the address of global DAT_003ef888,S1-library
+00374fe0,get_addr_of_DAT_003ef98c,HIGH,body returns the address of global DAT_003ef98c,S1-library
+00374fec,get_addr_of_DAT_003ef8b4,HIGH,body returns the address of global DAT_003ef8b4,S1-library
+00375158,returns_const_0_00375158,HIGH,body is only `return 0;`,S1-library
+00375218,returns_const_0_00375218,HIGH,body is only `return 0;`,S1-library
+003752a4,get_addr_of_DAT_003ef404,HIGH,body returns the address of global DAT_003ef404,S1-library
+00375430,get_addr_of_DAT_003ef8f0,HIGH,body returns the address of global DAT_003ef8f0,S1-library
+003762a0,get_addr_of_DAT_003ef408,HIGH,body returns the address of global DAT_003ef408,S1-library
+00376720,get_addr_of_DAT_003e24e0,HIGH,body returns the address of global DAT_003e24e0,S1-library
+003767d0,get_addr_of_DAT_003ef8ec,HIGH,body returns the address of global DAT_003ef8ec,S1-library
+00376f60,get_addr_of_DAT_003e24e8,HIGH,body returns the address of global DAT_003e24e8,S1-library
+00376fbc,get_addr_of_DAT_003e251c,HIGH,body returns the address of global DAT_003e251c,S1-library
+00376fd8,returns_const_1_00376fd8,HIGH,body is only `return 1;`,S1-library
+00376fe0,returns_const_1_00376fe0,HIGH,body is only `return 1;`,S1-library
 00376fe8,get_uint_at_0x44_00376fe8,HIGH,single load: return *(uint*)(param_1+0x44),S1-library
+0037704c,get_addr_of_DAT_003e2500,HIGH,body returns the address of global DAT_003e2500,S1-library
+003789fc,returns_const_0_003789fc,HIGH,body is only `return 0;`,S1-library
+0037b67c,get_addr_of_DAT_003ef450,HIGH,body returns the address of global DAT_003ef450,S1-library
+0037b918,nop_return_0037b918,HIGH,body is only `return;`,S1-library
+0037c6a4,nop_return_0037c6a4,HIGH,body is only `return;`,S1-library
+0037c784,nop_return_0037c784,HIGH,body is only `return;`,S1-library
+0037ca24,nop_return_0037ca24,HIGH,body is only `return;`,S1-library
+0037cdec,get_addr_of_DAT_003bdf70,HIGH,body returns the address of global DAT_003bdf70,S1-library
 0037d14c,get_uint_at_0x10_0037d14c,HIGH,single load: return *(uint*)(param_1+0x10),S1-library
+0037d298,nop_return_0037d298,HIGH,body is only `return;`,S1-library
 0037d308,get_char_at_0x3c6,HIGH,single load: return *(char*)(param_1+0x3c6),S1-library
 0037d33c,get_uint_at_0x40_0037d33c,HIGH,single load: return *(uint*)(param_1+0x40),S1-library
 0037d344,get_uint_at_0x388,HIGH,single load: return *(uint*)(param_1+0x388),S1-library
 0037d3a8,get_char_at_0x3c8,HIGH,single load: return *(char*)(param_1+0x3c8),S1-library
 0037d4d8,title_check_locked,MEDIUM,error log naming nn::fs::IsTitleLocked,S2-anchors
 0037d564,get_char_at_0x3c7,HIGH,single load: return *(char*)(param_1+0x3c7),S1-library
+0037d6fc,returns_const_0_0037d6fc,HIGH,body is only `return 0;`,S1-library
 0037d704,get_uint_at_0x394,HIGH,single load: return *(uint*)(param_1+0x394),S1-library
+0037d70c,returns_const_0_0037d70c,HIGH,body is only `return 0;`,S1-library
 0037d714,get_byte_at_0x38c,HIGH,single load: return *(byte*)(param_1+0x38c),S1-library
 0037d71c,get_byte_at_0x38f,HIGH,single load: return *(byte*)(param_1+0x38f),S1-library
 0037d724,get_char_at_0x3ca,HIGH,single load: return *(char*)(param_1+0x3ca),S1-library
 0037d744,get_uint_at_0x38_0037d744,HIGH,single load: return *(uint*)(param_1+0x38),S1-library
 0037d7e4,get_char_at_0x234,HIGH,single load: return *(char*)(param_1+0x234),S1-library
+0037d84c,nop_return_0037d84c,HIGH,body is only `return;`,S1-library
+0037d858,nop_return_0037d858,HIGH,body is only `return;`,S1-library
+0037d864,returns_const_3_0037d864,HIGH,body is only `return 3;`,S1-library
+0037d86c,returns_const_1_0037d86c,HIGH,body is only `return 1;`,S1-library
+0037d914,nop_return_0037d914,HIGH,body is only `return;`,S1-library
+0037dbac,returns_const_0_0037dbac,HIGH,body is only `return 0;`,S1-library
+0037ddc8,returns_const_2_0037ddc8,HIGH,body is only `return 2;`,S1-library
+0037e134,get_uint_at_0x30_0037e134,HIGH,single load: return *(uint*)(param_1+0x30),S1-library
 0037e274,get_uint_at_0x38_0037e274,HIGH,single load: return *(uint*)(param_1+0x38),S1-library
+0037e27c,returns_const_2_0037e27c,HIGH,body is only `return 2;`,S1-library
+0037e3bc,nop_return_0037e3bc,HIGH,body is only `return;`,S1-library
 0037e46c,get_ushort_at_0x830,HIGH,single load: return *(ushort*)(param_1+0x830),S1-library
+0037e4a4,get_addr_of_DAT_003efbfc,HIGH,body returns the address of global DAT_003efbfc,S1-library
+0037e4b0,nop_return_0037e4b0,HIGH,body is only `return;`,S1-library
+0037e4b8,returns_const_0x102,HIGH,body is only `return 0x102;`,S1-library
 0037e4dc,get_byte_at_0x1db0,HIGH,single load: return *(byte*)(param_1+0x1db0),S1-library
 0037e4e8,get_byte_at_0x1dc0,HIGH,single load: return *(byte*)(param_1+0x1dc0),S1-library
 0037e4f4,get_byte_at_0x7c1,HIGH,single load: return *(byte*)(param_1+0x7c1),S1-library
@@ -253,8 +518,23 @@ address,name,confidence,evidence,pass
 0037e550,get_byte_at_0x206c,HIGH,single load: return *(byte*)(param_1+0x206c),S1-library
 0037e55c,get_byte_at_0x20a9,HIGH,single load: return *(byte*)(param_1+0x20a9),S1-library
 0037e570,get_ushort_at_0x398,HIGH,single load: return *(ushort*)(param_1+0x398),S1-library
+0037eb8c,returns_const_1_0037eb8c,HIGH,body is only `return 1;`,S1-library
+0037eca4,returns_const_0_0037eca4,HIGH,body is only `return 0;`,S1-library
 0037ecac,get_uint_at_0x48_0037ecac,HIGH,single load: return *(uint*)(param_1+0x48),S1-library
+0037ed18,returns_const_0_0037ed18,HIGH,body is only `return 0;`,S1-library
+0037ed20,get_addr_of_DAT_0043c8cc,HIGH,body returns the address of global DAT_0043c8cc,S1-library
+0037ed2c,returns_const_0_0037ed2c,HIGH,body is only `return 0;`,S1-library
+0037ed34,get_addr_of_DAT_003e1ce4_0037ed34,HIGH,body returns the address of global DAT_003e1ce4,S1-library
+0037ed40,get_addr_of_DAT_003e1ce4_0037ed40,HIGH,body returns the address of global DAT_003e1ce4,S1-library
+0037ed64,get_addr_of_DAT_0043c918,HIGH,body returns the address of global DAT_0043c918,S1-library
+0037ed94,get_addr_of_DAT_0043c94c,HIGH,body returns the address of global DAT_0043c94c,S1-library
+0037eda0,returns_const_0_0037eda0,HIGH,body is only `return 0;`,S1-library
+0037eda8,returns_const_0_0037eda8,HIGH,body is only `return 0;`,S1-library
+0037edb0,returns_const_1_0037edb0,HIGH,body is only `return 1;`,S1-library
 0037edb8,get_char_at_0x50,HIGH,single load: return *(char*)(param_1+0x50),S1-library
+0037edd4,returns_const_0_0037edd4,HIGH,body is only `return 0;`,S1-library
+0037f0dc,returns_const_0_0037f0dc,HIGH,body is only `return 0;`,S1-library
+0037f0e4,returns_const_0_0037f0e4,HIGH,body is only `return 0;`,S1-library
 0037f0ec,get_char_at_0x1c8,HIGH,single load: return *(char*)(param_1+0x1c8),S1-library
 0037f0f8,get_uint_at_0x1c_0037f0f8,HIGH,single load: return *(uint*)(param_1+0x1c),S1-library
 0037f100,get_byte_at_0x24_0037f100,HIGH,single load: return *(byte*)(param_1+0x24),S1-library
@@ -273,20 +553,30 @@ address,name,confidence,evidence,pass
 0037f70c,get_byte_at_0x24_0037f70c,HIGH,single load: return *(byte*)(param_1+0x24),S1-library
 0037f730,get_uint_at_0x48_0037f730,HIGH,single load: return *(uint*)(param_1+0x48),S1-library
 0037fa1c,get_uint_at_0x40_0037fa1c,HIGH,single load: return *(uint*)(param_1+0x40),S1-library
+00380200,returns_const_0_00380200,HIGH,body is only `return 0;`,S1-library
+00380208,returns_const_1_00380208,HIGH,body is only `return 1;`,S1-library
+00380210,returns_const_0_00380210,HIGH,body is only `return 0;`,S1-library
 0038022c,get_uint_at_0x1c_0038022c,HIGH,single load: return *(uint*)(param_1+0x1c),S1-library
+00380244,returns_const_4_00380244,HIGH,body is only `return 4;`,S1-library
 0038024c,get_uint_at_0x38_0038024c,HIGH,single load: return *(uint*)(param_1+0x38),S1-library
 00380254,get_uint_at_0x20_00380254,HIGH,single load: return *(uint*)(param_1+0x20),S1-library
 0038025c,get_byte_at_0x4c_0038025c,HIGH,single load: return *(byte*)(param_1+0x4c),S1-library
 00380264,get_uint_at_0x18_00380264,HIGH,single load: return *(uint*)(param_1+0x18),S1-library
+0038026c,returns_const_1_0038026c,HIGH,body is only `return 1;`,S1-library
+00380288,returns_const_2_00380288,HIGH,body is only `return 2;`,S1-library
 00380348,get_uint_at_0x40_00380348,HIGH,single load: return *(uint*)(param_1+0x40),S1-library
 00380350,get_uint_at_0x44_00380350,HIGH,single load: return *(uint*)(param_1+0x44),S1-library
 003803dc,get_byte_at_0x48_003803dc,HIGH,single load: return *(byte*)(param_1+0x48),S1-library
+00380418,returns_const_3_00380418,HIGH,body is only `return 3;`,S1-library
 00380568,get_byte_at_0x28,HIGH,single load: return *(byte*)(param_1+0x28),S1-library
 0038059c,get_uint_at_0x28,HIGH,single load: return *(uint*)(param_1+0x28),S1-library
 003805ac,get_uint_at_0x20_003805ac,HIGH,single load: return *(uint*)(param_1+0x20),S1-library
 003805e8,get_byte_at_0x10,HIGH,single load: return *(byte*)(param_1+0x10),S1-library
 0038060c,get_uint_at_0x14_0038060c,HIGH,single load: return *(uint*)(param_1+0x14),S1-library
 003806f0,get_byte_at_0x18_003806f0,HIGH,single load: return *(byte*)(param_1+0x18),S1-library
+003806f8,nop_return_003806f8,HIGH,body is only `return;`,S1-library
+00380700,nop_return_00380700,HIGH,body is only `return;`,S1-library
+00380708,nop_return_00380708,HIGH,body is only `return;`,S1-library
 003807c8,get_uint_at_0x44_003807c8,HIGH,single load: return *(uint*)(param_1+0x44),S1-library
 003807d0,get_uint_at_0x40_003807d0,HIGH,single load: return *(uint*)(param_1+0x40),S1-library
 003807f8,get_uint_at_0x48_003807f8,HIGH,single load: return *(uint*)(param_1+0x48),S1-library
@@ -295,15 +585,25 @@ address,name,confidence,evidence,pass
 00380844,get_char_at_0xa8,HIGH,single load: return *(char*)(param_1+0xa8),S1-library
 0038084c,get_byte_at_0xb4,HIGH,single load: return *(byte*)(param_1+0xb4),S1-library
 00380874,get_uint_at_0xb0,HIGH,single load: return *(uint*)(param_1+0xb0),S1-library
+0038087c,returns_const_1_0038087c,HIGH,body is only `return 1;`,S1-library
 00380888,get_uint_at_0x84,HIGH,single load: return *(uint*)(param_1+0x84),S1-library
 0038097c,get_byte_at_0x4c_0038097c,HIGH,single load: return *(byte*)(param_1+0x4c),S1-library
 00380a84,get_char_at_0x70,HIGH,single load: return *(char*)(param_1+0x70),S1-library
+00380a8c,nop_return_00380a8c,HIGH,body is only `return;`,S1-library
+00380a94,nop_return_00380a94,HIGH,body is only `return;`,S1-library
+00380a9c,nop_return_00380a9c,HIGH,body is only `return;`,S1-library
+00380aa4,nop_return_00380aa4,HIGH,body is only `return;`,S1-library
+00380aac,nop_return_00380aac,HIGH,body is only `return;`,S1-library
+00380ac4,nop_return_00380ac4,HIGH,body is only `return;`,S1-library
+00380acc,nop_return_00380acc,HIGH,body is only `return;`,S1-library
 00380c38,get_uint_at_0x48_00380c38,HIGH,single load: return *(uint*)(param_1+0x48),S1-library
 00380c40,get_uint_at_0x44_00380c40,HIGH,single load: return *(uint*)(param_1+0x44),S1-library
 00380cb0,get_uint_at_0x50_00380cb0,HIGH,single load: return *(uint*)(param_1+0x50),S1-library
+00380cb8,get_addr_of_DAT_003e1d60_00380cb8,HIGH,body returns the address of global DAT_003e1d60,S1-library
 00380cc4,get_uint_at_0x18_00380cc4,HIGH,single load: return *(uint*)(param_1+0x18),S1-library
 00380ccc,get_byte_at_0x1c_00380ccc,HIGH,single load: return *(byte*)(param_1+0x1c),S1-library
 00380cd4,get_uint_at_4_00380cd4,HIGH,single load: return *(uint*)(param_1+4),S1-library
+00380cdc,get_addr_of_DAT_003e1d5c_00380cdc,HIGH,body returns the address of global DAT_003e1d5c,S1-library
 00380dc0,get_uint_at_4_00380dc0,HIGH,single load: return *(uint*)(param_1+4),S1-library
 00380f3c,get_uint_at_0x40_00380f3c,HIGH,single load: return *(uint*)(param_1+0x40),S1-library
 00380f44,get_byte_at_0x3c_00380f44,HIGH,single load: return *(byte*)(param_1+0x3c),S1-library
@@ -319,10 +619,40 @@ address,name,confidence,evidence,pass
 00381488,get_byte_at_0x1c_00381488,HIGH,single load: return *(byte*)(param_1+0x1c),S1-library
 00381528,get_uint_at_0x1848,HIGH,single load: return *(uint*)(param_1+0x1848),S1-library
 00381534,get_uint_at_0x182c,HIGH,single load: return *(uint*)(param_1+0x182c),S1-library
+003816ac,returns_const_0_003816ac,HIGH,body is only `return 0;`,S1-library
+003816f8,nop_return_003816f8,HIGH,body is only `return;`,S1-library
 0038174c,get_uint_at_0x4268,HIGH,single load: return *(uint*)(param_1+0x4268),S1-library
+00381778,returns_const_1_00381778,HIGH,body is only `return 1;`,S1-library
+00381880,returns_const_1_00381880,HIGH,body is only `return 1;`,S1-library
+00381888,returns_const_6_00381888,HIGH,body is only `return 6;`,S1-library
 00381890,get_byte_at_0x48_00381890,HIGH,single load: return *(byte*)(param_1+0x48),S1-library
 00381898,get_byte_at_0x50,HIGH,single load: return *(byte*)(param_1+0x50),S1-library
+003818a0,returns_const_0_003818a0,HIGH,body is only `return 0;`,S1-library
 003818e0,get_uint_at_0x40_003818e0,HIGH,single load: return *(uint*)(param_1+0x40),S1-library
 00381b08,get_uint_at_0x18_00381b08,HIGH,single load: return *(uint*)(param_1+0x18),S1-library
+00381cac,get_addr_of_DAT_0043c458_00381cac,HIGH,body returns the address of global DAT_0043c458,S1-library
+00381e90,nop_return_00381e90,HIGH,body is only `return;`,S1-library
 00381eac,get_uint_at_0x480,HIGH,single load: return *(uint*)(param_1+0x480),S1-library
+00381ebc,nop_return_00381ebc,HIGH,body is only `return;`,S1-library
+00381ecc,get_addr_of_DAT_003efbfe,HIGH,body returns the address of global DAT_003efbfe,S1-library
+00381ee4,returns_const_1_00381ee4,HIGH,body is only `return 1;`,S1-library
+00381eec,returns_const_0_00381eec,HIGH,body is only `return 0;`,S1-library
+00382cd0,returns_param_1_00382cd0,HIGH,identity function,S1-library
+00387ff8,nop_return_00387ff8,HIGH,body is only `return;`,S1-library
+00387ffc,nop_return_00387ffc,HIGH,body is only `return;`,S1-library
+00388130,nop_return_00388130,HIGH,body is only `return;`,S1-library
+003893c4,svc_0x800000_003893c4,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to 0x800000),S1-library
+0038990c,nop_return_0038990c,HIGH,body is only `return;`,S1-library
+0038a1c8,svc_0x800000_0038a1c8,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to 0x800000),S1-library
+0038a6b0,nop_return_0038a6b0,HIGH,body is only `return;`,S1-library
 0038ae7c,init_shop_service_host_urls,MEDIUM,references the samurai/ninja/ccif/eou production host URL strings together (host table initialisation),S2-anchors
+0038bbc4,returns_const_neg0x1_0038bbc4,HIGH,body is only `return -0x1;`,S1-library
+0038bbcc,returns_const_neg0x1_0038bbcc,HIGH,body is only `return -0x1;`,S1-library
+0038bbd4,returns_const_neg0x1_0038bbd4,HIGH,body is only `return -0x1;`,S1-library
+0038bbdc,returns_const_neg0x1_0038bbdc,HIGH,body is only `return -0x1;`,S1-library
+0038bbe4,returns_const_neg0x1_0038bbe4,HIGH,body is only `return -0x1;`,S1-library
+0038bbec,returns_const_neg0x1_0038bbec,HIGH,body is only `return -0x1;`,S1-library
+0038f174,svc_SleepThread_0038f174,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SleepThread),S1-library
+0038f318,nop_return_0038f318,HIGH,body is only `return;`,S1-library
+00390040,nop_return_00390040,HIGH,body is only `return;`,S1-library
+003b2480,returns_const_0x7fc00000,HIGH,body is only `return 0x7fc00000;`,S1-library

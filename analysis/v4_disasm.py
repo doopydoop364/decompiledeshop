@@ -393,6 +393,7 @@ class Discovery:
                         if st - 2 >= d.tstart and not cov[st - 2 - d.tstart] and pi is not None and pi.kind == 'seq' and pi.mn.split('.')[0] in ('push', 'mov', 'movs', 'sub', 'add') and pi.word != 0: st -= 2
                         else: break
                     cands.append((st, True, 'prologue'))
+                    if st != a: cands.append((a, True, 'prologue'))
         added = 0
         seen = set()
         owner = {}

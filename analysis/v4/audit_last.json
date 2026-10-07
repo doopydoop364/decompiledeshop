@@ -1,0 +1,24 @@
+{
+ "counts": {
+  "functions_with_read_of_never_assigned_var": 405,
+  "unresolved_indirect_jump": 315,
+  "functions_reading_entry_registers(in_*)": 1240,
+  "functions_with_gt20_gotos": 85,
+  "functions_with_inline_asm": 192,
+  "functions": 12718
+ },
+ "examples": {
+  "undef": [
+   "00100000",
+   "00100048",
+   "001001fc",
+   "0010044c",
+   "00100c3c",
+   "00101978",
+   "00101a54",
+   "00101e18",
+   "00102742",
+   "00102b20"
+  ]
+ }
+}

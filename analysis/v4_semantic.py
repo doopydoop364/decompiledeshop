@@ -92,6 +92,20 @@ def pass1(N, body, fn, callers, callees, strs, sx):
         elif len(st) == 2 and st[1] == 'return;':
             m = re.fullmatch(r'\*\((\w+) \*\)\(param_1 \+ (0x[0-9a-f]+|\d+)\) = param_2;', st[0])
             if m: N.set(a, 'set_%s_at_%s' % (m.group(1), m.group(2)), 'HIGH', 'single store: *(%s*)(param_1+%s)=param_2' % (m.group(1), m.group(2)), ps)
+    # (b2) exact trivial bodies
+    for a, (hdr, code) in body.items():
+        if a in N.d: continue
+        st = stmts(code)
+        if st == ['return;']: N.set(a, 'nop_return', 'HIGH', 'body is only `return;`', ps); continue
+        if len(st) == 1:
+            m = re.fullmatch(r'return (0|1|0x[0-9a-f]+|-0x[0-9a-f]+|\d+);', st[0])
+            if m: N.set(a, 'returns_const_%s' % m.group(1).replace('-', 'neg'), 'HIGH', 'body is only `%s`' % st[0], ps); continue
+            if st[0] == 'return param_1;': N.set(a, 'returns_param_1', 'HIGH', 'identity function', ps); continue
+            m = re.fullmatch(r'return &(DAT_[0-9a-f]{8}|g_\w+);', st[0])
+            if m: N.set(a, 'get_addr_of_%s' % m.group(1), 'HIGH', 'body returns the address of global %s' % m.group(1), ps); continue
+        if len(st) == 2 and st[1] == 'return param_1;':
+            m = re.fullmatch(r'\*\(uint \*\)param_1 = &(DAT_[0-9a-f]{8});', st[0])
+            if m: N.set(a, 'store_ptr_%s_into_obj' % m.group(1), 'MEDIUM', 'stores the static address %s at offset 0 of param_1 and returns it (typical vtable-pointer constructor)' % m.group(1), ps)
     # (c) curated routines, each with a validator on the structural pseudocode
     def has(a, *pats):
         if a not in body: return False

@@ -1,0 +1,4 @@
+address,name,confidence,evidence
+003e25a0,g_heap_allocator,MEDIUM,"object whose vtable slots +0x1c (allocate size,align) and +0x24 (free) are invoked by heap_alloc_checked / heap_free_nullable"
+003e2450,g_fs_user_session,MEDIUM,"filled by open_fs_user_session (service name ""fs:USER"") and tested for non-zero before reuse"
+003e1da8,g_shop_base_url,MEDIUM,first %s argument of every build_url_* snprintf (base host string for ninja/samurai/ccif paths)

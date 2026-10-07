@@ -4,20 +4,20 @@
   "code_decompressed.bin": "34a50e03d648bd85f34c3e3acd00b8a67f18c002f994c9d3292966dbc14c58d7",
   "extheader.bin": "eef4afd5e43a1af982a67c19fbfe7e845e35577fdee275b66f1d722256c59bfa"
  },
- "functions": 13211,
- "thumb_functions": 213,
+ "functions": 12718,
+ "thumb_functions": 211,
  "discovery_reasons": {
   "entry": 1,
   "call": 2598,
   "tail": 180,
   "ptr": 3311,
-  "prologue": 5229,
-  "gapstart": 1892
+  "prologue": 4733,
+  "gapstart": 1895
  },
  "text_bytes": 2827832,
- "text_bytes_covered_by_code_or_pools": 2709182,
+ "text_bytes_covered_by_code_or_pools": 2709278,
  "gap_regions": 3691,
- "gap_bytes": 118650,
+ "gap_bytes": 118554,
  "gap_classes_count": {
   "unclassified (possible unreferenced code/data)": 1179,
   "zero_padding": 484,
@@ -26,14 +26,14 @@
   "pointer/literal table": 107
  },
  "gap_classes_bytes": {
-  "unclassified (possible unreferenced code/data)": 45346,
+  "unclassified (possible unreferenced code/data)": 45250,
   "zero_padding": 1918,
   "string/ascii data": 52090,
   "data (non-code words)": 17912,
   "pointer/literal table": 1384
  },
  "strings": 4577,
- "string_xrefs": 2076,
+ "string_xrefs": 5611,
  "direct_calls": 48253,
  "unresolved_indirect_calls_blx_reg": 7709,
  "tail_branches_to_other_functions": 2938,
