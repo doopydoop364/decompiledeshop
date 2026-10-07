@@ -206,7 +206,7 @@ class SigEngine:
                     gs = self.sigs.get(g)
                     if gs and gs.ret: ret = ret or rd0 or True
                 if ret and not sg.ret: sg.ret = True; changed += 1
-                r2 = sg.callers_used_r1 and has_callers
+                r2 = False      # r1-as-second-return inferred from liveness feeds back on itself (over-estimated nparams); disabled
                 if r2 and not sg.ret2: sg.ret2 = True; changed += 1
             # propagate "callers use r0" through tail calls
             for a, gl in tailret.items():

@@ -386,7 +386,13 @@ class Discovery:
                 if (w & 0xFFFF4000) == 0xE92D4000: cands.append((a, False, 'prologue'))
             for a in range(ga + (ga & 1), ga + gs - 1, 2):
                 h = struct.unpack_from('<H', d.m.code, a - d.tstart)[0]
-                if (h & 0xFF00) == 0xB500: cands.append((a, True, 'prologue'))
+                if (h & 0xFF00) == 0xB500:
+                    st = a
+                    for _ in range(3):
+                        pi = d.decode(st - 2, True)
+                        if st - 2 >= d.tstart and not cov[st - 2 - d.tstart] and pi is not None and pi.kind == 'seq' and pi.mn.split('.')[0] in ('push', 'mov', 'movs', 'sub', 'add') and pi.word != 0: st -= 2
+                        else: break
+                    cands.append((st, True, 'prologue'))
         added = 0
         seen = set()
         owner = {}
