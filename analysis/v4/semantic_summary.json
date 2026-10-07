@@ -1,17 +1,21 @@
 {
- "named": 248,
+ "named": 327,
  "by_confidence": {
-  "HIGH": 225,
-  "MEDIUM": 23
+  "HIGH": 193,
+  "MEDIUM": 134
  },
  "log": [
   [
    "S1-library",
-   229
+   197
   ],
   [
    "S2-strings",
-   18
+   74
+  ],
+  [
+   "S2-anchors",
+   63
   ],
   [
    "S9-propagate iteration 1",

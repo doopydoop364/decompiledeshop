@@ -371,7 +371,7 @@ class Discovery:
 
     def gap_round(self):
         d = self.d
-        self.rejected = {k: v for k, v in self.rejected.items() if v == 'superseded'}
+        self.rejected = {k: v for k, v in self.rejected.items() if v in ('superseded', 'merged')}
         cov = build_cov(d, self.funcs)
         cands = []                                           # (addr, thumb, why)
         for pa, v in self.ptrs.items():
@@ -413,12 +413,35 @@ class Discovery:
                 self.rejected[a] = why
         return added
 
+    def merge_fallthrough(self):
+        """A weakly-discovered entry that is only reached by fall-through from another function (e.g. a shrink-wrapped
+        prologue after an early conditional return) is part of that function, not a function of its own."""
+        refd = set()
+        for f in self.funcs.values():
+            for t in f.calls.values():
+                if t is not None: refd.add(t & ~1)
+            for t in f.tail.values(): refd.add(t)
+            for sw in f.switches.values():
+                for t in (sw or ()): refd.add(t)
+        for v in self.ptrs.values(): refd.add(v & ~1)
+        merged = 0
+        for a, f in list(self.funcs.items()):
+            for e in list(f.xfall):
+                if e in self.funcs and e not in refd and self.why.get(e) in ('prologue', 'gapstart') and self.entries.get(e) == f.thumb and e != a:
+                    self.funcs.pop(e); self.entries.pop(e); self.why.pop(e); self.rejected[e] = 'merged'
+                    merged += 1
+        return merged
+
     def run(self):
         self.closure(); self.log('strong closure', len(self.funcs))
         for r in range(25):
             n = self.gap_round(); self.log('gap round', r, 'added', n)
             if not n: break
             self.closure(); self.log('closure', len(self.funcs))
+        for r in range(4):
+            mg = self.merge_fallthrough(); self.log('merged fallthrough entries', mg)
+            if not mg: break
+            self.closure(); self.gap_round(); self.closure()
         return self
 
 def discover(m, verbose=True):

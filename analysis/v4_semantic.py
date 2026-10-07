@@ -75,9 +75,9 @@ def pass1(N, body, fn, callers, callees, strs, sx):
     # (a) svc wrappers: one svc call, nothing else
     for a, (hdr, code) in body.items():
         st = stmts(code)
-        svcs = [s for s in st if re.search(r'\bsvc_\w+\(', s)]
+        svcs = [s for s in st if re.search(r'__svc_\w+\(', s)]
         if len(svcs) == 1 and len(st) <= 4 and not any('FUN_' in s for s in st):
-            m = re.search(r'\bsvc_(\w+)\(', svcs[0])
+            m = re.search(r'__svc_(\w+)\(', svcs[0])
             N.set(a, 'svc_' + m.group(1), 'HIGH', 'body is a single `svc` instruction wrapper (3DS SVC number maps to %s)' % m.group(1), ps)
     # (b) exact accessors
     for a, (hdr, code) in body.items():
@@ -98,7 +98,7 @@ def pass1(N, body, fn, callers, callees, strs, sx):
         c = body[a][1]
         return all(re.search(p, c) for p in pats)
     cur = [
-     (0x100000, 'crt_entry_point', 'HIGH', 'first TEXT word (process entry); calls init routines then svc ExitProcess', [r'svc_ExitProcess|FUN_']),
+     (0x100000, 'crt_entry_point', 'HIGH', 'first TEXT word (process entry); calls init routines then svc ExitProcess', [r"svc_ExitProcess|FUN_"]),
      (0x100024, 'crt_zero_startup_region', 'HIGH', 'zero-fills the word range between two literal-pool pointers (startup BSS clear)', [r'= 0;']),
      (0x2a8f8c, 'strlen', 'HIGH', 'NUL scan (byte loop to alignment, then word loop using uqsub8 zero-byte test) returning distance; %d callers', [r'uqsub8']),
      (0x2a8f1c, 'strcpy', 'HIGH', 'copies bytes (word fast-path with zero-byte test) through the first NUL; dest returned unchanged', [r'uqsub8|\*\(byte \*\)']),
@@ -171,6 +171,142 @@ def pass_thunks(N, body, fn, callers, callees, strs, sx, it):
     LOG.append((ps + ' iteration %d' % it, len(N.d) - n0))
 
 # ------------------------------------------------------------------------------------------------
+
+ANCHORS = [  # (name, must-contain strings ('=' prefix = exact), must-not, evidence)
+ ('npns_register_device', ['Register device to NPNS'], [], 'log text "Register device to NPNS..." plus nn::npns::RegisterDeviceRequest error strings in the same function'),
+ ('npns_unregister_device', ['Unregister device from NPNS'], [], 'log text "Unregister device from NPNS..." plus UnregisterDeviceRequest error strings'),
+ ('shop_download_dtl', ['DTL downloaded successfully'], [], 'logs "DTL downloaded successfully." / "DTL download failure"'),
+ ('shop_log_failure_reason', ['Need System Update', 'Cannot Set IVS'], ['Title Already Downloaded'], 'maps NIM failure kinds to log text (Need System Update, Server is under Maintainance, Invalid Country...)'),
+ ('shop_log_download_failure_reason', ['Need System Update', 'Title Already Downloaded'], [], 'same failure-text mapping plus download-specific cases (Title Already Downloaded, Task Already Exists)'),
+ ('shop_list_titles', ['Shop::ListTitles'], [], 'trace log "Shop::ListTitles();"'),
+ ('shop_initialize', ['InitializeForShop'], [], 'trace log InitializeForShop / Shop::SetApplicationId / SetTin / NeedsSystemUpdate'),
+ ('shop_unregister', ['Shop::Unregister'], [], 'trace log "Shop::Unregister();"'),
+ ('shop_start_download_content', ['Shop::StartDownload'], [], 'trace logs RegisterTask / StartDownload / Download Content -> Failure/Cancel/SD Error'),
+ ('shop_download_tickets', ['nim::shop::DownloadTickets'], [], 'trace log "nim::shop::DownloadTickets()"'),
+ ('shop_set_country', ['Shop::SetCountry'], [], 'trace log "Shop::SetCountry(%s);"'),
+ ('shop_get_balance', ['Shop::GetBalance'], [], 'trace logs Shop::GetBalance / Shop::ListBalances'),
+ ('shop_delete_saved_credit_card', ['DeleteSavedCreditCard'], [], 'trace log "Shop::DeleteSavedCreditCard();"'),
+ ('shop_delete_credit_card_on_system_save_data', ['DeleteCreditCardOnSystemSaveData'], ['DeleteSavedCreditCard'], 'trace log "Shop::DeleteCreditCardOnSystemSaveData();"'),
+ ('title_set_tag_and_external_seed', ['SetTitleTag', 'External Key Seed'], [], 'logs SetTitleTag() / SetExternalSeed() / ExternalSeed already exists'),
+ ('title_check_locked', ['nn::fs::IsTitleLocked'], [], 'error log naming nn::fs::IsTitleLocked'),
+ ('parse_playable_date', ['PARSE PLAYABLE DATE FAILED'], [], 'logs PARSE/GET PLAYABLE DATE FAILED'),
+ ('open_fs_user_session', ['=fs:USER'], [], 'passes the service name "fs:USER" to the service-session open routine'),
+ ('build_tagaya_versionlist_url', ['tagaya-ctr.cdn.nintendo.net'], [], 'selects between the production and dev tagaya version-list URLs'),
+ ('build_npns_api_url', ['npns.app.nintendo.net/api/v1'], [], 'formats https://%c-npns.app.nintendo.net/api/v1/'),
+ ('http_set_service_token_header', ['=X-Nintendo-ServiceToken'], [], 'adds the X-Nintendo-ServiceToken request header'),
+ ('http_set_origin_header', ['=ninja.ctr.shop.nintendo.net'], [], 'passes "Origin" with the ninja shop host to the header-add call'),
+ ('init_shop_service_host_urls', ['=https://ninja.ctr.shop.nintendo.net', '=https://samurai.ctr.shop.nintendo.net', '=https://ccif.ctr.shop.nintendo.net'], [], 'references the samurai/ninja/ccif/eou production host URL strings together (host table initialisation)'),
+ ('molive_allocator_oom_handler', ['MoLive::Allocator: not enough memory'], [], 'prints "MoLive::Allocator: not enough memory to allocate %d bytes"'),
+]
+
+def pass2b(N, body, fn, callers, callees, strs, sx):
+    ps = 'S2-anchors'; n0 = len(N.d)
+    fstr = {a: [strs[s][1] for s in set(ss) if s in strs] for a, ss in sx.items()}
+    for name, must, mustnot, ev in ANCHORS:
+        def ok(lst, items):
+            for it in items:
+                if it.startswith('='):
+                    if it[1:] not in lst: return False
+                elif not any(it in x for x in lst): return False
+            return True
+        hits = [a for a, lst in fstr.items() if ok(lst, must) and not any(any(m in x for x in lst) for m in mustnot)]
+        if len(hits) == 1: N.set(hits[0], name, 'MEDIUM', ev, ps)
+        elif len(hits) > 1:
+            for a in hits: N.set(a, '%s_%08x' % (name, a), 'LOW', 'ambiguous anchor (%d functions): ' % len(hits) + ev, ps)
+    # nlib EXI translation units via assertion/source paths
+    for a, lst in fstr.items():
+        files = {re.sub(r'.*[\\/]', '', x) for x in lst if re.search(r'cibuild.*nlib.*exi', x)}
+        if len(files) == 1:
+            f = files.pop(); stem = re.sub(r'\W', '_', f)
+            N.set(a, 'nlib_exi_%s_%08x' % (stem, a), 'MEDIUM', 'references its own source path d:\\cibuild\\nlib\\exi\\...\\%s (assert/log macro __FILE__)' % f, ps)
+    LOG.append((ps, len(N.d) - n0))
+
+
+CATS = [  # (category, regex over slug)
+ ('Session / account', r'session|account|loyalty|migrate'),
+ ('Wishlist', r'wishlist'),
+ ('Balance / payment instruments', r'balance|credit_card|cc_|wallet|auto_billing|redeemable|replenish'),
+ ('Coupons', r'coupon'),
+ ('Purchase / transactions / receipts', r'purchase|transaction|receipt|redeem|prepurchase|ec_info'),
+ ('Votes', r'vote'),
+ ('Shared / recommended titles', r'shared|recommend|votable'),
+ ('Catalog (titles, directories, rankings, search)', r'titles?_|_titles?|directory|directories|rankings?|genres|search|contents|publishers|languages|news|telops|aocs|movie|online_prices'),
+ ('Shop configuration (country, tax, language, hosts)', r'country|tax|language|service_hosts'),
+]
+
+def category(slugname):
+    for c, rx in CATS:
+        if re.search(rx, slugname): return c
+    return 'Other'
+
+def gen_docs(N, body, fn, callers, callees, strs, sx):
+    byname = {v['name']: (a, v) for a, v in N.d.items()}
+    def nm(a): return N.d[a]['name'] if a in N.d and N.d[a]['confidence'] in ('HIGH', 'MEDIUM') else 'FUN_%08x' % a
+    L = ['# Network subsystem map (V4)', '',
+         'Every row cites its evidence; names are in `function_names.csv` with confidence. Confidence MEDIUM means purpose inferred from strings/callers, not proven.', '']
+    # hosts and URLs
+    L += ['## Hosts, base URLs and fixed URLs found as strings', '', '| string address | string | referencing functions |', '|---|---|---|']
+    urls = [(a, t) for a, (e, t) in sorted(strs.items()) if re.search(r'https?://|\.nintendo\.(net|com)|nintendowifi', t)]
+    fx = collections.defaultdict(list)
+    for a, ss in sx.items():
+        for sa in set(ss): fx[sa].append(a)
+    for a, t in urls[:80]:
+        fs = ', '.join(nm(f) for f in sorted(set(fx.get(a, [])))[:3]) or '(data table / no direct code xref)'
+        L.append('| %08x | `%s` | %s |' % (a, t[:90].replace('|', '/'), fs))
+    L += ['', '## HTTP header and cookie strings', '', '| string | referencing functions |', '|---|---|']
+    for a, (e, t) in sorted(strs.items()):
+        if t in ('Cookie', 'Set-Cookie', 'User-Agent', 'Content-Type', 'Content-Range', 'Accept', 'Referer', 'Origin', 'X-Nintendo-ServiceToken'):
+            L.append('| `%s` @%08x | %s |' % (t, a, ', '.join(nm(f) for f in sorted(set(fx.get(a, [])))[:6])))
+    # endpoint table
+    rows = []
+    for a, v in N.d.items():
+        if v['name'].startswith('build_url_'):
+            ev = re.search(r'"(%s/[^"]*)"', v['evidence'])
+            fmt = ev.group(1) if ev else ''
+            rows.append((category(v['name']), v['name'], a, fmt))
+    L += ['', '## Endpoint request builders (MEDIUM: function formats exactly one service URL with snprintf)', '',
+          'Method hints come from the path markers in the format string (`!put`, `!delete`, `!purchase` ...); the HTTP verb itself is chosen by the caller and was not traced.', '']
+    for c in [c for c, _ in CATS] + ['Other']:
+        rr = sorted(r for r in rows if r[0] == c)
+        if not rr: continue
+        L += ['### ' + c, '', '| function | address | callers | URL format |', '|---|---|---|---|']
+        for _, n, a, f in rr:
+            L.append('| `%s` | %08x | %d | `%s` |' % (n, a, len(callers.get(a, ())), f.replace('|', '/')))
+        L.append('')
+    pm = sorted((v['name'], a) for a, v in N.d.items() if v['name'].startswith('url_find_path_'))
+    L += ['## URL-path classifiers (strstr on the request URL; reached through pointer tables, no direct callers)', '', 'count: %d' % len(pm), '']
+    for n, a in pm[:100]: L.append('- `%s` @%08x' % (n, a))
+    L += ['', '## Shared layers observed', '',
+          '- `snprintf` @%08x: formats every URL (callers pass `%%s/ninja/ws/...`, `%%s/samurai/ws/...`, `%%s/CCIF/...`; first %%s argument is a base-host string held in a global at 0x003e1da8).' % byname.get('snprintf', (0,))[0],
+          '- Builders end by constructing a string object from the C string (`FUN_002a8e48`-style copy-construct) into their first parameter: the URL is *returned by output parameter*, the request itself is issued elsewhere.',
+          '- Service hosts: the production host URLs `https://samurai.ctr.shop.nintendo.net`, `https://ninja.ctr.shop.nintendo.net`, `https://ccif.ctr.shop.nintendo.net`, `https://eou.c.shop.nintendowifi.net` are all referenced by one function (`%s` @%s); the builders take the active base host from a global (0x003e1da8).' % (byname['init_shop_service_host_urls'][1]['name'] if 'init_shop_service_host_urls' in byname else 'FUN_0038ae7c', byname['init_shop_service_host_urls'][1]['address'] if 'init_shop_service_host_urls' in byname else '0038ae7c'),
+          '- Tagaya: `https://tagaya-ctr.cdn.nintendo.net/tagaya/versionlist` (prod) / `tagaya-dev-ctr` (dev) chosen in one function; a second hard-coded `tagaya.wup.shop.nintendo.net/tagaya_ctr/dev/tiger/versionlist%d` form also exists. (analysis/NETWORK.md listed `tagaya.ctr.cdn...`; the binary string is `tagaya-ctr.cdn...`.)',
+          '- NPNS: `https://%c-npns.app.nintendo.net/api/v1/` built by one function; register/unregister flows log through `nn::npns::*Request` messages and use `nn::act::AcquireIndependentServiceToken`.',
+          '- Authentication: header `X-Nintendo-ServiceToken` is set from a token object; `Cookie`/`Set-Cookie` are copied through a header-lookup helper; `Origin: ninja.ctr.shop.nintendo.net` is set explicitly.',
+          '- TLS: no certificate/verification strings were identified in this binary (the HTTPS stack is the system `httpc`/`ssl` services); this was not traced further.',
+          '', '## Not established', '', '- The HTTP method used for each endpoint, the request object lifecycle and the JSON field parsers were not traced to named functions.']
+    open(os.path.join(V4, 'network_map.md'), 'w').write('\n'.join(L) + '\n')
+    # subsystems
+    S = ['# Subsystems (V4)', '', 'Counts are from string anchors and the call graph; membership is evidence-based, not exhaustive.', '']
+    exi = [(a, v) for a, v in N.d.items() if v['name'].startswith('nlib_exi_')]
+    files = collections.Counter(re.sub(r'_[0-9a-f]{8}$', '', v['name'])[len('nlib_exi_'):] for a, v in exi)
+    S += ['## nlib EXI/XML codec', '', '%d functions reference their own `d:\\cibuild\\nlib\\exi\\...` source path (assert strings). Source units seen:' % len(exi), '']
+    for f, c in files.most_common(): S.append('- %s: %d functions' % (f, c))
+    shop = sorted((a, v) for a, v in N.d.items() if v['name'].startswith(('shop_', 'npns_', 'title_', 'parse_playable', 'open_fs')))
+    S += ['', '## NIM / shop control layer (log-string anchored, MEDIUM)', '']
+    for a, v in shop: S.append('- `%s` @%08x - %s' % (v['name'], a, v['evidence']))
+    ui = [t for a, (e, t) in strs.items() if re.match(r'^(N|P|T|L|A|B|S)_\w+_\d\d$', t)]
+    S += ['', '## UI (layout panes)', '',
+          '%d pane-name strings of the form `N_*_NN`/`P_*_NN`/`T_*_NN` (layout-pane lookups by name), e.g. N_root_00, N_nextPos_00, N_button_00, P_title_00, N_loadingIcon_00. Error UI uses `ErrorDialog_D_NN` and `error_txt01_NN` (%d strings). Layout archives such as `cad/TitleInfo.arc.lz`, `cad/Shelf.arc.lz` are referenced by name.' % (len(ui), sum(1 for a, (e, t) in strs.items() if t.startswith('error_txt'))),
+          'No UI function is named in V4: pane-name strings are used by hundreds of screens and do not by themselves identify a function.',
+          '', '## Graphics / media (strings only)', '',
+          '- `dmp_TexEnv[n].*`, `dmp_*` uniform/shader names: PICA200 shader uniform names (GPU state setup).',
+          '- `MoLive::*` strings: a movie/stream player library with its own allocator (error text "not enough memory", ReadEp stream messages).',
+          '', '## Runtime / library', '',
+          '- C runtime helpers named in S1 (strlen, strcpy, strcat, memcmp, strstr, snprintf, heap alloc/free wrappers, once guard) and `svc_*` wrappers for 3DS kernel calls.',
+          '']
+    open(os.path.join(V4, 'subsystems.md'), 'w').write('\n'.join(S) + '\n')
+
 def cross_check(N, body, fn, callers, callees, strs, sx):
     """S8: challenge names. Returns list of downgrades."""
     ps = 'S8-crosscheck'
@@ -196,11 +332,24 @@ def main():
     N = Names()
     pass1(N, body, fn, callers, callees, strs, sx)
     pass2(N, body, fn, callers, callees, strs, sx)
+    pass2b(N, body, fn, callers, callees, strs, sx)
     for it in range(1, 6):
         before = len(N.d)
         pass_thunks(N, body, fn, callers, callees, strs, sx, it)
         if len(N.d) == before: break
     down = cross_check(N, body, fn, callers, callees, strs, sx)
+    gen_docs(N, body, fn, callers, callees, strs, sx)
+    # S6: named globals (only where a named function's behaviour fixes the object's role)
+    G = []
+    def have(n): return next((a for a, v in N.d.items() if v['name'] == n), None)
+    if have('heap_alloc_checked') and have('heap_free_nullable'):
+        G.append(('003e25a0', 'g_heap_allocator', 'MEDIUM', 'object whose vtable slots +0x1c (allocate size,align) and +0x24 (free) are invoked by heap_alloc_checked / heap_free_nullable'))
+    if have('open_fs_user_session'):
+        G.append(('003e2450', 'g_fs_user_session', 'MEDIUM', 'filled by open_fs_user_session (service name "fs:USER") and tested for non-zero before reuse'))
+    if any(v['name'].startswith('build_url_') for v in N.d.values()):
+        G.append(('003e1da8', 'g_shop_base_url', 'MEDIUM', 'first %s argument of every build_url_* snprintf (base host string for ninja/samurai/ccif paths)'))
+    with open(os.path.join(V4, 'globals_named.csv'), 'w', newline='') as fh:
+        w = csv.writer(fh); w.writerow(['address', 'name', 'confidence', 'evidence']); w.writerows(G)
     # unique names
     seen = collections.Counter(v['name'] for v in N.d.values())
     for a, v in N.d.items():

@@ -170924,7 +170924,7 @@ void FUN_001ded48(uint param_1, uint param_2, uint param_3, uint param_4)
       *(byte *)&local_9a = 1;
       FUN_00262394(&local_e4, &local_78);
       if (uVar46 == 1) {
-        FUN_00262310(&local_2c);
+        build_url_ninja_ws_my_wishlist_put(&local_2c);
         FUN_002a8938(&local_f8, &local_2c);
         FUN_002a8df8(&local_2c);
         local_28 = &DAT_00450aa8;
@@ -170962,7 +170962,7 @@ void FUN_001ded48(uint param_1, uint param_2, uint param_3, uint param_4)
         if (uVar46 == 2) {
           uVar55 = FUN_00289dd0();
           uVar56 = get_uint_at_0x20_00299c28(uVar55);
-          FUN_00262274(&local_100, uVar58, uVar56, uVar58);
+          build_url_ninja_ws_my_wishlist_ID_delete(&local_100, uVar58, uVar56, uVar58);
           FUN_002a8938(&local_f8, &local_100);
           uVar65 = &local_100;
           goto LAB_001def70;
@@ -170997,7 +170997,7 @@ void FUN_001ded48(uint param_1, uint param_2, uint param_3, uint param_4)
     FUN_00262560();
     *(byte *)&local_a2 = 1;
     FUN_00262394(&local_ec, &local_78);
-    FUN_00320298(&local_84);
+    build_url_ninja_ws_my_session_close(&local_84);
     FUN_002a8938(&local_100, &local_84);
     FUN_002a8df8(&local_84);
     uVar138 = *(uint *)&DAT_003efbe0;
@@ -234598,9 +234598,9 @@ uint FUN_00223d2c(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 00223dc8  file_off 123dc8  ARM  size 0x84  insns 32 ====
-// id: FUN_00223dc8  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00223dc8  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0026b638)  callees: 3  sig: nparams=4 ret=void
-void FUN_00223dc8(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_ID_tax_locations(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/%s/tax_locations?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -238491,9 +238491,9 @@ void FUN_002276cc(uint param_1, uint param_2)
 
 
 // ==== Function @ 00227aac  file_off 127aac  ARM  size 0x60  insns 23 ====
-// id: FUN_00227aac  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00227aac  name_confidence: MEDIUM  discovery: prologue
 // callers: 2 (00336a0c, 00336a88)  callees: 3  sig: nparams=4 ret=void
-void FUN_00227aac(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_my_transaction_ID_receipt(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar11;
 
@@ -238565,9 +238565,9 @@ void FUN_00227b4c(uint param_1, uint param_2, uint param_3, uint param_4, ...)
 
 
 // ==== Function @ 00227c54  file_off 127c54  ARM  size 0x60  insns 23 ====
-// id: FUN_00227c54  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00227c54  name_confidence: MEDIUM  discovery: prologue
 // callers: 3 (00227e64, 00336090, 0033e278)  callees: 3  sig: nparams=3 ret=void
-void FUN_00227c54(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_titles(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/titles?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -238655,7 +238655,7 @@ void FUN_00227e64(uint param_1, uint param_2, uint param_3, uint param_4)
   FUN_002a7b94();
   uVar8 = *(byte *)(param_1 + 0x39);
   if (uVar8 == 0) {
-    FUN_00320dbc(&local_478, param_3, param_4);
+    build_url_samurai_ws_ID_contents(&local_478, param_3, param_4);
     FUN_002a8938(local_34, &local_478);
     FUN_002a8df8(&local_478);
   LAB_002280bc:
@@ -238675,14 +238675,14 @@ void FUN_00227e64(uint param_1, uint param_2, uint param_3, uint param_4)
   }
   else {
     if (uVar8 == 2) {
-      FUN_003213a0(&local_478, param_3, param_4);
+      build_url_samurai_ws_ID_movies(&local_478, param_3, param_4);
       FUN_002a8938(local_34, &local_478);
       FUN_002a8df8(&local_478);
       goto LAB_002280bc;
     }
     else {
       if (uVar8 == 1) {
-        FUN_00227c54(&local_478, param_3, param_4);
+        build_url_samurai_ws_ID_titles(&local_478, param_3, param_4);
         FUN_002a8938(local_34, &local_478);
         FUN_002a8df8(&local_478);
         uVar22 = *(uint *)(param_1 + 0x20);
@@ -238941,7 +238941,7 @@ uint FUN_002287e4(uint param_1, uint param_2, uint param_3, uint param_4, ...)
   FUN_002a7f88(in_r6, param_2, param_3, param_4);
   uVar3 = stack_arg_c;
   uVar4 = FUN_0026ce30();
-  FUN_00320378(&stack_arg_30, uVar4, uVar3);
+  build_url_ninja_ws_titles_id_pair(&stack_arg_30, uVar4, uVar3);
   FUN_003354f8(in_r9, &stack_arg_30);
   uVar10 = stack_arg_30;
   if (uVar10 != in_r7) {
@@ -239248,7 +239248,7 @@ void FUN_00228c3c(uint param_1, uint param_2, uint param_3, uint param_4, ...)
     }
   }
   uVar48 = *(uint *)(param_1 + 4);
-  FUN_0031f920(&local_44, &local_4c);
+  build_url_ninja_ws_ID_coupon_check(&local_44, &local_4c);
   uVar53 = *(uint *)(*(uint *)uVar48 + 0x10);
   (*(code *)uVar53)(uVar48, &local_44, uVar53);
   FUN_002a8df8(&local_44);
@@ -240032,7 +240032,7 @@ void FUN_00229ae4(uint param_1, uint param_2, uint param_3, uint param_4)
   }
   else {
     uVar23 = *(uint *)(param_1 + 0x24);
-    FUN_00320aa0(&local_40);
+    build_url_ninja_ws_my_shared_title_ids(&local_40);
     uVar27 = *(uint *)(*(uint *)uVar23 + 0x10);
     (*(code *)uVar27)(uVar23, &local_40, uVar27);
     uVar30 = local_40;
@@ -246157,7 +246157,7 @@ uint FUN_00230d18(uint param_1)
       uVar208 = *(uint *)(*(uint *)uVar206 + 0x28);
       (*(code *)uVar208)(uVar206, &local_58, uVar208);
       uVar211 = *(uint *)(param_1 + 0x44);
-      FUN_0031f820(&local_54);
+      build_url_ninja_ws_my_npns_status(&local_54);
       uVar215 = *(uint *)(*(uint *)uVar211 + 0x10);
       (*(code *)uVar215)(uVar211, &local_54, uVar215);
       uVar219 = local_54;
@@ -248956,7 +248956,7 @@ void FUN_002344d4(uint param_1, uint param_2)
   }
   uVar44 = *(uint *)param_1;
   uVar45 = FUN_0026ce30();
-  FUN_0031f1d4(&local_2c, param_2, uVar45);
+  build_url_ninja_ws_country_ID(&local_2c, param_2, uVar45);
   uVar51 = *(uint *)(*(uint *)uVar44 + 0x10);
   (*(code *)uVar51)(uVar44, &local_2c, uVar51);
   FUN_002a88e4(&local_2c);
@@ -290466,9 +290466,9 @@ uint FUN_00262164(uint param_1, uint param_2)
 
 
 // ==== Function @ 00262274  file_off 162274  ARM  size 0x60  insns 23 ====
-// id: FUN_00262274  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00262274  name_confidence: MEDIUM  discovery: prologue
 // callers: 2 (001ded48, 00346fe4)  callees: 3  sig: nparams=4 ret=void
-void FUN_00262274(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_my_wishlist_ID_delete(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar11;
 
@@ -290483,9 +290483,9 @@ void FUN_00262274(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 00262310  file_off 162310  ARM  size 0x50  insns 19 ====
-// id: FUN_00262310  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00262310  name_confidence: MEDIUM  discovery: prologue
 // callers: 2 (001ded48, 00346b90)  callees: 3  sig: nparams=1 ret=void
-void FUN_00262310(uint param_1)
+void build_url_ninja_ws_my_wishlist_put(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/wishlist/!put?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -292371,7 +292371,7 @@ void FUN_00264a9c(uint param_1)
   if (uVar25 != 0) uVar25 = FUN_00236b80(uVar25);
   FUN_0023671c(param_1 + 0x10, uVar25, 0);
   uVar30 = *(uint *)(param_1 + 0x10);
-  FUN_00320bb0(&local_2c);
+  build_url_ninja_ws_my_owned_coupons_00320bb0(&local_2c);
   uVar34 = *(uint *)(*(uint *)uVar30 + 0x10);
   (*(code *)uVar34)(uVar30, &local_2c, uVar34);
   uVar38 = local_2c;
@@ -297602,7 +297602,7 @@ void FUN_0026b638(uint param_1, uint param_2)
   if (param_2 == 0) {
     uVar84 = *(uint *)(param_1 + 4);
     uVar85 = FUN_0026ce30();
-    FUN_00223dc8(&local_70, &local_38, uVar85, 0);
+    build_url_ninja_ws_ID_tax_locations(&local_70, &local_38, uVar85, 0);
     uVar92 = *(uint *)(*(uint *)uVar84 + 0x10);
     (*(code *)uVar92)(uVar84, &local_70, uVar92);
     uVar83 = &local_70;
@@ -297659,7 +297659,7 @@ void FUN_0026b638(uint param_1, uint param_2)
     uVar66 = *(uint *)(param_1 + 4);
     uVar67 = local_5c;
     uVar68 = FUN_0026ce30();
-    FUN_00223dc8(&local_30, &local_38, uVar68, uVar67);
+    build_url_ninja_ws_ID_tax_locations(&local_30, &local_38, uVar68, uVar67);
     uVar75 = *(uint *)(*(uint *)uVar66 + 0x10);
     (*(code *)uVar75)(uVar66, &local_30, uVar75);
     FUN_002a8df8(&local_30);
@@ -299041,7 +299041,7 @@ void FUN_0026cff4(uint param_1, uint param_2)
     }
   }
   uVar35 = *(uint *)(param_1 + 4);
-  FUN_0031f8a0(&local_28);
+  build_url_ninja_ws_my_language(&local_28);
   uVar39 = *(uint *)(*(uint *)uVar35 + 0x10);
   (*(code *)uVar39)(uVar35, &local_28, uVar39);
   uVar42 = local_28;
@@ -351769,7 +351769,7 @@ void FUN_002a90a8(uint param_1, uint param_2, uint param_3)
   }
   else {
     uVar11 = param_3 + 0x8c;
-    uVar12 = (param_2 << 4) - 0x7fe8feb6;
+    uVar12 = (param_2 << 4) + 0x8017014a;
     local_50 = param_2 + 0xf;
     uVar17 = *(uint *)&DAT_003ef07c;
     if (uVar5 == 1) {
@@ -438057,7 +438057,7 @@ uint FUN_0030c308(uint param_1)
   local_2c = 0;
   FUN_00236b58(&local_2c);
   uVar67 = *(uint *)(param_1 + 4);
-  FUN_0031ef9c(&local_30, &local_2c, *(uint *)(param_1 + 0x30), *(uint *)(param_1 + 0x34));
+  build_url_ninja_ws_ID_title_ID_redeem(&local_30, &local_2c, *(uint *)(param_1 + 0x30), *(uint *)(param_1 + 0x34));
   uVar74 = *(uint *)(*(uint *)uVar67 + 0x10);
   (*(code *)uVar74)(uVar67, &local_30, uVar74);
   uVar78 = local_30;
@@ -439572,7 +439572,7 @@ void FUN_0030dc24(uint param_1, uint param_2, uint param_3, uint param_4, ...)
   (*(code *)uVar130)(uVar122, &local_3c, uVar130);
   FUN_002a88e4(&local_3c);
   uVar137 = *(uint *)param_1;
-  FUN_00320cb8(&local_38);
+  build_url_ninja_ws_redeemable_card_check(&local_38);
   uVar142 = *(uint *)(*(uint *)uVar137 + 0x10);
   (*(code *)uVar142)(uVar137, &local_38, uVar142);
   FUN_002a88e4(&local_38);
@@ -440387,7 +440387,7 @@ void FUN_0030ef30(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar24 = *(uint *)(param_1 + 0x10);
   uVar26 = FUN_0026ce30();
   local_68 = uVar26;
-  FUN_0032078c(&local_34, &local_30, *(uint *)(param_1 + 0x30), *(uint *)(param_1 + 0x34));
+  build_url_samurai_ws_ID_title_ID(&local_34, &local_30, *(uint *)(param_1 + 0x30), *(uint *)(param_1 + 0x34));
   uVar31 = local_34;
   uVar33 = strlen(uVar31);
   uVar34 = uVar33;
@@ -440600,7 +440600,7 @@ void FUN_0030f3a4(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar23 = *(uint *)(param_1 + 0x10);
   uVar25 = FUN_0026ce30();
   local_68 = uVar25;
-  FUN_0031ee60(&local_34, &local_30, param_3, param_4);
+  build_url_ninja_ws_ID_title_ID_ec_info_0031ee60(&local_34, &local_30, param_3, param_4);
   uVar30 = local_34;
   uVar32 = strlen(uVar30);
   uVar33 = uVar32;
@@ -442887,7 +442887,7 @@ uint FUN_003120bc(uint param_1, uint param_2)
   local_34 = &local_70;
   uVar58 = FUN_0026ce30();
   local_78 = uVar58;
-  FUN_00320840(&local_3c, &local_38, uVar11, uVar6);
+  build_url_samurai_ws_ID_movie_ID(&local_3c, &local_38, uVar11, uVar6);
   uVar63 = local_3c;
   local_68 = uVar63;
   uVar64 = strlen(uVar63);
@@ -444863,7 +444863,7 @@ uint FUN_0031447c(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar13 = *(uint *)(*(uint *)uVar11 + 0x28);
   (*(code *)uVar13)(uVar11, &local_20, uVar13);
   uVar16 = *(uint *)(param_1 + 8);
-  FUN_00321b84(&local_24);
+  build_url_ninja_ws_my_loyalty_account(&local_24);
   uVar20 = *(uint *)(*(uint *)uVar16 + 0x10);
   (*(code *)uVar20)(uVar16, &local_24, uVar20);
   FUN_002a8df8(&local_24);
@@ -445114,7 +445114,7 @@ uint FUN_003145e8(uint param_1, uint param_2, uint param_3)
   uVar133 = *(uint *)(*(uint *)uVar130 + 0x1c);
   (*(code *)uVar133)(uVar130, "loyalty_account_password", &local_d0, uVar133);
   uVar136 = *(uint *)(param_1 + 8);
-  FUN_00320f30(&local_34);
+  build_url_ninja_ws_my_loyalty_account_link(&local_34);
   uVar140 = *(uint *)(*(uint *)uVar136 + 0x10);
   (*(code *)uVar140)(uVar136, &local_34, uVar140);
   FUN_002a8df8(&local_34);
@@ -445171,7 +445171,7 @@ uint FUN_00314ad4(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar13 = *(uint *)(*(uint *)uVar11 + 0x28);
   (*(code *)uVar13)(uVar11, &local_20, uVar13);
   uVar16 = *(uint *)(param_1 + 8);
-  FUN_00321a6c(&local_24);
+  build_url_ninja_ws_my_loyalty_account_unlink(&local_24);
   uVar20 = *(uint *)(*(uint *)uVar16 + 0x10);
   (*(code *)uVar20)(uVar16, &local_24, uVar20);
   FUN_002a8df8(&local_24);
@@ -446424,7 +446424,7 @@ uint FUN_00316310(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar13 = *(uint *)(*(uint *)uVar11 + 0x28);
   (*(code *)uVar13)(uVar11, &local_20, uVar13);
   uVar16 = *(uint *)(param_1 + 4);
-  FUN_00321044(&local_24);
+  build_url_ninja_ws_my_votes_migrate_ctr(&local_24);
   uVar20 = *(uint *)(*(uint *)uVar16 + 0x10);
   (*(code *)uVar20)(uVar16, &local_24, uVar20);
   FUN_002a8df8(&local_24);
@@ -446492,7 +446492,7 @@ uint FUN_003164f8(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar13 = *(uint *)(*(uint *)uVar11 + 0x28);
   (*(code *)uVar13)(uVar11, &local_20, uVar13);
   uVar16 = *(uint *)(param_1 + 4);
-  FUN_00320c34(&local_24);
+  build_url_ninja_ws_my_votes_delete(&local_24);
   uVar20 = *(uint *)(*(uint *)uVar16 + 0x10);
   (*(code *)uVar20)(uVar16, &local_24, uVar20);
   FUN_002a8df8(&local_24);
@@ -446551,7 +446551,7 @@ uint FUN_00316668(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar15 = *(uint *)(*(uint *)uVar13 + 0x28);
   (*(code *)uVar15)(uVar13, &local_28, uVar15);
   uVar18 = *(uint *)(param_1 + 4);
-  FUN_003201a0(&local_2c);
+  build_url_ninja_ws_my_votes_put(&local_2c);
   uVar22 = *(uint *)(*(uint *)uVar18 + 0x10);
   (*(code *)uVar22)(uVar18, &local_2c, uVar22);
   FUN_002a8df8(&local_2c);
@@ -446736,7 +446736,7 @@ uint FUN_003169e4(uint param_1, uint param_2)
   FUN_0023671c(param_1 + 0x10, uVar35, 0);
   uVar40 = *(uint *)(param_1 + 0x10);
   uVar42 = FUN_0026ce30();
-  FUN_00320994(&local_30, &local_2c, uVar42);
+  build_url_samurai_ws_ID_genres(&local_30, &local_2c, uVar42);
   uVar49 = FUN_002a8e48(&local_28, local_30, &local_24);
   uVar52 = *(uint *)(*(uint *)uVar40 + 0x10);
   (*(code *)uVar52)(uVar40, uVar49, uVar52);
@@ -447142,7 +447142,7 @@ uint FUN_0031722c(uint param_1, uint param_2)
   FUN_0023671c(param_1 + 0x10, uVar35, 0);
   uVar40 = *(uint *)(param_1 + 0x10);
   uVar42 = FUN_0026ce30();
-  FUN_00321130(&local_30, &local_2c, uVar42);
+  build_url_samurai_ws_ID_searchcategory(&local_30, &local_2c, uVar42);
   uVar49 = FUN_002a8e48(&local_28, local_30, &local_24);
   uVar52 = *(uint *)(*(uint *)uVar40 + 0x10);
   (*(code *)uVar52)(uVar40, uVar49, uVar52);
@@ -447493,7 +447493,7 @@ uint FUN_00317968(uint param_1, uint param_2)
   FUN_0023671c(param_1 + 0x10, uVar35, 0);
   uVar40 = *(uint *)(param_1 + 0x10);
   uVar42 = FUN_0026ce30();
-  FUN_003219d0(&local_30, &local_2c, uVar42);
+  build_url_samurai_ws_ID_publishers(&local_30, &local_2c, uVar42);
   uVar49 = FUN_002a8e48(&local_28, local_30, &local_24);
   uVar52 = *(uint *)(*(uint *)uVar40 + 0x10);
   (*(code *)uVar52)(uVar40, uVar49, uVar52);
@@ -450805,7 +450805,7 @@ uint FUN_0031c6f8(uint param_1, uint param_2)
   uVar45 = *(uint *)(param_1 + 4);
   uVar48 = *(uint *)(param_2 + 0x40);
   uVar49 = FUN_0026ce30();
-  FUN_0031f374(&local_2c, uVar49, uVar48);
+  build_url_samurai_layout_rating_info_ID_ID_layout(&local_2c, uVar49, uVar48);
   uVar55 = *(uint *)(*(uint *)uVar45 + 0x10);
   (*(code *)uVar55)(uVar45, &local_2c, uVar55);
   uVar59 = local_2c;
@@ -453051,9 +453051,9 @@ void build_url_ninja_ws_service_hosts(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 0031ee60  file_off 21ee60  ARM  size 0x78  insns 29 ====
-// id: FUN_0031ee60  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031ee60  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0030f3a4)  callees: 3  sig: nparams=4 ret=void
-void FUN_0031ee60(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_ID_title_ID_ec_info_0031ee60(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   float fVar1;
   uint uVar13;
@@ -453072,9 +453072,9 @@ void FUN_0031ee60(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 0031ef18  file_off 21ef18  ARM  size 0x50  insns 19 ====
-// id: FUN_0031ef18  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031ef18  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00342b04)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031ef18(uint param_1)
+void build_url_ninja_ws_my_wishlist_notice(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/wishlist/notice?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453084,9 +453084,9 @@ void FUN_0031ef18(uint param_1)
 
 
 // ==== Function @ 0031ef9c  file_off 21ef9c  ARM  size 0x64  insns 24 ====
-// id: FUN_0031ef9c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031ef9c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0030c308)  callees: 3  sig: nparams=4 ret=void
-void FUN_0031ef9c(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_ID_title_ID_redeem(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar12;
 
@@ -453114,9 +453114,9 @@ void FUN_0031f03c(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 0031f0bc  file_off 21f0bc  ARM  size 0x60  insns 23 ====
-// id: FUN_0031f0bc  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f0bc  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0033b068)  callees: 3  sig: nparams=3 ret=void
-void FUN_0031f0bc(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_news(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/news?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -453126,9 +453126,9 @@ void FUN_0031f0bc(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 0031f150  file_off 21f150  ARM  size 0x50  insns 19 ====
-// id: FUN_0031f150  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f150  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0033c8cc)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031f150(uint param_1)
+void build_url_ninja_ws_my_balance_current(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/balance/current?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453138,9 +453138,9 @@ void FUN_0031f150(uint param_1)
 
 
 // ==== Function @ 0031f1d4  file_off 21f1d4  ARM  size 0x60  insns 23 ====
-// id: FUN_0031f1d4  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f1d4  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (002344d4)  callees: 3  sig: nparams=3 ret=void
-void FUN_0031f1d4(uint param_1, uint param_2, uint param_3)
+void build_url_ninja_ws_country_ID(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/country/%s?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453163,9 +453163,9 @@ void build_url_ninja_ws_my_account_ctr_migrate_without_nna(uint param_1)
 
 
 // ==== Function @ 0031f2bc  file_off 21f2bc  ARM  size 0x78  insns 29 ====
-// id: FUN_0031f2bc  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f2bc  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00330e98)  callees: 3  sig: nparams=4 ret=void
-void FUN_0031f2bc(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_ID_title_ID_ec_info_0031f2bc(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   float fVar1;
   uint uVar13;
@@ -453184,9 +453184,9 @@ void FUN_0031f2bc(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 0031f374  file_off 21f374  ARM  size 0x60  insns 23 ====
-// id: FUN_0031f374  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f374  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0031c6f8)  callees: 3  sig: nparams=3 ret=void
-void FUN_0031f374(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_layout_rating_info_ID_ID_layout(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/layout/rating_info/%d_%s.layout", *(uint *)&DAT_003e1da4);
@@ -453196,9 +453196,9 @@ void FUN_0031f374(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 0031f400  file_off 21f400  ARM  size 0x64  insns 24 ====
-// id: FUN_0031f400  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f400  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (003312f8)  callees: 3  sig: nparams=4 ret=void
-void FUN_0031f400(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_ID_title_ID_purchase(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar12;
 
@@ -453234,9 +453234,9 @@ void FUN_0031f4a0(uint param_1, uint param_2)
 
 
 // ==== Function @ 0031f58c  file_off 21f58c  ARM  size 0x60  insns 23 ====
-// id: FUN_0031f58c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f58c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0033b068)  callees: 3  sig: nparams=3 ret=void
-void FUN_0031f58c(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_telops(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/telops?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -453246,9 +453246,9 @@ void FUN_0031f58c(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 0031f624  file_off 21f624  ARM  size 0x50  insns 19 ====
-// id: FUN_0031f624  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f624  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00341ea0)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031f624(uint param_1)
+void build_url_ninja_ws_my_wishlist_notice_ack(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/wishlist/notice/!ack?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453293,9 +453293,9 @@ void build_url_samurai_ws_ID_ranking_ID(uint param_1, uint param_2, uint param_3
 
 
 // ==== Function @ 0031f79c  file_off 21f79c  ARM  size 0x50  insns 19 ====
-// id: FUN_0031f79c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f79c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (003336f8)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031f79c(uint param_1)
+void build_url_ninja_ws_my_credit_card(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/credit_card/?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453305,9 +453305,9 @@ void FUN_0031f79c(uint param_1)
 
 
 // ==== Function @ 0031f820  file_off 21f820  ARM  size 0x50  insns 19 ====
-// id: FUN_0031f820  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f820  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00230d18)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031f820(uint param_1)
+void build_url_ninja_ws_my_npns_status(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/npns_status?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453317,9 +453317,9 @@ void FUN_0031f820(uint param_1)
 
 
 // ==== Function @ 0031f8a0  file_off 21f8a0  ARM  size 0x50  insns 19 ====
-// id: FUN_0031f8a0  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f8a0  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0026cff4)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031f8a0(uint param_1)
+void build_url_ninja_ws_my_language(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/language?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453329,9 +453329,9 @@ void FUN_0031f8a0(uint param_1)
 
 
 // ==== Function @ 0031f920  file_off 21f920  ARM  size 0x58  insns 21 ====
-// id: FUN_0031f920  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f920  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00228c3c)  callees: 3  sig: nparams=2 ret=void
-void FUN_0031f920(uint param_1, uint param_2)
+void build_url_ninja_ws_ID_coupon_check(uint param_1, uint param_2)
 {
   uint uVar10;
 
@@ -453345,9 +453345,9 @@ void FUN_0031f920(uint param_1, uint param_2)
 
 
 // ==== Function @ 0031f9ac  file_off 21f9ac  ARM  size 0x64  insns 24 ====
-// id: FUN_0031f9ac  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031f9ac  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0035fb48)  callees: 3  sig: nparams=4 ret=void
-void FUN_0031f9ac(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_ID_movie_ID_play(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar12;
 
@@ -453363,10 +453363,10 @@ void FUN_0031f9ac(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 0031fa3c  file_off 21fa3c  ARM  size 0xa0  insns 38 ====
-// id: FUN_0031fa3c  name_confidence: MEDIUM  discovery: prologue
+// id: FUN_0031fa3c  name_confidence: UNNAMED  discovery: prologue
 // callers: 1 (00330e98)  callees: 3  sig: nparams=4 ret=void stack_args>=2
 // strings: %s/ninja/ws/%s/title/%llu/prepurchase_info?%s=%s
-void build_url_ninja_ws_ID_title_ID_prepurchase_info(uint param_1, uint param_2, uint param_3, uint param_4, ...)
+void FUN_0031fa3c(uint param_1, uint param_2, uint param_3, uint param_4, ...)
 {
   uint uVar4, uVar5, cc1, cc2, cc3, uVar12;
 
@@ -453401,9 +453401,9 @@ void build_url_ninja_ws_ID_title_ID_prepurchase_info(uint param_1, uint param_2,
 
 
 // ==== Function @ 0031fb1c  file_off 21fb1c  ARM  size 0x60  insns 23 ====
-// id: FUN_0031fb1c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031fb1c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0032d37c)  callees: 3  sig: nparams=3 ret=void
-void FUN_0031fb1c(uint param_1, uint param_2, uint param_3)
+void build_url_ninja_ws_my_votes(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/votes?shop_id=1&limit=%u&offset=%u&_type=json", *(uint *)&DAT_003e1da8);
@@ -453413,9 +453413,9 @@ void FUN_0031fb1c(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 0031fbbc  file_off 21fbbc  ARM  size 0x50  insns 19 ====
-// id: FUN_0031fbbc  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031fbbc  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00340cf8)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031fbbc(uint param_1)
+void build_url_ninja_ws_my_session_open(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/session/!open?_type=json", *(uint *)&DAT_003e1da8);
@@ -453425,9 +453425,9 @@ void FUN_0031fbbc(uint param_1)
 
 
 // ==== Function @ 0031fc34  file_off 21fc34  ARM  size 0x50  insns 19 ====
-// id: FUN_0031fc34  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031fc34  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00344278)  callees: 3  sig: nparams=1 ret=void
-void FUN_0031fc34(uint param_1)
+void build_url_ninja_ws_my_tax_location(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/tax_location?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453475,9 +453475,9 @@ void FUN_0031fcb8(uint param_1, uint param_2, uint param_3, uint param_4, ...)
 
 
 // ==== Function @ 0031fdf4  file_off 21fdf4  ARM  size 0x60  insns 23 ====
-// id: FUN_0031fdf4  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031fdf4  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00337550)  callees: 3  sig: nparams=3 ret=void
-void FUN_0031fdf4(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_languages(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/languages?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -453525,9 +453525,9 @@ void build_url_ninja_ws_ID_titles_online_prices_0031fec4(uint param_1, uint para
 
 
 // ==== Function @ 0031ff28  file_off 21ff28  ARM  size 0x60  insns 23 ====
-// id: FUN_0031ff28  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031ff28  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00327a4c)  callees: 3  sig: nparams=4 ret=void
-void FUN_0031ff28(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_my_owned_coupons_0031ff28(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar11;
 
@@ -453542,9 +453542,9 @@ void FUN_0031ff28(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 0031ffc8  file_off 21ffc8  ARM  size 0xd8  insns 53 ====
-// id: FUN_0031ffc8  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0031ffc8  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0032b108)  callees: 5  sig: nparams=3 ret=void stack_args>=3
-void FUN_0031ffc8(uint param_1, uint param_2, uint param_3, ...)
+void build_url_ninja_ws_ID_title_public_status(uint param_1, uint param_2, uint param_3, ...)
 {
   float fVar1, fVar2;
   uint uVar5, uVar18, uVar19, uVar28, uVar30;
@@ -453577,9 +453577,9 @@ void FUN_0031ffc8(uint param_1, uint param_2, uint param_3, ...)
 
 
 // ==== Function @ 00320104  file_off 220104  ARM  size 0x64  insns 24 ====
-// id: FUN_00320104  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320104  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (003312f8)  callees: 3  sig: nparams=4 ret=void
-void FUN_00320104(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_ninja_ws_ID_demo_ID_purchase(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar12;
 
@@ -453595,9 +453595,9 @@ void FUN_00320104(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 003201a0  file_off 2201a0  ARM  size 0x50  insns 19 ====
-// id: FUN_003201a0  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_003201a0  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00316668)  callees: 3  sig: nparams=1 ret=void
-void FUN_003201a0(uint param_1)
+void build_url_ninja_ws_my_votes_put(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/votes/!put?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453630,9 +453630,9 @@ void build_url_ninja_ws_my_recommend_title(uint param_1, uint param_2, uint para
 
 
 // ==== Function @ 00320298  file_off 220298  ARM  size 0x50  insns 19 ====
-// id: FUN_00320298  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320298  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (001ded48)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320298(uint param_1)
+void build_url_ninja_ws_my_session_close(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/session/!close?_type=json", *(uint *)&DAT_003e1da8);
@@ -453655,9 +453655,9 @@ void build_url_ninja_ws_my_shared_titles(uint param_1, uint param_2, uint param_
 
 
 // ==== Function @ 00320378  file_off 220378  ARM  size 0x60  insns 23 ====
-// id: FUN_00320378  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320378  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (002287e4)  callees: 3  sig: nparams=3 ret=void
-void FUN_00320378(uint param_1, uint param_2, uint param_3)
+void build_url_ninja_ws_titles_id_pair(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/titles/id_pair?lang=%s&title_id%%5B%%5D=%s", *(uint *)&DAT_003e1da8);
@@ -453701,9 +453701,9 @@ void FUN_00320474(uint param_1)
 
 
 // ==== Function @ 00320598  file_off 220598  ARM  size 0x50  insns 19 ====
-// id: FUN_00320598  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320598  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00334768)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320598(uint param_1)
+void build_url_ninja_ws_my_balance_current_cc_add(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/balance/current/!cc_add?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453726,9 +453726,9 @@ void build_url_ninja_ws_my_votable_titles(uint param_1, uint param_2, uint param
 
 
 // ==== Function @ 00320688  file_off 220688  ARM  size 0x50  insns 19 ====
-// id: FUN_00320688  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320688  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00346da4)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320688(uint param_1)
+void build_url_ninja_ws_my_wishlist_merge(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/wishlist/!merge?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453759,9 +453759,9 @@ void build_url_samurai_ws_ID_directories(uint param_1, uint param_2, uint param_
 
 
 // ==== Function @ 0032078c  file_off 22078c  ARM  size 0x78  insns 29 ====
-// id: FUN_0032078c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_0032078c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0030ef30)  callees: 3  sig: nparams=4 ret=void
-void FUN_0032078c(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_samurai_ws_ID_title_ID(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   float fVar1;
   uint uVar13;
@@ -453780,9 +453780,9 @@ void FUN_0032078c(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 00320840  file_off 220840  ARM  size 0x78  insns 29 ====
-// id: FUN_00320840  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320840  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (003120bc)  callees: 3  sig: nparams=4 ret=void
-void FUN_00320840(uint param_1, uint param_2, uint param_3, uint param_4)
+void build_url_samurai_ws_ID_movie_ID(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   float fVar1;
   uint uVar13;
@@ -453801,9 +453801,9 @@ void FUN_00320840(uint param_1, uint param_2, uint param_3, uint param_4)
 
 
 // ==== Function @ 003208f4  file_off 2208f4  ARM  size 0x60  insns 23 ====
-// id: FUN_003208f4  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_003208f4  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00339530)  callees: 3  sig: nparams=3 ret=void
-void FUN_003208f4(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_rankings(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/rankings?shop_id=1&device=4&lang=%s&_type=json", *(uint *)&DAT_003e1da4);
@@ -453813,9 +453813,9 @@ void FUN_003208f4(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 00320994  file_off 220994  ARM  size 0x60  insns 23 ====
-// id: FUN_00320994  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320994  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (003169e4)  callees: 3  sig: nparams=3 ret=void
-void FUN_00320994(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_genres(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/genres?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -453825,9 +453825,9 @@ void FUN_00320994(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 00320a2c  file_off 220a2c  ARM  size 0x50  insns 19 ====
-// id: FUN_00320a2c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320a2c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00334190)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320a2c(uint param_1)
+void build_url_ccif_services_credit_card_input(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/CCIF/services/credit_card/!input", *(uint *)&DAT_003e1dac);
@@ -453837,9 +453837,9 @@ void FUN_00320a2c(uint param_1)
 
 
 // ==== Function @ 00320aa0  file_off 220aa0  ARM  size 0x50  insns 19 ====
-// id: FUN_00320aa0  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320aa0  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00229ae4)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320aa0(uint param_1)
+void build_url_ninja_ws_my_shared_title_ids(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/shared_title_ids?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453849,9 +453849,9 @@ void FUN_00320aa0(uint param_1)
 
 
 // ==== Function @ 00320b28  file_off 220b28  ARM  size 0x50  insns 19 ====
-// id: FUN_00320b28  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320b28  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00345640)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320b28(uint param_1)
+void build_url_ninja_ws_my_tax_location_put(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/tax_location/!put?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453861,9 +453861,9 @@ void FUN_00320b28(uint param_1)
 
 
 // ==== Function @ 00320bb0  file_off 220bb0  ARM  size 0x50  insns 19 ====
-// id: FUN_00320bb0  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320bb0  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00264a9c)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320bb0(uint param_1)
+void build_url_ninja_ws_my_owned_coupons_00320bb0(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/owned_coupons?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453873,9 +453873,9 @@ void FUN_00320bb0(uint param_1)
 
 
 // ==== Function @ 00320c34  file_off 220c34  ARM  size 0x50  insns 19 ====
-// id: FUN_00320c34  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320c34  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (003164f8)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320c34(uint param_1)
+void build_url_ninja_ws_my_votes_delete(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/votes/!delete?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453885,9 +453885,9 @@ void FUN_00320c34(uint param_1)
 
 
 // ==== Function @ 00320cb8  file_off 220cb8  ARM  size 0x50  insns 19 ====
-// id: FUN_00320cb8  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320cb8  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0030dc24)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320cb8(uint param_1)
+void build_url_ninja_ws_redeemable_card_check(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/redeemable_card/!check?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453920,9 +453920,9 @@ void build_url_samurai_ws_ID_title_ID_aocs(uint param_1, uint param_2, uint para
 
 
 // ==== Function @ 00320dbc  file_off 220dbc  ARM  size 0x60  insns 23 ====
-// id: FUN_00320dbc  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320dbc  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00227e64)  callees: 3  sig: nparams=3 ret=void
-void FUN_00320dbc(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_contents(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/contents?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -453968,9 +453968,9 @@ void build_url_ninja_ws_my_auto_billing_plans(uint param_1, uint param_2, uint p
 
 
 // ==== Function @ 00320f30  file_off 220f30  ARM  size 0x50  insns 19 ====
-// id: FUN_00320f30  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320f30  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (003145e8)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320f30(uint param_1)
+void build_url_ninja_ws_my_loyalty_account_link(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/loyalty_account/!link?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453980,9 +453980,9 @@ void FUN_00320f30(uint param_1)
 
 
 // ==== Function @ 00320fbc  file_off 220fbc  ARM  size 0x50  insns 19 ====
-// id: FUN_00320fbc  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00320fbc  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00333f64)  callees: 3  sig: nparams=1 ret=void
-void FUN_00320fbc(uint param_1)
+void build_url_ninja_ws_my_credit_card_delete(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/credit_card/!delete?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -453992,9 +453992,9 @@ void FUN_00320fbc(uint param_1)
 
 
 // ==== Function @ 00321044  file_off 221044  ARM  size 0x50  insns 19 ====
-// id: FUN_00321044  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00321044  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00316310)  callees: 3  sig: nparams=1 ret=void
-void FUN_00321044(uint param_1)
+void build_url_ninja_ws_my_votes_migrate_ctr(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/votes/!migrate_ctr?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -454017,9 +454017,9 @@ void build_url_ninja_ws_country_ID_replenish_amounts(uint param_1, uint param_2,
 
 
 // ==== Function @ 00321130  file_off 221130  ARM  size 0x60  insns 23 ====
-// id: FUN_00321130  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00321130  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0031722c)  callees: 3  sig: nparams=3 ret=void
-void FUN_00321130(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_searchcategory(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/searchcategory?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -454068,9 +454068,9 @@ void build_url_ninja_ws_ID_titles_online_prices_00321234(uint param_1, uint para
 
 
 // ==== Function @ 003212b0  file_off 2212b0  ARM  size 0x50  insns 19 ====
-// id: FUN_003212b0  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_003212b0  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00345834)  callees: 3  sig: nparams=1 ret=void
-void FUN_003212b0(uint param_1)
+void build_url_ninja_ws_my_tax_location_delete(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/tax_location/!delete?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -454093,9 +454093,9 @@ void build_url_samurai_ws_ID_publishers_contacts(uint param_1, uint param_2, uin
 
 
 // ==== Function @ 003213a0  file_off 2213a0  ARM  size 0x60  insns 23 ====
-// id: FUN_003213a0  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_003213a0  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00227e64)  callees: 3  sig: nparams=3 ret=void
-void FUN_003213a0(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_movies(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/movies?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -454318,9 +454318,9 @@ void FUN_00321438(uint param_1, uint param_2, uint param_3, uint param_4, ...)
 
 
 // ==== Function @ 003219d0  file_off 2219d0  ARM  size 0x60  insns 23 ====
-// id: FUN_003219d0  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_003219d0  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00317968)  callees: 3  sig: nparams=3 ret=void
-void FUN_003219d0(uint param_1, uint param_2, uint param_3)
+void build_url_samurai_ws_ID_publishers(uint param_1, uint param_2, uint param_3)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/samurai/ws/%s/publishers?lang=%s&shop_id=1&_type=json", *(uint *)&DAT_003e1da4);
@@ -454330,9 +454330,9 @@ void FUN_003219d0(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 00321a6c  file_off 221a6c  ARM  size 0x50  insns 19 ====
-// id: FUN_00321a6c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00321a6c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00314ad4)  callees: 3  sig: nparams=1 ret=void
-void FUN_00321a6c(uint param_1)
+void build_url_ninja_ws_my_loyalty_account_unlink(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/loyalty_account/!unlink?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -454342,9 +454342,9 @@ void FUN_00321a6c(uint param_1)
 
 
 // ==== Function @ 00321af8  file_off 221af8  ARM  size 0x50  insns 19 ====
-// id: FUN_00321af8  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00321af8  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00342b04)  callees: 3  sig: nparams=1 ret=void
-void FUN_00321af8(uint param_1)
+void build_url_ninja_ws_my_parental_control_put(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/parental_control/!put?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -454354,9 +454354,9 @@ void FUN_00321af8(uint param_1)
 
 
 // ==== Function @ 00321b84  file_off 221b84  ARM  size 0x50  insns 19 ====
-// id: FUN_00321b84  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00321b84  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0031447c)  callees: 3  sig: nparams=1 ret=void
-void FUN_00321b84(uint param_1)
+void build_url_ninja_ws_my_loyalty_account(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/loyalty_account?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -454366,9 +454366,9 @@ void FUN_00321b84(uint param_1)
 
 
 // ==== Function @ 00321c08  file_off 221c08  ARM  size 0x50  insns 19 ====
-// id: FUN_00321c08  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00321c08  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (0032f0b4)  callees: 3  sig: nparams=1 ret=void
-void FUN_00321c08(uint param_1)
+void build_url_ninja_ws_my_votable_titles_put(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/votable_titles/!put?shop_id=1&_type=json", *(uint *)&DAT_003e1da8);
@@ -454427,9 +454427,9 @@ void build_url_ninja_ws_my_abandoned_transactions(uint param_1, uint param_2, ui
 
 
 // ==== Function @ 00321d8c  file_off 221d8c  ARM  size 0x50  insns 19 ====
-// id: FUN_00321d8c  name_confidence: UNNAMED  discovery: prologue
+// id: FUN_00321d8c  name_confidence: MEDIUM  discovery: prologue
 // callers: 1 (00340cf8)  callees: 3  sig: nparams=1 ret=void
-void FUN_00321d8c(uint param_1)
+void build_url_ninja_ws_my_session_open_without_nna(uint param_1)
 {
   FUN_002a7b94();
   snprintf(&local_420, 0x400, "%s/ninja/ws/my/session/!open_without_nna", *(uint *)&DAT_003e1da8);
@@ -458790,7 +458790,7 @@ void FUN_00327a4c(uint param_1, uint param_2, uint param_3, uint param_4)
   if (uVar27 != 0) uVar27 = FUN_00236b80(uVar27);
   FUN_0023671c(param_1 + 0x10, uVar27, 0);
   uVar32 = *(uint *)(param_1 + 0x10);
-  FUN_0031ff28(&local_2c, uVar36, param_3, param_4);
+  build_url_ninja_ws_my_owned_coupons_0031ff28(&local_2c, uVar36, param_3, param_4);
   uVar39 = *(uint *)(*(uint *)uVar32 + 0x10);
   (*(code *)uVar39)(uVar32, &local_2c, uVar39);
   uVar43 = local_2c;
@@ -461728,7 +461728,7 @@ void FUN_0032b108(uint param_1, uint param_2, uint param_3, uint param_4, ...)
   uVar47 = *(uint *)(param_1 + 4);
   uVar48 = FUN_0026ce30();
   *(float *)&local_50 = fVar1;
-  FUN_0031ffc8(&local_38, &local_30, uVar48);
+  build_url_ninja_ws_ID_title_public_status(&local_38, &local_30, uVar48);
   uVar54 = *(uint *)(*(uint *)uVar47 + 0x10);
   (*(code *)uVar54)(uVar47, &local_30, uVar54);
   FUN_002a8df8(&local_30);
@@ -463490,7 +463490,7 @@ uint FUN_0032d37c(uint param_1, uint param_2, uint param_3, uint param_4)
   uVar49 = *(uint *)(*(uint *)uVar47 + 0x28);
   (*(code *)uVar49)(uVar47, &local_48, uVar49);
   uVar53 = *(uint *)(param_1 + 4);
-  FUN_0031fb1c(&local_30, 0x14, param_2 + (param_2 << 2) << 2);
+  build_url_ninja_ws_my_votes(&local_30, 0x14, param_2 + (param_2 << 2) << 2);
   uVar59 = *(uint *)(*(uint *)uVar53 + 0x10);
   (*(code *)uVar59)(uVar53, &local_30, uVar59);
   uVar63 = local_30;
@@ -465080,7 +465080,7 @@ uint FUN_0032f0b4(uint param_1, uint param_2, uint param_3, uint param_4)
     uVar18 = *(uint *)(*(uint *)uVar16 + 0x28);
     (*(code *)uVar18)(uVar16, &local_70, uVar18);
     uVar21 = *(uint *)(param_1 + 4);
-    FUN_00321c08(&local_30);
+    build_url_ninja_ws_my_votable_titles_put(&local_30);
     uVar25 = *(uint *)(*(uint *)uVar21 + 0x10);
     (*(code *)uVar25)(uVar21, &local_30, uVar25);
     uVar29 = local_30;
@@ -466696,7 +466696,7 @@ uint FUN_00330e98(uint param_1, uint param_2, uint param_3, uint param_4, ...)
       uVar64 = get_uint_at_0x20_00299c28(uVar62);
       local_5c = uVar60;
       local_60 = uVar59;
-      build_url_ninja_ws_ID_title_ID_prepurchase_info(&local_3c, &local_58, uVar64, uVar66);
+      FUN_0031fa3c(&local_3c, &local_58, uVar64, uVar66);
       uVar72 = *(uint *)(*(uint *)uVar63 + 0x10);
       (*(code *)uVar72)(uVar63, &local_3c, uVar72);
       FUN_002a8df8(&local_3c);
@@ -466741,7 +466741,7 @@ uint FUN_00330e98(uint param_1, uint param_2, uint param_3, uint param_4, ...)
     uVar174 = FUN_0026ce30();
     uVar177 = get_uint_at_0x20_00299c28(*(uint *)(param_1 + 0x50));
     local_60 = uVar174;
-    FUN_0031f2bc(&local_40, &local_5c, uVar177, uVar179);
+    build_url_ninja_ws_ID_title_ID_ec_info_0031f2bc(&local_40, &local_5c, uVar177, uVar179);
     uVar185 = *(uint *)(*(uint *)uVar173 + 0x10);
     (*(code *)uVar185)(uVar173, &local_40, uVar185);
     FUN_002a8df8(&local_40);
@@ -466849,7 +466849,7 @@ uint FUN_003312f8(uint param_1)
     uVar40 = param_1 + 0x50;
     uVar42 = *(uint *)(uVar40 + 4);
     uVar43 = get_uint_at_0x20_00299c28(*(uint *)uVar40);
-    FUN_00320104(&local_a8, &local_24, uVar43, uVar45);
+    build_url_ninja_ws_ID_demo_ID_purchase(&local_a8, &local_24, uVar43, uVar45);
     uVar51 = *(uint *)(*(uint *)uVar42 + 0x10);
     (*(code *)uVar51)(uVar42, &local_a8, uVar51);
     FUN_002a8df8(&local_a8);
@@ -466900,7 +466900,7 @@ uint FUN_003312f8(uint param_1)
   uVar107 = param_1 + 0x50;
   uVar109 = *(uint *)(uVar107 + 4);
   uVar110 = get_uint_at_0x20_00299c28(*(uint *)uVar107);
-  FUN_0031f400(&local_1c, &local_24, uVar110, uVar112);
+  build_url_ninja_ws_ID_title_ID_purchase(&local_1c, &local_24, uVar110, uVar112);
   uVar118 = *(uint *)(*(uint *)uVar109 + 0x10);
   (*(code *)uVar118)(uVar109, &local_1c, uVar118);
   FUN_002a8df8(&local_1c);
@@ -468680,7 +468680,7 @@ uint FUN_003336f8(uint param_1)
   (*(code *)uVar31)(uVar23, &local_2c, uVar31);
   FUN_002a8df8(&local_2c);
   uVar39 = *(uint *)(uVar6 + 0x10);
-  FUN_0031f79c(&local_28);
+  build_url_ninja_ws_my_credit_card(&local_28);
   uVar43 = *(uint *)(*(uint *)uVar39 + 0x10);
   (*(code *)uVar43)(uVar39, &local_28, uVar43);
   FUN_002a8df8(&local_28);
@@ -469001,7 +469001,7 @@ void FUN_00333f64(uint param_1)
   (*(code *)uVar26)(uVar18, &local_2c, uVar26);
   FUN_002a8df8(&local_2c);
   uVar34 = *(uint *)(param_1 + 0x10);
-  FUN_00320fbc(&local_28);
+  build_url_ninja_ws_my_credit_card_delete(&local_28);
   uVar38 = *(uint *)(*(uint *)uVar34 + 0x10);
   (*(code *)uVar38)(uVar34, &local_28, uVar38);
   FUN_002a8df8(&local_28);
@@ -469093,7 +469093,7 @@ void FUN_00334190(uint param_1)
   if (uVar4 != 0) uVar4 = FUN_00236b80(uVar4);
   FUN_002369b0(param_1 + 0x1c, uVar4, 0);
   uVar9 = *(uint *)(param_1 + 0x1c);
-  FUN_00320a2c(&local_24);
+  build_url_ccif_services_credit_card_input(&local_24);
   uVar13 = *(uint *)(*(uint *)uVar9 + 0x10);
   (*(code *)uVar13)(uVar9, &local_24, uVar13);
   FUN_002a8df8(&local_24);
@@ -469327,7 +469327,7 @@ void FUN_00334768(uint param_1)
   (*(code *)uVar17)(uVar9, &local_24, uVar17);
   FUN_002a8df8(&local_24);
   uVar25 = *(uint *)(param_1 + 0x28);
-  FUN_00320598(&local_20);
+  build_url_ninja_ws_my_balance_current_cc_add(&local_20);
   uVar29 = *(uint *)(*(uint *)uVar25 + 0x10);
   (*(code *)uVar29)(uVar25, &local_20, uVar29);
   FUN_002a8df8(&local_20);
@@ -470667,7 +470667,7 @@ void FUN_00336090(uint param_1, uint param_2)
   local_28 = 0;
   FUN_00236b58(&local_28);
   uVar5 = FUN_0026ce30();
-  FUN_00227c54(&local_6c, &local_28, uVar5);
+  build_url_samurai_ws_ID_titles(&local_6c, &local_28, uVar5);
   local_58 = 0;
   local_44 = 0;
   local_30 = 0;
@@ -471193,7 +471193,7 @@ uint FUN_00336a0c(uint param_1, uint param_2, uint param_3, uint param_4)
   uint uVar8, uVar9;
 
   local_10 = param_4;
-  FUN_00227aac(&local_10, param_2, *(uint *)(param_2 + 8), *(uint *)(param_2 + 0xc));
+  build_url_ninja_ws_my_transaction_ID_receipt(&local_10, param_2, *(uint *)(param_2 + 8), *(uint *)(param_2 + 0xc));
   FUN_002276cc(param_1, local_10);
   uVar8 = local_10;
   if (uVar8 != &DAT_00450aa8) {
@@ -471226,7 +471226,7 @@ void FUN_00336a88(uint param_1, uint param_2, uint param_3, uint param_4, ...)
   uVar2 = stack_arg_4;
   uVar3 = stack_arg_0;
   if ((uVar3 | uVar2) == 0) {
-    FUN_00227aac(&local_20, uVar2, param_3, param_4);
+    build_url_ninja_ws_my_transaction_ID_receipt(&local_20, uVar2, param_3, param_4);
     FUN_002276cc(param_1, local_20);
     uVar24 = local_20;
     if (uVar24 == &DAT_00450aa8) {
@@ -471773,7 +471773,7 @@ void FUN_00337550(uint param_1)
   FUN_0023671c(param_1 + 4, uVar6, 0);
   uVar11 = *(uint *)(param_1 + 4);
   uVar12 = FUN_0026ce30();
-  FUN_0031fdf4(&local_2c, &local_28, uVar12);
+  build_url_samurai_ws_ID_languages(&local_2c, &local_28, uVar12);
   uVar18 = *(uint *)(*(uint *)uVar11 + 0x10);
   (*(code *)uVar18)(uVar11, &local_2c, uVar18);
   uVar22 = local_2c;
@@ -473430,7 +473430,7 @@ uint FUN_00339530(uint param_1)
   (*(code *)uVar52)(uVar50, &local_48, uVar52);
   uVar55 = *(uint *)(param_1 + 4);
   uVar56 = FUN_0026ce30();
-  FUN_003208f4(&local_30, &local_2c, uVar56);
+  build_url_samurai_ws_ID_rankings(&local_30, &local_2c, uVar56);
   uVar62 = *(uint *)(*(uint *)uVar55 + 0x10);
   (*(code *)uVar62)(uVar55, &local_30, uVar62);
   uVar66 = local_30;
@@ -474835,7 +474835,7 @@ uint FUN_0033b068(uint param_1)
   FUN_00236aa0(&local_3c);
   uVar21 = *(uint *)(param_1 + 4);
   uVar22 = FUN_0026ce30();
-  FUN_0031f0bc(&local_44, &local_40, uVar22);
+  build_url_samurai_ws_ID_news(&local_44, &local_40, uVar22);
   uVar28 = *(uint *)(*(uint *)uVar21 + 0x10);
   (*(code *)uVar28)(uVar21, &local_44, uVar28);
   FUN_002a8df8(&local_44);
@@ -474888,7 +474888,7 @@ uint FUN_0033b068(uint param_1)
   FUN_00236aa0(&local_3c);
   uVar92 = *(uint *)(param_1 + 0x10);
   uVar93 = FUN_0026ce30();
-  FUN_0031f58c(&local_44, &local_40, uVar93);
+  build_url_samurai_ws_ID_telops(&local_44, &local_40, uVar93);
   uVar99 = *(uint *)(*(uint *)uVar92 + 0x10);
   (*(code *)uVar99)(uVar92, &local_44, uVar99);
   FUN_002a8df8(&local_44);
@@ -475992,7 +475992,7 @@ uint FUN_0033c8cc(uint param_1)
     }
   }
   uVar34 = *(uint *)(param_1 + 8);
-  FUN_0031f150(&local_28);
+  build_url_ninja_ws_my_balance_current(&local_28);
   uVar38 = *(uint *)(*(uint *)uVar34 + 0x10);
   (*(code *)uVar38)(uVar34, &local_28, uVar38);
   uVar41 = local_28;
@@ -477536,7 +477536,7 @@ uint FUN_0033e278(uint param_1, uint param_2)
   local_38 = 0;
   FUN_00236b58(&local_38);
   uVar5 = FUN_0026ce30();
-  FUN_00227c54(&local_78, &local_38, uVar5);
+  build_url_samurai_ws_ID_titles(&local_78, &local_38, uVar5);
   uVar12 = *(uint *)(local_78 - 4);
   strlen("&title%5B%5D=");
   uVar16 = local_84;
@@ -479800,7 +479800,7 @@ void FUN_00340cf8(uint param_1)
           }
           FUN_0029a578(&local_c0, LAB_00341774, uVar249 + 0x40);
           uVar262 = *(uint *)(param_1 + 0x290);
-          FUN_00321d8c(&local_6b0);
+          build_url_ninja_ws_my_session_open_without_nna(&local_6b0);
           uVar266 = *(uint *)(*(uint *)uVar262 + 0x10);
           (*(code *)uVar266)(uVar262, &local_6b0, uVar266);
           FUN_002a8df8(&local_6b0);
@@ -479828,7 +479828,7 @@ void FUN_00340cf8(uint param_1)
           uVar192 = *(uint *)(*(uint *)uVar186 + 0x20);
           (*(code *)uVar192)(uVar186, "X-Nintendo-ServiceToken", uVar188, uVar192);
           uVar195 = *(uint *)(param_1 + 0x290);
-          FUN_0031fbbc(&local_6b0);
+          build_url_ninja_ws_my_session_open(&local_6b0);
           uVar199 = *(uint *)(*(uint *)uVar195 + 0x10);
           (*(code *)uVar199)(uVar195, &local_6b0, uVar199);
           FUN_002a8df8(&local_6b0);
@@ -480631,7 +480631,7 @@ void FUN_00341ea0(uint param_1)
         (*(code *)uVar221)(uVar210, &local_38, uVar221);
         FUN_002a8df8(&local_38);
         uVar229 = *(uint *)(param_1 + 0x294);
-        FUN_0031f624(&local_34);
+        build_url_ninja_ws_my_wishlist_notice_ack(&local_34);
         uVar233 = *(uint *)(*(uint *)uVar229 + 0x10);
         (*(code *)uVar233)(uVar229, &local_34, uVar233);
         FUN_002a8df8(&local_34);
@@ -481017,7 +481017,7 @@ uint FUN_00342b04(uint param_1)
       (*(code *)uVar42)(uVar31, &local_38, uVar42);
       FUN_002a8df8(&local_38);
       uVar50 = *(uint *)(param_1 + 0x294);
-      FUN_0031ef18(&local_34);
+      build_url_ninja_ws_my_wishlist_notice(&local_34);
       uVar55 = *(uint *)(*(uint *)uVar50 + 0x10);
       (*(code *)uVar55)(uVar50, &local_34, uVar55);
       FUN_002a8df8(&local_34);
@@ -481174,7 +481174,7 @@ uint FUN_00342b04(uint param_1)
           (*(code *)uVar206)(uVar195, &local_2c, uVar206);
           FUN_002a8df8(&local_2c);
           uVar214 = *(uint *)(param_1 + 0x298);
-          FUN_00321af8(&local_28);
+          build_url_ninja_ws_my_parental_control_put(&local_28);
           uVar218 = *(uint *)(*(uint *)uVar214 + 0x10);
           (*(code *)uVar218)(uVar214, &local_28, uVar218);
           FUN_002a8df8(&local_28);
@@ -482232,7 +482232,7 @@ void FUN_00344278(uint param_1)
   (*(code *)uVar17)(uVar6, &local_24, uVar17);
   FUN_002a8df8(&local_24);
   uVar25 = *(uint *)(param_1 + 4);
-  FUN_0031fc34(&local_20);
+  build_url_ninja_ws_my_tax_location(&local_20);
   uVar29 = *(uint *)(*(uint *)uVar25 + 0x10);
   (*(code *)uVar29)(uVar25, &local_20, uVar29);
   FUN_002a8df8(&local_20);
@@ -483174,7 +483174,7 @@ void FUN_00345640(uint param_1, uint param_2)
   (*(code *)uVar24)(uVar13, &local_24, uVar24);
   FUN_002a8df8(&local_24);
   uVar32 = *(uint *)(param_1 + 4);
-  FUN_00320b28(&local_20);
+  build_url_ninja_ws_my_tax_location_put(&local_20);
   uVar36 = *(uint *)(*(uint *)uVar32 + 0x10);
   (*(code *)uVar36)(uVar32, &local_20, uVar36);
   FUN_002a8df8(&local_20);
@@ -483248,7 +483248,7 @@ void FUN_00345834(uint param_1)
   (*(code *)uVar17)(uVar6, &local_24, uVar17);
   FUN_002a8df8(&local_24);
   uVar25 = *(uint *)(param_1 + 4);
-  FUN_003212b0(&local_20);
+  build_url_ninja_ws_my_tax_location_delete(&local_20);
   uVar29 = *(uint *)(*(uint *)uVar25 + 0x10);
   (*(code *)uVar29)(uVar25, &local_20, uVar29);
   FUN_002a8df8(&local_20);
@@ -484279,7 +484279,7 @@ void FUN_00346b90(uint param_1, uint param_2, uint param_3, uint param_4)
   (*(code *)uVar19)(uVar11, &local_2c, uVar19);
   FUN_002a8df8(&local_2c);
   uVar27 = *(uint *)(param_1 + 4);
-  FUN_00262310(&local_28);
+  build_url_ninja_ws_my_wishlist_put(&local_28);
   uVar32 = *(uint *)(*(uint *)uVar27 + 0x10);
   (*(code *)uVar32)(uVar27, &local_28, uVar32);
   FUN_002a8df8(&local_28);
@@ -484362,7 +484362,7 @@ uint FUN_00346da4(uint param_1, uint param_2)
   (*(code *)uVar18)(uVar10, &local_5c, uVar18);
   FUN_002a8df8(&local_5c);
   uVar26 = *(uint *)(param_1 + 4);
-  FUN_00320688(&local_24);
+  build_url_ninja_ws_my_wishlist_merge(&local_24);
   uVar31 = *(uint *)(*(uint *)uVar26 + 0x10);
   (*(code *)uVar31)(uVar26, &local_24, uVar31);
   FUN_002a8df8(&local_24);
@@ -484448,7 +484448,7 @@ void FUN_00346fe4(uint param_1, uint param_2, uint param_3, uint param_4)
   (*(code *)uVar19)(uVar11, &local_2c, uVar19);
   FUN_002a8df8(&local_2c);
   uVar27 = *(uint *)(param_1 + 4);
-  FUN_00262274(&local_28, uVar31, param_3, param_4);
+  build_url_ninja_ws_my_wishlist_ID_delete(&local_28, uVar31, param_3, param_4);
   uVar34 = *(uint *)(*(uint *)uVar27 + 0x10);
   (*(code *)uVar34)(uVar27, &local_28, uVar34);
   FUN_002a8df8(&local_28);
@@ -501531,7 +501531,7 @@ uint FUN_0035fb48(uint param_1, uint param_2, uint param_3, uint param_4, ...)
     }
     uVar172 = *(uint *)(uVar104 + 0x310);
     uVar174 = get_uint_at_0x20_00299c28(*(uint *)(uVar98 + 0xb64));
-    FUN_0031f9ac(&local_5c, &local_54, uVar174, uVar176);
+    build_url_ninja_ws_ID_movie_ID_play(&local_5c, &local_54, uVar174, uVar176);
     uVar182 = *(uint *)(*(uint *)uVar172 + 0x10);
     (*(code *)uVar182)(uVar172, &local_5c, uVar182);
     uVar185 = local_5c;

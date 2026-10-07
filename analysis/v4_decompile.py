@@ -43,7 +43,11 @@ def main():
     eng = SigEngine(firs); eng.run(30)
     refs = pickle.load(open(os.path.join(V4, 'refs.pkl'), 'rb'))
     names = load_names()
-    ctx = Ctx(m, entries, refs['strings'], {a: n for a, (n, c) in names.items()})
+    gn = {}
+    gp = os.path.join(V4, 'globals_named.csv')
+    if os.path.exists(gp):
+        for r in csv.DictReader(open(gp)): gn[int(r['address'], 16)] = r['name']
+    ctx = Ctx(m, entries, refs['strings'], {a: n for a, (n, c) in names.items()}, gn)
     why = pickle.load(open(os.path.join(V4, 'why.pkl'), 'rb')) if os.path.exists(os.path.join(V4, 'why.pkl')) else {}
     callers = eng.callers
     callees = collections.defaultdict(set)

@@ -42,7 +42,7 @@ class Ctx:
                 if len(esc) > 70: esc = esc[:67] + '...'
                 return ('L"%s"' if enc == 'utf16' else '"%s"') % esc
             nm = self.data_names.get(n)
-            return nm if nm else '&DAT_%08x' % n if seg != 'RODATA' else '&DAT_%08x' % n
+            return ('&' + nm) if nm else '&DAT_%08x' % n
         if n < 10: return str(n)
         if n >= 0xFFFF0000: return '-0x%x' % (0x100000000 - n)
         return '0x%x' % n
@@ -149,7 +149,7 @@ class Fmt:
             else: s = call + ';'
         elif t == 'svcall':
             nm = SVC_NAMES.get(ns[1], '0x%x' % ns[1])
-            call = 'svc_%s(%s)' % (nm, ', '.join(self.ex(a) for a in ns[2][:SVC_NARGS.get(ns[1], 4)]))
+            call = '__svc_%s(%s)' % (nm, ', '.join(self.ex(a) for a in ns[2][:SVC_NARGS.get(ns[1], 4)]))
             outs = ns[3]
             if outs: s = '%s = %s;' % ('{%s}' % ', '.join(outs) if len(outs) > 1 else outs[0], call)
             else: s = call + ';'
