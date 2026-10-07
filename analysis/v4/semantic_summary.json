@@ -1,0 +1,30 @@
+{
+ "named": 264,
+ "by_confidence": {
+  "HIGH": 240,
+  "MEDIUM": 24
+ },
+ "log": [
+  [
+   "S1-library",
+   244
+  ],
+  [
+   "S2-strings",
+   19
+  ],
+  [
+   "S9-propagate iteration 1",
+   1
+  ],
+  [
+   "S9-propagate iteration 2",
+   0
+  ],
+  [
+   "S8-crosscheck",
+   0
+  ]
+ ],
+ "functions": 13211
+}

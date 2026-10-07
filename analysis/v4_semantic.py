@@ -17,6 +17,12 @@ LOG = []
 
 def load():
     txt = open(os.path.join(ROOT, 'eshop_decompile_v4.txt')).read()
+    prev = os.path.join(V4, 'function_names.csv')
+    if os.path.exists(prev):          # undo a previous naming so rules always see structural FUN_ ids
+        rev = {r['name']: 'FUN_' + r['address'] for r in csv.DictReader(open(prev))}
+        if rev:
+            rx = re.compile(r'\b(' + '|'.join(re.escape(k) for k in sorted(rev, key=len, reverse=True)) + r')\b')
+            txt = rx.sub(lambda m: rev[m.group(1)], txt)
     body = {}
     for b in txt.split('// ==== Function @ ')[1:]:
         a = int(b[:8], 16)

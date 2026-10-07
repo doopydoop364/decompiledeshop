@@ -26,6 +26,12 @@ class Ctx:
         m = self.m
         seg = m.seg_of(n) if n >= 0x100000 else None
         if seg == 'TEXT':
+            st = self.strs.get(n)
+            if st is not None and n not in self.entries:
+                enc, txt = st
+                esc = txt.encode('unicode_escape').decode('ascii').replace('"', '\\"')
+                if len(esc) > 70: esc = esc[:67] + '...'
+                return ('L"%s"' if enc == 'utf16' else '"%s"') % esc
             if n in self.entries or (n & ~1) in self.entries: return self.func_name(n & ~1)
             return 'LAB_%08x' % n
         if seg in ('RODATA', 'DATA', 'BSS'):
