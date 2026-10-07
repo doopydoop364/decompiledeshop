@@ -8,7 +8,7 @@ V3 (Ghidra output, sha256 `e03157a20d9b66d2d7eb45afaa905b472e99b00e90c431f120778
 | function entries in common | 9745 | 9745 |
 | entries only in this version | 158 | 2974 |
 | functions with a string anchor / literal-string xref functions | 715 | 920 |
-| renamed functions (V3: all confidence levels; V4: HIGH+MEDIUM, evidence per row) | 115 | 666 |
+| renamed functions (V3: all confidence levels; V4: HIGH+MEDIUM, evidence per row) | 115 | 647 |
 | string cross-references | n/a | 5611 (incl. pc-relative `add` references that literal-pool scans miss) |
 
 V3-only entries: 158, of which 57 fall inside a V4 function body (V3 split what V4 keeps as one function or vice versa); the rest lie in regions V4 classifies as data/strings/unresolved.

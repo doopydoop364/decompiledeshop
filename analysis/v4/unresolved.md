@@ -80,4 +80,5 @@ Machine-derived; see baseline.json.
 - Thumb: only Thumb-1 + BL/BLX pairs are decoded; Thumb function starts that begin with non-push instructions may be missed or begin late.
 - Signature inference is heuristic (liveness of r0-r3 and r0/r1 consumers); stack arguments are only counted, not bound at call sites.
 - Flag-dependent conditions use a static last-flag-setter descriptor; overflow (V) conditions are approximated.
+- VFP float ABI is not modelled (float args in s0-s3, results in s0): float-only helpers keep their VFP statements but print `return;`/stale returns; names are withheld for them.
 - No type recovery: all values are `uint`/`float`/`double`; no structures are declared yet.

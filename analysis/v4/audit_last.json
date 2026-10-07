@@ -2,7 +2,7 @@
  "counts": {
   "functions_with_read_of_never_assigned_var": 405,
   "unresolved_indirect_jump": 313,
-  "functions_reading_entry_registers(in_*)": 1240,
+  "functions_reading_entry_registers(in_*)": 1345,
   "functions_with_gt20_gotos": 85,
   "functions_with_inline_asm": 192,
   "functions": 12719

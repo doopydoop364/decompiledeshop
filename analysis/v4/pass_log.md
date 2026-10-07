@@ -60,6 +60,11 @@ Names are never taken from V3. Rules re-read the structural pseudocode (previous
 - **S5 UI**: strings/layout names catalogued in `subsystems.md`; deliberately no UI function names (pane-name strings are shared by hundreds of screens).
 - **S6 globals**: `g_heap_allocator`, `g_fs_user_session`, `g_shop_base_url` (MEDIUM, evidence in file); printed in pseudocode.
 - **S7 naming** is the sum of the above; **S8 cross-check**: re-derives accessor/builder preconditions and downgrades failures; manual challenge found one over-specific name (`shop_download_dtl` → `shop_register_npns_and_download_dtl`, because its first action is `npns_register_device`) and one scope error (`open_fs_user_session` belongs to the callee, not `FUN_00103b48`, which is `app_main`).
-- **S9 convergence**: naming output identical across three consecutive complete passes (657→666 names after the final matcher relaxation, then stable; no new HIGH findings), plus thunk propagation (1 added, then 0).
+- **S9 convergence**: naming output identical across three consecutive complete passes (final: 647 names = 492 HIGH + 155 MEDIUM, identical in three consecutive complete passes; no new HIGH findings), plus thunk propagation (1 added, then 0).
 
 Remaining uncertainties: ~95 % of functions are unnamed by design; `url_find_path_*` role is inferred; "shop_*" names rest on trace-log strings that can describe the function or its immediate caller; STRUCT_* merging; HTTP verb per endpoint and JSON field parsers not traced; indirect calls (7.7 k `blx rN`) are not resolved to vtable targets.
+
+### Final adversarial pass
+Searched for names whose function body is larger than the trivial rule implies: found `nop_return`/`returns_param_1` applied to VFP-only helpers (the pseudocode dead-code pass removed their float math because s0 returns are not modelled). Fixes: VFP-defining statements are no longer eliminated; trivial-body names are withheld (LOW, unpublished) for functions >0x24 bytes (−19 names). Float-ABI modelling remains an open limitation (see unresolved.md).
+
+Final numbers: 12 719 functions (212 Thumb), 647 named (492 HIGH = 3.9 %, 155 MEDIUM = 1.2 %), 0 decompilation failures, 5 611 string xrefs, 48 256 direct calls, 7 709 indirect register calls and 1 062 indirect jumps unresolved, 118 504 bytes of TEXT outside any function (strings/data/unclassified; see baseline.json).
