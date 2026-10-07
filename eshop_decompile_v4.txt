@@ -349199,7 +349199,7 @@ void FUN_002a90a8(uint param_1, uint param_2, uint param_3)
   }
   else {
     uVar11 = param_3 + 0x8c;
-    uVar12 = (param_2 << 4) - 0x7fe8feb6;
+    uVar12 = (param_2 << 4) + 0x8017014a;
     local_50 = param_2 + 0xf;
     uVar17 = *(uint *)&DAT_003ef07c;
     if (uVar5 == 1) {
@@ -349430,7 +349430,7 @@ void FUN_002a90a8(uint param_1, uint param_2, uint param_3)
             }
           }
         }
-        local_5c = (param_2 << 4) - 0x7fc0febc;
+        local_5c = (param_2 << 4) + 0x803f0144;
         uVar110 = local_78;
         local_60 = uVar94 | uVar101 << 0x10;
         uVar112 = uVar110 & 0x80000000;
@@ -451359,10 +451359,10 @@ uint get_addr_of_DAT_003e1d90(void)
 
 
 // ==== Function @ 003221e8  file_off 2221e8  ARM  size 0x3c  insns 14 ====
-// id: FUN_003221e8  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_003221e8  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /ninja/ws/my/votes?
-uint FUN_003221e8(uint param_1, uint param_2)
+uint url_find_path_ninja_my_votes(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 
@@ -451393,10 +451393,10 @@ uint get_addr_of_DAT_003e1d6c(void)
 
 
 // ==== Function @ 00322230  file_off 222230  ARM  size 0x3c  insns 14 ====
-// id: FUN_00322230  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_00322230  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /cp3s/contentset/n/
-uint FUN_00322230(uint param_1, uint param_2)
+uint url_find_path_cp3s_contentset_n(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 
@@ -451427,10 +451427,10 @@ uint get_addr_of_DAT_003e1d7c(void)
 
 
 // ==== Function @ 00322278  file_off 222278  ARM  size 0x3c  insns 14 ====
-// id: FUN_00322278  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_00322278  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /ninja/ws/my/credit_card/
-uint FUN_00322278(uint param_1, uint param_2)
+uint url_find_path_ninja_my_credit_card(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 
@@ -451461,10 +451461,10 @@ uint get_addr_of_DAT_003e1d8c(void)
 
 
 // ==== Function @ 003222c0  file_off 2222c0  ARM  size 0x3c  insns 14 ====
-// id: FUN_003222c0  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_003222c0  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /ccif/credit_card/!input
-uint FUN_003222c0(uint param_1, uint param_2)
+uint url_find_path_ccif_credit_card_input(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 
@@ -451541,10 +451541,10 @@ uint get_addr_of_DAT_003e1d80(void)
 
 
 // ==== Function @ 00322378  file_off 222378  ARM  size 0x3c  insns 14 ====
-// id: FUN_00322378  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_00322378  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /ninja/ws/my/credit_card/!delete
-uint FUN_00322378(uint param_1, uint param_2)
+uint url_find_path_ninja_my_credit_card_delete(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 
@@ -451643,10 +451643,10 @@ uint get_addr_of_DAT_003e1d74(void)
 
 
 // ==== Function @ 00322450  file_off 222450  ARM  size 0x3c  insns 14 ====
-// id: FUN_00322450  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_00322450  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /ninja/ws/my/balance/current/!cc_add
-uint FUN_00322450(uint param_1, uint param_2)
+uint url_find_path_ninja_my_balance_current_cc_add(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 
@@ -451677,10 +451677,10 @@ uint get_addr_of_DAT_003e1d70(void)
 
 
 // ==== Function @ 00322498  file_off 222498  ARM  size 0x3c  insns 14 ====
-// id: FUN_00322498  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_00322498  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /ninja/ws/my/balance/current/!cc_prepare
-uint FUN_00322498(uint param_1, uint param_2)
+uint url_find_path_ninja_my_balance_current_cc_prepare(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 
@@ -451711,10 +451711,10 @@ uint get_addr_of_DAT_003e1d78(void)
 
 
 // ==== Function @ 003224e0  file_off 2224e0  ARM  size 0x3c  insns 14 ====
-// id: FUN_003224e0  name_confidence: UNNAMED  discovery: ptr
+// id: FUN_003224e0  name_confidence: MEDIUM  discovery: ptr
 // callers: 0 (none direct; callback/vtable?)  callees: 1  sig: nparams=2 ret=r0
 // strings: /ninja/ws/my/balance/current/!wallet_add
-uint FUN_003224e0(uint param_1, uint param_2)
+uint url_find_path_ninja_my_balance_current_wallet_add(uint param_1, uint param_2)
 {
   uint uVar4, uVar6, cc3;
 

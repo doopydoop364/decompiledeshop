@@ -646,7 +646,7 @@ def simplify(rf):
             b = blocks[bid]
             new = []
             for ns, c, a in b['stmts']:
-                if ns[0] == 'set' and uses.get(ns[1], 0) == 0:
+                if ns[0] == 'set' and uses.get(ns[1], 0) == 0 and not ns[1].startswith(('fVar', 'dVar')):    # VFP results may be returned in s0 (ABI not modelled): keep
                     changed = True; continue
                 if ns[0] in ('call', 'svcall'):
                     outs = ns[3]

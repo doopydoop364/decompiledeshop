@@ -336,6 +336,8 @@ def cross_check(N, body, fn, callers, callees, strs, sx):
         if name.startswith('build_url_'):
             if not re.search(r'snprintf|FUN_002747e4', code): reasons.append('no snprintf call in body')
         if name.startswith(('get_', 'is_')) and len(stmts(code)) != 1: reasons.append('not a single-statement accessor')
+        if name.startswith(('nop_return', 'returns_', 'get_', 'set_', 'is_', 'store_ptr_')) and int(fn[a]['size'], 0) > 0x24 if a in fn else False:
+            reasons.append('function is %s bytes: trivial-body naming is unsafe (VFP/other results are not modelled in the pseudocode)' % fn[a]['size'])
         if reasons:
             nm['confidence'] = 'LOW'; nm['evidence'] += ' | DOWNGRADED: ' + '; '.join(reasons); down.append(a)
     LOG.append((ps, -len(down)))

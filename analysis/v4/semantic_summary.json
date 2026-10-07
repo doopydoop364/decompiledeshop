@@ -1,8 +1,8 @@
 {
- "named": 666,
+ "named": 663,
  "by_confidence": {
-  "HIGH": 510,
-  "MEDIUM": 156
+  "HIGH": 508,
+  "MEDIUM": 155
  },
  "log": [
   [
@@ -27,7 +27,7 @@
   ],
   [
    "S8-crosscheck",
-   0
+   -3
   ]
  ],
  "functions": 12719
