@@ -28,6 +28,8 @@ def B(op, a, b):
              '<<': lambda: x << (y & 255) if y < 32 else 0, '>>': lambda: x >> y if y < 32 else 0,
              'sar': lambda: (sx32(x) >> min(y, 31))}.get(op)
         if r: return C(r())
+    if a[0] == 'sp' and b[0] == 'c' and op in ('+', '-'):
+        return ('sp', a[1] + (sx32(b[1]) if op == '+' else -sx32(b[1])))
     if op in ('+', '-') and b[0] == 'c' and b[1] == 0: return a
     if op == '+' and a[0] == 'c' and a[1] == 0: return b
     if op == '+' and b[0] == 'c' and sx32(b[1]) < 0 and b[1] != 0x80000000:
@@ -251,6 +253,10 @@ class Lifter:
             return S, spd, newfl
         # shift pseudo-instructions: lsl rd, rm, rs/#imm
         sh = {A.ARM_INS_LSL: '<<', A.ARM_INS_LSR: '>>', A.ARM_INS_ASR: 'sar', A.ARM_INS_ROR: 'ror'}
+        if I in sh and len(ops) == 2 and ops[1].type == A.ARM_OP_REG and ops[1].shift.type != 0:
+            n = dst(ops[0]); S.append(('set', n, self.shifted(ins, ops[1], i, spd)))
+            if sets_flags: newfl = setflags('res', V(n))
+            return S, spd, newfl
         if I in sh and len(ops) >= 2:
             rd = ops[0]; a_e = R(ops[1]) if len(ops) == 3 else R(rd)
             amt = ops[-1]

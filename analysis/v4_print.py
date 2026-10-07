@@ -3,7 +3,7 @@
 import sys, os, struct, bisect
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from v4_ir import *
-from v4_struct import negate, Structurer
+from v4_struct import negate, Structurer, merge_conditions
 
 PREC = {'*': 10, '/': 10, '+': 9, '-': 9, '<<': 8, '>>': 8, '<': 7, '>': 7, '<=': 7, '>=': 7, '==': 6, '!=': 6, '&': 5, '^': 4, '|': 3, '&&': 2, '||': 1}
 CMPOP = {'==': '==', '!=': '!=', 'u<': '<', 'u>=': '>=', 'u>': '>', 'u<=': '<=', 's<': '<', 's>=': '>=', 's>': '>', 's<=': '<=', 'f<': '<', 'f>=': '>=', 'f>': '>', 'f<=': '<='}
@@ -102,8 +102,15 @@ class Fmt:
                 if a[0] == 'c' and b[0] != 'c': sa = '(int)%s' % self.ex(a, 11)
             s = '%s %s %s' % (sa, CMPOP[op], sb)
             return '(%s)' % s if 7 < p else s
+        if t in ('and', 'or'):
+            pr = 2 if t == 'and' else 1
+            sx = '%s %s %s' % (self.ex(e[1], pr), '&&' if t == 'and' else '||', self.ex(e[2], pr + 1))
+            return '(%s)' % sx if pr < p else sx
         if t == 'not': return '!(%s)' % self.ex(e[1])
-        if t == 'tern': return '(%s ? %s : %s)' % (self.ex(e[1]), self.ex(e[2]), self.ex(e[3]))
+        if t == 'tern':
+            a_, b_ = self.ex(e[2], p), self.ex(e[3], p)
+            if a_ == b_: return a_
+            return '(%s ? %s : %s)' % (self.ex(e[1]), a_, b_)
         if t == 'flag': return 'FLAG_%s(%s, %s)' % (e[1], self.ex(e[3]), self.ex(e[4]))
         return '?%r' % (e,)
 
@@ -113,11 +120,18 @@ class Fmt:
 
     def stmt(self, ns, c):
         t = ns[0]
-        if t == 'set': s = '%s = %s;' % (ns[1], self.ex(ns[2]))
+        if t == 'set':
+            e = ns[2]
+            if e[0] == 'ld' and ns[1].startswith(('fVar', 'dVar')) and not (e[3][0] == 'sp' and e[1] == 4):
+                ad = e[3]
+                s = '%s = *(%s *)%s;' % (ns[1], 'float' if ns[1][0] == 'f' else 'double', self.ex(ad, 11) if ad[0] != 'sp' else '&' + self.slot(ad[1]))
+            else: s = '%s = %s;' % (ns[1], self.ex(e))
         elif t == 'st':
             size, ad, v = ns[1], ns[2], ns[3]
             ty = CTYPE.get((size, False), 'uint')
-            if ad[0] == 'sp' and size == 4 and ad[1] % 4 == 0: s = '%s = %s;' % (self.slot(ad[1]), self.ex(v))
+            if v[0] == 'v' and v[1].startswith('fVar') and size == 4: ty = 'float'
+            if v[0] == 'v' and v[1].startswith('dVar') and size == 8: ty = 'double'
+            if ad[0] == 'sp' and size == 4 and ad[1] % 4 == 0 and ty == 'uint': s = '%s = %s;' % (self.slot(ad[1]), self.ex(v))
             elif ad[0] == 'sp': s = '*(%s *)&%s = %s;' % (ty, self.slot(ad[1]), self.ex(v))
             else: s = '*(%s *)%s = %s;' % (ty, self.ex(ad, 11), self.ex(v))
         elif t == 'call':
@@ -252,6 +266,7 @@ def collect_vars(rf):
         elif t == 'ld': walk(e[3])
         elif t == 'cmp': walk(e[2]); walk(e[3])
         elif t == 'tern': walk(e[1]); walk(e[2]); walk(e[3])
+        elif t in ('and', 'or'): walk(e[1]); walk(e[2])
         elif t == 'flag': walk(e[3]); walk(e[4])
     for bid in rf['order']:
         b = rf['blocks'][bid]
@@ -276,6 +291,7 @@ def collect_vars(rf):
     return list(seen)
 
 def func_text(fm, rf, sig, fname, thumb, header_comments):
+    merge_conditions(rf)
     st = Structurer(rf)
     ast = st.run()
     nparams = max(sig.nparams, max(rf['params'] or [0]))

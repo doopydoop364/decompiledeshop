@@ -59,6 +59,9 @@ class Block:
         self.id = bid; self.addrs = []; self.stmts = []; self.term = None; self.succs = []; self.preds = []
         self.entry_spd = None; self.entry_fl = None; self.out_fl = None; self.out_spd = None
 
+def k_is_cond(i):
+    return i.kind in ('bcond', 'ret', 'bx') and i.fall or i.kind == 'switch' and i.fall
+
 class FuncIR:
     def __init__(self, f, lifter):
         self.f = f; self.entry = f.entry; self.blocks = {}; self.order = []; self.lifter = lifter
@@ -167,6 +170,9 @@ class FuncIR:
             if cc == 'al': return None
             c = ls.cond(cc, fl_before)
             return c if c is not None else ('cc', cc)
+        if nxt not in ins and k_is_cond(last):
+            sid = -(nxt | 1); synth[sid] = ('ibr', 'falls through to non-code at %#x' % nxt, a)
+            nxt = sid
         k = last.kind
         if k == 'b':
             t = last.targets[0]

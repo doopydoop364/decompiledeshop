@@ -8,6 +8,8 @@ from v4_ir import *
 NEG = {'==': '!=', '!=': '==', 'u<': 'u>=', 'u>=': 'u<', 'u>': 'u<=', 'u<=': 'u>', 's<': 's>=', 's>=': 's<', 's>': 's<=', 's<=': 's>'}
 
 def negate(c):
+    if c[0] == 'or': return ('and', negate(c[1]), negate(c[2]))
+    if c[0] == 'and': return ('or', negate(c[1]), negate(c[2]))
     if c[0] == 'cmp' and c[1] in NEG: return ('cmp', NEG[c[1]], c[2], c[3])
     if c[0] == 'not': return c[1]
     if c[0] == 'c': return ('c', 0 if c[1] else 1)
@@ -36,6 +38,46 @@ def compute_idom(nodes, preds, entry):
             for p in ps[1:]: new = inter(p, new)
             if idom.get(n) != new: idom[n] = new; changed = True
     return idom
+
+def merge_conditions(rf):
+    """Fold short-circuit chains of empty conditional blocks into && / || conditions."""
+    blocks = rf['blocks']
+    changed = True
+    while changed:
+        changed = False
+        for a in list(rf['order']):
+            if a not in blocks: continue
+            A = blocks[a]; t = A['term']
+            if t[0] != 'br': continue
+            c1, T, F = t[1], t[2], t[3]
+            for side in (0, 1):
+                X = F if side == 0 else T          # candidate intermediate block
+                if X not in blocks or X == a: continue
+                B_ = blocks[X]
+                if B_['stmts'] or B_['term'][0] != 'br' or len(set(B_['preds'])) != 1 or B_['preds'][0] != a: continue
+                if T == F: continue
+                c2, T2, F2 = B_['term'][1], B_['term'][2], B_['term'][3]
+                new = None
+                if side == 0:           # c1 false -> X
+                    if T2 == T: new = ('or', c1, c2), T, F2
+                    elif F2 == T: new = ('or', c1, negate(c2)), T, T2
+                else:                   # c1 true -> X
+                    if F2 == F: new = ('and', c1, c2), T2, F
+                    elif T2 == F: new = ('and', c1, negate(c2)), F2, F
+                if new:
+                    cond, nT, nF = new
+                    A['term'] = ('br', cond, nT, nF)
+                    A['succs'] = [nT, nF]
+                    for y in B_['succs']:
+                        if y in blocks:
+                            blocks[y]['preds'] = [p for p in blocks[y]['preds'] if p != X]
+                    for y in (nT, nF):
+                        if y in blocks and a not in blocks[y]['preds']: blocks[y]['preds'].append(a)
+                    del blocks[X]
+                    rf['order'] = [x for x in rf['order'] if x != X]
+                    changed = True
+                    break
+    return rf
 
 class Structurer:
     def __init__(self, rf):

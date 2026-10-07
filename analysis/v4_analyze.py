@@ -47,7 +47,7 @@ def stmt_events(fi, sigs):
                 if t == 'set' or t == 'asm' or t == 'st' or t == 'pred':
                     if um: L.append(('use', um))
                     if dm:
-                        L.append(('def', dm if not cond else 0, dm))     # (kind, killmask, defmask)
+                        L.append(('def', dm, dm))     # predicated defs also kill: optimistic for param inference
                         defined_since_call |= dm
         ev[bid] = L
     return ev
@@ -215,6 +215,8 @@ class SigEngine:
                         self.sigs[g].callers_used_r0 = True; changed += 1
             print('sig iter', it, 'changes', changed, file=sys.stderr, flush=True)
             if not changed: break
+        for sg in self.sigs.values():
+            if sg.ret2: sg.ret = True
         # noreturn
         for a, fi in firs.items():
             has_ret = any(b.term[0] in ('ret', 'itail', 'ibr', 'switch') for b in fi.blocks.values())
@@ -441,6 +443,17 @@ def renamed_function(fi, sg_map):
         return n
     # ---- step 4: rewrite -------------------------------------------------------------------
     out_blocks = {}
+    clobber_ids = {d for (bid_, idx_, v_), d in defid.items() if recs[bid_][idx_]['s'][0] == 'call' and v_ not in recs[bid_][idx_]['defs']}
+    def undef_reg(cur_, v):
+        rs = reaching(cur_, v)
+        for d_ in rs:
+            if d_ in clobber_ids: continue
+            ev_ = None
+            for vv, dd in entry_defs.items():
+                if dd == d_: ev_ = vv
+            if ev_ is not None and (ev_ not in ARGSET or ARGREGS.index(ev_) >= sig.nparams): continue
+            return False
+        return True
     for bid in order:
         b = blocks[bid]
         bid_is_entry[0] = (bid == fi.entry)
@@ -461,7 +474,7 @@ def renamed_function(fi, sg_map):
             elif t == 'call':
                 tg = s[1]
                 tgn = tg if tg[0] == 'c' else rewrite_expr(tg, ren)
-                args = [('v', ren(x)) for x in ARGREGS[:s[3]]]
+                args = trim_args([('v', ren(x)) for x in ARGREGS[:s[3]]], [undef_reg(cur, x) for x in ARGREGS[:s[3]]])
                 outs = [web_name(defid[(bid, idx, x)]) for x in s[4]]
                 ns = ('call', tgn, args, outs, s[2], s[5])
             elif t == 'svc':
@@ -487,12 +500,18 @@ def renamed_function(fi, sg_map):
             nt = ('ret', vals)
         elif k == 'tail':
             sg = sg_map.get(t[1][1]) if t[1][0] == 'c' else None
-            nt = ('tail', t[1], [('v', ren(x)) for x in ARGREGS[:(sg.nparams if sg else 4)]], t[2])
+            _n = (sg.nparams if sg else 4)
+            nt = ('tail', t[1], trim_args([('v', ren(x)) for x in ARGREGS[:_n]], [undef_reg(cur, x) for x in ARGREGS[:_n]]), t[2])
         elif k == 'itail': nt = ('itail', rewrite_expr(t[1], ren), [('v', ren('r0'))], t[2])
         else: nt = t
         out_blocks[bid] = {'stmts': newst, 'term': nt, 'succs': b.succs, 'preds': b.preds}
     params = sorted({int(n.split('_')[1]) for n in names.values() if n.startswith('param_')})
     return {'blocks': out_blocks, 'order': order, 'names': names, 'entry': fi.entry, 'params': params}
+
+def trim_args(args, undef):
+    n = len(args)
+    while n > 1 and undef[n - 1]: n -= 1
+    return args[:n]
 
 def term_uses_list0(t, sig, sg_map):
     k = t[0]; u = []
@@ -729,6 +748,9 @@ def dse_stack(rf):
             for a_ in t[1]: scan(a_)
         elif t[0] in ('tail', 'itail'):
             for a_ in t[2]: scan(a_)
+    for bid in rf['order']:
+        b = blocks[bid]
+        b['stmts'] = [(ns, c, a) for ns, c, a in b['stmts'] if not (ns[0] == 'st' and ns[2][0] == 'sp' and ns[2][1] < 0 and ns[1] == 4 and ns[3][0] == 'v' and (ns[3][1].startswith('in_') ) and c is None)]
     if esc: return
     for bid in rf['order']:
         b = blocks[bid]

@@ -192,9 +192,9 @@ class Func:
         for a in self.pools: out.append((a, 4))
         return out
 
-def trace(d, entry, stops, thumb=False):
+def trace(d, entry, stops, thumb=False, roots=()):
     f = Func(entry, thumb)
-    work = [(entry, thumb)]
+    work = [(entry, thumb)] + [(r, thumb) for r in roots]
     while work:
         a, th = work.pop()
         while True:
@@ -297,7 +297,7 @@ class Discovery:
     def __init__(self, m, verbose=True):
         self.m = m; self.d = Disasm(m); self.verbose = verbose
         self.entries = {self.d.tstart: False}; self.why = {self.d.tstart: 'entry'}
-        self.funcs = {}; self.rejected = {}
+        self.funcs = {}; self.rejected = {}; self.roots = {}
         self.ptrs = ro_code_pointers(m, self.d)
 
     def log(self, *a):
@@ -308,7 +308,7 @@ class Discovery:
         while True:
             new = False
             for e in sorted(self.entries):
-                if e not in self.funcs: self.funcs[e] = trace(d, e, self.entries, self.entries[e]); new = True
+                if e not in self.funcs: self.funcs[e] = trace(d, e, self.entries, self.entries[e], self.roots.get(e, ())); new = True
             for f in list(self.funcs.values()):
                 for site, t in f.calls.items():
                     if t is None: continue
@@ -322,7 +322,7 @@ class Discovery:
             if new: continue
             changed = False
             for e in sorted(self.entries):
-                nf = trace(d, e, self.entries, self.entries[e])
+                nf = trace(d, e, self.entries, self.entries[e], self.roots.get(e, ()))
                 if set(nf.insns) != set(self.funcs[e].insns) or nf.pools != self.funcs[e].pools: changed = True
                 self.funcs[e] = nf
             if not changed: break
@@ -331,12 +331,47 @@ class Discovery:
         if not f.insns or f.bad: return False
         if not (f.rets or f.tail or f.switches or any(i.kind == 'b' for i in f.insns.values())): return False
         if len(f.insns) < (3 if th else 2): return False
-        for x, sz in f.covered():
+        for x in f.insns:
             if cov[x - self.d.tstart]: return False
-        return True
+        return True                      # overlap on literal-pool words only is allowed (pools are shared)
+
+    WEAK = ('ptr', 'gapstart', 'prologue')
+    def supersede(self, f, cov, owner):
+        """A candidate overlapping weakly-discovered functions (entries that are labels inside it, or that mostly lie
+        inside it) absorbs them: their entries become extra roots of the candidate."""
+        d = self.d
+        if not f.insns or f.bad: return None
+        if not (f.rets or f.tail or f.switches or any(i.kind == 'b' for i in f.insns.values())): return None
+        counts = {}
+        for x in f.insns:
+            if cov[x - d.tstart]:
+                o = owner.get(x)
+                if o is None: return None
+                counts[o] = counts.get(o, 0) + 1
+        for o, n in counts.items():
+            g = self.funcs.get(o)
+            if g is None or self.why.get(o) not in self.WEAK: return None
+            if not (o in f.insns or n >= 0.5 * max(1, len(g.insns))): return None
+        roots = [o for o in counts if o not in f.insns]
+        saved = {o: (self.funcs.pop(o), self.entries.pop(o), self.why.pop(o)) for o in counts}
+        stops = set(self.entries)
+        f2 = trace(d, f.entry, stops, f.thumb, roots)
+        ok = not f2.bad
+        if ok:
+            for x in f2.insns:
+                if cov[x - d.tstart] and owner.get(x) not in counts: ok = False; break
+        if not ok:
+            for o, (g, th, w) in saved.items(): self.funcs[o] = g; self.entries[o] = th; self.why[o] = w
+            return None
+        for o in counts:
+            self.rejected[o] = 'superseded'
+            for x, sz in saved[o][0].covered(): cov[x - d.tstart:x - d.tstart + sz] = bytes(sz); owner.pop(x, None)
+        self.roots[f.entry] = roots
+        return f2
 
     def gap_round(self):
         d = self.d
+        self.rejected = {k: v for k, v in self.rejected.items() if v == 'superseded'}
         cov = build_cov(d, self.funcs)
         cands = []                                           # (addr, thumb, why)
         for pa, v in self.ptrs.items():
@@ -354,21 +389,27 @@ class Discovery:
                 if (h & 0xFF00) == 0xB500: cands.append((a, True, 'prologue'))
         added = 0
         seen = set()
+        owner = {}
+        for e, g in self.funcs.items():
+            for x, sz in g.covered(): owner[x] = e
         for a, th, why in cands:
             if a in seen or a in self.entries or a in self.rejected: continue
             seen.add(a)
             if not d.in_text(a) or cov[a - d.tstart]: continue
             f = trace(d, a, self.entries, th)
-            if self.accept_ok(f, cov, th):
+            f2 = None
+            if not self.accept_ok(f, cov, th) and why in ('prologue', 'gapstart'): f2 = self.supersede(f, cov, owner)
+            if f2 is not None: f = f2
+            if f2 is not None or self.accept_ok(f, cov, th):
                 self.entries[a] = th; self.why[a] = why; self.funcs[a] = f; added += 1
-                for x, sz in f.covered(): cov[x - d.tstart:x - d.tstart + sz] = b'\1' * sz
+                for x, sz in f.covered(): cov[x - d.tstart:x - d.tstart + sz] = b'\1' * sz; owner[x] = a
             else:
                 self.rejected[a] = why
         return added
 
     def run(self):
         self.closure(); self.log('strong closure', len(self.funcs))
-        for r in range(12):
+        for r in range(25):
             n = self.gap_round(); self.log('gap round', r, 'added', n)
             if not n: break
             self.closure(); self.log('closure', len(self.funcs))
@@ -387,11 +428,12 @@ def save_db(m, d, funcs, entries, path):
 
 if __name__ == '__main__':
     m = Map()
-    d, funcs, entries, ptrs = discover(m)
+    _r = Discovery(m, False).run(); d, funcs, entries, ptrs = _r.d, _r.funcs, _r.entries, _r.ptrs; r_why = _r.why
     cov = sum(sz for f in funcs.values() for _, sz in f.covered())
     print('funcs', len(funcs), 'thumb', sum(1 for f in funcs.values() if f.thumb), 'covered bytes', cov, 'of', m.text[1])
     print('funcs with bad', sum(1 for f in funcs.values() if f.bad))
     save_db(m, d, funcs, entries, os.path.join(V4, 'db.pkl'))
+    import pickle as _p; _p.dump(r_why, open(os.path.join(V4, 'why.pkl'), 'wb'))
 
 def load_db(m=None):
     """Rebuild Func objects from analysis/v4/db.pkl (written by this module's main)."""
