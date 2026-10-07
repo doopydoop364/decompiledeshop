@@ -4,39 +4,39 @@
   "code_decompressed.bin": "34a50e03d648bd85f34c3e3acd00b8a67f18c002f994c9d3292966dbc14c58d7",
   "extheader.bin": "eef4afd5e43a1af982a67c19fbfe7e845e35577fdee275b66f1d722256c59bfa"
  },
- "functions": 12881,
- "thumb_functions": 218,
+ "functions": 13211,
+ "thumb_functions": 213,
  "discovery_reasons": {
   "entry": 1,
-  "call": 2587,
-  "tail": 48,
-  "ptr": 3272,
-  "prologue": 5109,
-  "gapstart": 1864
+  "call": 2598,
+  "tail": 180,
+  "ptr": 3311,
+  "prologue": 5229,
+  "gapstart": 1892
  },
  "text_bytes": 2827832,
- "text_bytes_covered_by_code_or_pools": 2693358,
- "gap_regions": 3725,
- "gap_bytes": 134474,
+ "text_bytes_covered_by_code_or_pools": 2709182,
+ "gap_regions": 3691,
+ "gap_bytes": 118650,
  "gap_classes_count": {
-  "unclassified (possible unreferenced code/data)": 1233,
+  "unclassified (possible unreferenced code/data)": 1179,
   "zero_padding": 484,
-  "string/ascii data": 1386,
-  "data (non-code words)": 516,
-  "pointer/literal table": 106
+  "string/ascii data": 1397,
+  "data (non-code words)": 524,
+  "pointer/literal table": 107
  },
  "gap_classes_bytes": {
-  "unclassified (possible unreferenced code/data)": 61812,
-  "zero_padding": 1916,
-  "string/ascii data": 51746,
-  "data (non-code words)": 17620,
-  "pointer/literal table": 1380
+  "unclassified (possible unreferenced code/data)": 45346,
+  "zero_padding": 1918,
+  "string/ascii data": 52090,
+  "data (non-code words)": 17912,
+  "pointer/literal table": 1384
  },
  "strings": 4577,
- "string_xrefs": 2023,
- "direct_calls": 47993,
- "unresolved_indirect_calls_blx_reg": 7698,
- "tail_branches_to_other_functions": 2650,
+ "string_xrefs": 2076,
+ "direct_calls": 48253,
+ "unresolved_indirect_calls_blx_reg": 7709,
+ "tail_branches_to_other_functions": 2938,
  "unresolved_indirect_jumps(bx/ldr pc/mov pc)": 1062,
  "known_structures": 0
 }

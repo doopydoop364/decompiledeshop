@@ -212,7 +212,7 @@ def trace(d, entry, stops, thumb=False, roots=()):
                 f.calls[a] = i.call
             elif i.kind in ('b', 'bcond'):
                 t = i.targets[0]
-                if (t in stops and t != entry) or (t not in f.insns and t != entry and looks_like_entry(d, t, th)):
+                if (t in stops and t != entry) or (t not in f.insns and t != entry and (looks_like_entry(d, t, th) or abs(t - a) > 0x4000)):
                     f.tail[a] = t
                 elif d.in_text(t):
                     f.edges.setdefault(a, []).append(t); work.append((t, th))

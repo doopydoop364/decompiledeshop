@@ -215,6 +215,7 @@ class Structurer:
         inner = []
         self.emitted_loop_hdr = h
         nxt = self.emit_block(h, None, inner, is_loop_header=True)
+        self.emit_seq(nxt, None, inner)
         self.frames.pop()
         out.append(('loop', inner))
         if follow is not None:

@@ -4,11 +4,11 @@ Machine-derived; see baseline.json.
 
 ## Uncovered TEXT regions
 
-- unclassified (possible unreferenced code/data): 1233 regions, 61812 bytes
-- zero_padding: 484 regions, 1916 bytes
-- string/ascii data: 1386 regions, 51746 bytes
-- data (non-code words): 516 regions, 17620 bytes
-- pointer/literal table: 106 regions, 1380 bytes
+- unclassified (possible unreferenced code/data): 1179 regions, 45346 bytes
+- zero_padding: 484 regions, 1918 bytes
+- string/ascii data: 1397 regions, 52090 bytes
+- data (non-code words): 524 regions, 17912 bytes
+- pointer/literal table: 107 regions, 1384 bytes
 
 ## Largest unclassified gaps (candidate unreferenced code/data; not decompiled)
 
@@ -16,17 +16,10 @@ Machine-derived; see baseline.json.
 - 0027f01c +0x710
 - 001353e8 +0x6c8
 - 0013b9e8 +0x6c8
-- 0030119c +0x654
 - 0024f9dc +0x644
-- 002eb33c +0x5fc
 - 00141fe8 +0x5d8
 - 00272794 +0x51c
-- 00352648 +0x438
-- 0038ac6c +0x404
-- 00148188 +0x32c
-- 0038a738 +0x2d0
 - 00208518 +0x2cc
-- 0038b5dc +0x2b4
 - 0012fca8 +0x28c
 - 001362a8 +0x28c
 - 0013c8a8 +0x28c
@@ -37,9 +30,6 @@ Machine-derived; see baseline.json.
 - 003500e4 +0x204
 - 00291b30 +0x200
 - 00138610 +0x1d4
-- 00388aa8 +0x1c0
-- 00389ad0 +0x1b8
-- 0038b40c +0x194
 - 00136718 +0x190
 - 0013cd18 +0x190
 - 0013047c +0x180
@@ -57,7 +47,6 @@ Machine-derived; see baseline.json.
 - 0012fa80 +0x154
 - 00136080 +0x154
 - 0013c680 +0x154
-- 00388638 +0x154
 - 0012f584 +0x14c
 - 00130d54 +0x14c
 - 00130f90 +0x14c
@@ -68,15 +57,26 @@ Machine-derived; see baseline.json.
 - 0013d954 +0x14c
 - 0013db90 +0x14c
 - 0029bd48 +0x134
-- 00223830 +0x124
-- 0010e6ec +0x118
 - 00130118 +0x10c
 - 0029bb28 +0x10c
+- 002a7218 +0x106
+- 002286ec +0xf8
+- 0021ff10 +0xf0
+- 002786f8 +0xec
+- 00132dec +0xd4
+- 001393ec +0xd4
+- 0013f9ec +0xd4
+- 0020ff44 +0xc0
+- 00172f40 +0xb8
+- 0023d2f0 +0xa0
+- 002a0164 +0x94
+- 0029ca80 +0x90
+- 0033b4e8 +0x8c
 
 ## Known weaknesses
 
 - Function entries found only by data pointers / prologue scans / gap starts (discovery column in functions.csv) are lower confidence than call-reached ones.
-- 7698 indirect calls through registers (blx rN) and 1062 indirect jumps (bx rN, ldr pc, mov pc, add pc with non-table form) are left as indirect.
+- 7709 indirect calls through registers (blx rN) and 1062 indirect jumps (bx rN, ldr pc, mov pc, add pc with non-table form) are left as indirect.
 - Thumb: only Thumb-1 + BL/BLX pairs are decoded; Thumb function starts that begin with non-push instructions may be missed or begin late.
 - Signature inference is heuristic (liveness of r0-r3 and r0/r1 consumers); stack arguments are only counted, not bound at call sites.
 - Flag-dependent conditions use a static last-flag-setter descriptor; overflow (V) conditions are approximated.

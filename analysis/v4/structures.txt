@@ -2,7 +2,7 @@
 
 Offsets/types are *observed accesses only*. Size is a lower bound (max observed end). Nothing here is a claim about the original C++ class.
 
-## STRUCT_001  (>= 0x6520 bytes, 120 observed fields, 184 function-parameter nodes)
+## STRUCT_001  (>= 0x6520 bytes, 120 observed fields, 181 function-parameter nodes)
 users: FUN_00162218.param_1, FUN_00162310.param_1, FUN_001624e0.param_1, FUN_001625d0.param_1, FUN_001629bc.param_1, FUN_00162a54.param_1, FUN_00162b7c.param_1, FUN_0016323c.param_1 ...
   +0x018  uint
   +0x01c  uint
@@ -1114,8 +1114,8 @@ users: FUN_0021ed5c.param_1, FUN_0023f4ec.param_1, FUN_0023f630.param_1, FUN_002
   +0x0f1  byte
   +0x0f2  byte
 
-## STRUCT_023  (>= 0x328 bytes, 34 observed fields, 15 function-parameter nodes)
-users: FUN_001faca8.param_1, FUN_001fadc8.param_1, FUN_001fb064.param_1, FUN_001fb18c.param_1, FUN_001fb318.param_1, FUN_001fb754.param_1, FUN_001fb878.param_1, FUN_001ff3fc.param_1 ...
+## STRUCT_023  (>= 0x328 bytes, 34 observed fields, 14 function-parameter nodes)
+users: FUN_001fadc8.param_1, FUN_001fb064.param_1, FUN_001fb18c.param_1, FUN_001fb318.param_1, FUN_001fb754.param_1, FUN_001fb878.param_1, FUN_001ff3fc.param_1, FUN_00201010.param_1 ...
   +0x004  uint
   +0x008  uint
   +0x00c  uint
@@ -1322,39 +1322,7 @@ users: FUN_002ac9f0.param_2
   +0x0ec  uint
   +0x0f0  uint
 
-## STRUCT_029  (>= 0x39c bytes, 29 observed fields, 33 function-parameter nodes)
-users: FUN_0016a730.param_4, FUN_0016ed70.param_3, FUN_00170b28.param_3, FUN_001829e8.param_3, FUN_00182ec0.param_2, FUN_0018db18.param_3, FUN_00197e50.param_3, FUN_001ac610.param_1 ...
-  +0x004  uint
-  +0x018  uint
-  +0x020  uint
-  +0x024  uint
-  +0x028  char
-  +0x02a  char
-  +0x02b  byte/char
-  +0x02c  uint
-  +0x030  uint
-  +0x033  char
-  +0x034  byte
-  +0x038  uint
-  +0x044  float/uint
-  +0x048  uint
-  +0x04c  uint
-  +0x050  byte/uint
-  +0x054  uint
-  +0x0bc  byte
-  +0x0c4  byte
-  +0x0c5  byte
-  +0x0c8  uint
-  +0x0d4  byte
-  +0x110  uint
-  +0x114  uint
-  +0x11c  uint
-  +0x120  uint
-  +0x38d  byte
-  +0x391  byte
-  +0x398  uint
-
-## STRUCT_030  (>= 0xcfc bytes, 29 observed fields, 8 function-parameter nodes)
+## STRUCT_029  (>= 0xcfc bytes, 29 observed fields, 8 function-parameter nodes)
 users: FUN_00247ec8.param_1, FUN_002d2964.param_1, FUN_002d6d4c.param_1, FUN_002d706c.param_1, FUN_002d7414.param_1, FUN_002d7704.param_1, FUN_002d80c8.param_1, FUN_00378c04.param_1
   +0x000  uint
   +0x004  uint
@@ -1386,7 +1354,7 @@ users: FUN_00247ec8.param_1, FUN_002d2964.param_1, FUN_002d6d4c.param_1, FUN_002
   +0xb94  byte
   +0xcf8  uint
 
-## STRUCT_031  (>= 0x74 bytes, 29 observed fields, 1 function-parameter nodes)
+## STRUCT_030  (>= 0x74 bytes, 29 observed fields, 1 function-parameter nodes)
 users: FUN_002139f0.param_1
   +0x000  uint
   +0x004  uint
@@ -1417,6 +1385,37 @@ users: FUN_002139f0.param_1
   +0x068  uint
   +0x06c  uint
   +0x070  uint
+
+## STRUCT_031  (>= 0x39c bytes, 28 observed fields, 33 function-parameter nodes)
+users: FUN_0016a730.param_4, FUN_0016ed70.param_3, FUN_00170b28.param_3, FUN_001829e8.param_3, FUN_00182ec0.param_2, FUN_0018db18.param_3, FUN_00197e50.param_3, FUN_001ac610.param_1 ...
+  +0x004  uint
+  +0x018  uint
+  +0x020  uint
+  +0x028  char
+  +0x02a  char
+  +0x02b  byte/char
+  +0x02c  uint
+  +0x030  uint
+  +0x033  char
+  +0x034  byte
+  +0x038  uint
+  +0x044  float/uint
+  +0x048  uint
+  +0x04c  uint
+  +0x050  byte/uint
+  +0x054  uint
+  +0x0bc  byte
+  +0x0c4  byte
+  +0x0c5  byte
+  +0x0c8  uint
+  +0x0d4  byte
+  +0x110  uint
+  +0x114  uint
+  +0x11c  uint
+  +0x120  uint
+  +0x38d  byte
+  +0x391  byte
+  +0x398  uint
 
 ## STRUCT_032  (>= 0xc0 bytes, 28 observed fields, 10 function-parameter nodes)
 users: FUN_002293cc.param_4, FUN_00235ed0.param_1, FUN_0030c308.param_1, FUN_003301a8.param_1, FUN_00330528.param_1, FUN_00330928.param_1, FUN_00330ad8.param_1, FUN_00330e98.param_1 ...
@@ -1510,8 +1509,8 @@ users: FUN_0015e72c.param_3, FUN_0021d830.param_1, FUN_0021e2dc.param_1, FUN_002
   +0x8e8  byte
   +0x8e9  byte
 
-## STRUCT_035  (>= 0x219 bytes, 26 observed fields, 45 function-parameter nodes)
-users: FUN_001a2f18.param_1, FUN_001a2fdc.param_1, FUN_001a2fdc.param_3, FUN_001a2ff4.param_1, FUN_0023f84c.param_4, FUN_0023fbe8.param_1, FUN_0023fd70.param_1, FUN_0023fd74.param_1 ...
+## STRUCT_035  (>= 0x219 bytes, 26 observed fields, 44 function-parameter nodes)
+users: FUN_001a2f18.param_1, FUN_001a2fdc.param_1, FUN_001a2ff4.param_1, FUN_0023f84c.param_4, FUN_0023fbe8.param_1, FUN_0023fd70.param_1, FUN_0023fd74.param_1, FUN_0023fdc0.param_4 ...
   +0x000  uint
   +0x028  uint
   +0x02c  uint
@@ -1539,36 +1538,7 @@ users: FUN_001a2f18.param_1, FUN_001a2fdc.param_1, FUN_001a2fdc.param_3, FUN_001
   +0x1d0  uint
   +0x218  byte
 
-## STRUCT_036  (>= 0xf7 bytes, 26 observed fields, 10 function-parameter nodes)
-users: FUN_002382b4.param_1, FUN_00244494.param_2, FUN_0028c870.param_1, FUN_002a8938.param_2, FUN_002a8e0c.param_2, FUN_00308d38.param_1, FUN_00308df0.param_1, FUN_003466a4.param_1 ...
-  +0x000  uint
-  +0x004  float
-  +0x008  float/uint
-  +0x00c  float/uint
-  +0x010  float/uint
-  +0x014  uint
-  +0x018  byte
-  +0x020  uint
-  +0x028  uint
-  +0x038  uint
-  +0x03c  uint
-  +0x044  byte
-  +0x045  byte
-  +0x09c  uint
-  +0x0a8  uint
-  +0x0c4  uint
-  +0x0c8  uint
-  +0x0cc  uint
-  +0x0d4  uint
-  +0x0d8  ushort
-  +0x0da  byte
-  +0x0e8  byte
-  +0x0ec  uint
-  +0x0f0  uint
-  +0x0f4  byte
-  +0x0f6  byte
-
-## STRUCT_037  (>= 0x10f bytes, 26 observed fields, 2 function-parameter nodes)
+## STRUCT_036  (>= 0x10f bytes, 26 observed fields, 2 function-parameter nodes)
 users: FUN_002cdae4.param_1, FUN_002cde6c.param_1
   +0x00c  float
   +0x014  float
@@ -1597,7 +1567,7 @@ users: FUN_002cdae4.param_1, FUN_002cde6c.param_1
   +0x10d  byte
   +0x10e  byte
 
-## STRUCT_038  (>= 0x65 bytes, 26 observed fields, 1 function-parameter nodes)
+## STRUCT_037  (>= 0x65 bytes, 26 observed fields, 1 function-parameter nodes)
 users: FUN_002507e0.param_1
   +0x000  uint
   +0x004  uint
@@ -1626,7 +1596,7 @@ users: FUN_002507e0.param_1
   +0x060  uint
   +0x064  byte
 
-## STRUCT_039  (>= 0x348 bytes, 25 observed fields, 26 function-parameter nodes)
+## STRUCT_038  (>= 0x348 bytes, 25 observed fields, 26 function-parameter nodes)
 users: FUN_001608ec.param_1, FUN_00168c38.param_1, FUN_0021eb34.param_4, FUN_0021ecd4.param_1, FUN_0028202c.param_1, FUN_00282298.param_1, FUN_00286ad0.param_1, FUN_00286f54.param_1 ...
   +0x004  uint
   +0x00c  uint
@@ -1653,6 +1623,34 @@ users: FUN_001608ec.param_1, FUN_00168c38.param_1, FUN_0021eb34.param_4, FUN_002
   +0x338  uint
   +0x340  uint
   +0x344  float/uint
+
+## STRUCT_039  (>= 0xf7 bytes, 25 observed fields, 7 function-parameter nodes)
+users: FUN_00244494.param_2, FUN_002a8938.param_2, FUN_002a8e0c.param_2, FUN_00308d38.param_1, FUN_003466a4.param_1, FUN_003ab178.param_2, FUN_003ab3b0.param_4
+  +0x000  uint
+  +0x008  uint
+  +0x00c  uint
+  +0x010  uint
+  +0x014  uint
+  +0x018  byte
+  +0x020  uint
+  +0x028  uint
+  +0x038  uint
+  +0x03c  uint
+  +0x044  byte
+  +0x045  byte
+  +0x09c  uint
+  +0x0a8  uint
+  +0x0c4  uint
+  +0x0c8  uint
+  +0x0cc  uint
+  +0x0d4  uint
+  +0x0d8  ushort
+  +0x0da  byte
+  +0x0e8  byte
+  +0x0ec  uint
+  +0x0f0  uint
+  +0x0f4  byte
+  +0x0f6  byte
 
 ## STRUCT_040  (>= 0x64 bytes, 25 observed fields, 1 function-parameter nodes)
 users: FUN_00106038.param_1
@@ -2255,8 +2253,8 @@ users: FUN_002cfec0.param_1
   +0x051  byte
   +0x052  byte
 
-## STRUCT_063  (>= 0x78 bytes, 20 observed fields, 17 function-parameter nodes)
-users: FUN_0011c2c0.param_1, FUN_0011ca8c.param_1, FUN_00120084.param_1, FUN_00120910.param_1, FUN_001213dc.param_1, FUN_001e5acc.param_1, FUN_0021a240.param_1, FUN_0021a2b8.param_1 ...
+## STRUCT_063  (>= 0x78 bytes, 20 observed fields, 16 function-parameter nodes)
+users: FUN_0011c2c0.param_1, FUN_0011ca8c.param_1, FUN_00120910.param_1, FUN_001213dc.param_1, FUN_001e5acc.param_1, FUN_0021a240.param_1, FUN_0021a2b8.param_1, FUN_0021a330.param_1 ...
   +0x000  uint
   +0x004  short/uint
   +0x006  short
@@ -4126,8 +4124,8 @@ users: FUN_0017b9e4.param_1, FUN_0017bae4.param_1, FUN_0017bbb4.param_1, FUN_001
   +0x2e49  byte
   +0x2e4c  uint
 
-## STRUCT_164  (>= 0x54 bytes, 12 observed fields, 18 function-parameter nodes)
-users: FUN_0010269a.param_2, FUN_001027cc.param_2, FUN_001028c0.param_2, FUN_00102944.param_1, FUN_00102a38.param_1, FUN_00102b20.param_2, FUN_00102bf8.param_2, FUN_00102e0c.param_2 ...
+## STRUCT_164  (>= 0x54 bytes, 12 observed fields, 11 function-parameter nodes)
+users: FUN_00102944.param_1, FUN_00102a38.param_1, FUN_00102e0c.param_2, FUN_0010387a.param_2, FUN_002a7a08.param_1, FUN_002a7a08.param_3, FUN_002a7aac.param_3, FUN_002a7c18.param_1 ...
   +0x000  uint
   +0x004  uint
   +0x008  uint
@@ -4826,8 +4824,8 @@ users: FUN_0018c5ac.param_1, FUN_0018c610.param_1, FUN_0018c76c.param_1, FUN_001
   +0xb28  uint
   +0xb2c  byte
 
-## STRUCT_211  (>= 0x114 bytes, 11 observed fields, 7 function-parameter nodes)
-users: FUN_002ca400.param_1, FUN_002cba30.param_1, FUN_002cbbc4.param_1, FUN_002cbdb8.param_1, FUN_002cbf9c.param_1, FUN_002cd028.param_1, FUN_002cd684.param_1
+## STRUCT_211  (>= 0x114 bytes, 11 observed fields, 6 function-parameter nodes)
+users: FUN_002cba30.param_1, FUN_002cbbc4.param_1, FUN_002cbdb8.param_1, FUN_002cbf9c.param_1, FUN_002cd028.param_1, FUN_002cd684.param_1
   +0x004  uint
   +0x018  uint
   +0x01c  uint
@@ -5325,8 +5323,8 @@ users: FUN_00165674.param_1, FUN_00165780.param_1, FUN_001658f8.param_1, FUN_001
   +0x028  uint
   +0x060  byte
 
-## STRUCT_247  (>= 0x145 bytes, 10 observed fields, 4 function-parameter nodes)
-users: FUN_00226248.param_1, FUN_0022e1c0.param_1, FUN_0023822c.param_1, FUN_0031c5bc.param_1
+## STRUCT_247  (>= 0x145 bytes, 10 observed fields, 3 function-parameter nodes)
+users: FUN_00226248.param_1, FUN_0022e1c0.param_1, FUN_0031c5bc.param_1
   +0x004  uint
   +0x008  uint
   +0x00c  uint
@@ -5338,8 +5336,8 @@ users: FUN_00226248.param_1, FUN_0022e1c0.param_1, FUN_0023822c.param_1, FUN_003
   +0x115  byte
   +0x144  byte
 
-## STRUCT_248  (>= 0x28 bytes, 10 observed fields, 4 function-parameter nodes)
-users: FUN_00276814.param_1, FUN_00289d98.param_1, FUN_00294068.param_1, FUN_00349f94.param_1
+## STRUCT_248  (>= 0x28 bytes, 10 observed fields, 3 function-parameter nodes)
+users: FUN_00289d98.param_1, FUN_00294068.param_1, FUN_00349f94.param_1
   +0x000  uint
   +0x004  uint
   +0x008  uint
@@ -5754,19 +5752,7 @@ users: FUN_003ab9d0.param_2
   +0x020  uint
   +0x024  uint
 
-## STRUCT_280  (>= 0x408 bytes, 9 observed fields, 27 function-parameter nodes)
-users: FUN_00120ff0.param_3, FUN_00142b1c.param_1, FUN_00142c04.param_1, FUN_00142f24.param_1, FUN_00143588.param_1, FUN_00144694.param_3, FUN_001450fc.param_1, FUN_001450fc.param_2 ...
-  +0x000  double/uint/ushort
-  +0x001  char
-  +0x002  ushort
-  +0x004  uint
-  +0x008  double/uint
-  +0x00c  uint
-  +0x010  uint
-  +0x014  uint
-  +0x404  uint
-
-## STRUCT_281  (>= 0x44 bytes, 9 observed fields, 23 function-parameter nodes)
+## STRUCT_280  (>= 0x44 bytes, 9 observed fields, 23 function-parameter nodes)
 users: FUN_001c1130.param_1, FUN_00204e98.param_2, FUN_0020519c.param_2, FUN_00206864.param_2, FUN_0021db78.param_1, FUN_002275c0.param_1, FUN_00229568.param_1, FUN_0023f240.param_1 ...
   +0x000  uint
   +0x004  uint
@@ -5778,7 +5764,7 @@ users: FUN_001c1130.param_1, FUN_00204e98.param_2, FUN_0020519c.param_2, FUN_002
   +0x03c  byte
   +0x040  uint
 
-## STRUCT_282  (>= 0x36c bytes, 9 observed fields, 13 function-parameter nodes)
+## STRUCT_281  (>= 0x36c bytes, 9 observed fields, 13 function-parameter nodes)
 users: FUN_00151f74.param_1, FUN_0015204c.param_1, FUN_00152098.param_1, FUN_00152744.param_1, FUN_0015d93c.param_1, FUN_0015e424.param_1, FUN_001de98c.param_1, FUN_001deb14.param_1 ...
   +0x004  char
   +0x005  byte
@@ -5790,7 +5776,7 @@ users: FUN_00151f74.param_1, FUN_0015204c.param_1, FUN_00152098.param_1, FUN_001
   +0x348  uint
   +0x368  uint
 
-## STRUCT_283  (>= 0x28 bytes, 9 observed fields, 11 function-parameter nodes)
+## STRUCT_282  (>= 0x28 bytes, 9 observed fields, 11 function-parameter nodes)
 users: FUN_0023fafc.param_1, FUN_002a05ac.param_1, FUN_002a0978.param_1, FUN_002a097c.param_1, FUN_002a54e8.param_1, FUN_002eda10.param_1, FUN_002ee32c.param_1, FUN_002ee488.param_1 ...
   +0x000  uint
   +0x004  uint
@@ -5802,7 +5788,7 @@ users: FUN_0023fafc.param_1, FUN_002a05ac.param_1, FUN_002a0978.param_1, FUN_002
   +0x020  uint
   +0x024  uint
 
-## STRUCT_284  (>= 0x950 bytes, 9 observed fields, 8 function-parameter nodes)
+## STRUCT_283  (>= 0x950 bytes, 9 observed fields, 8 function-parameter nodes)
 users: FUN_0021ea20.param_4, FUN_0021ea94.param_1, FUN_00294348.param_1, FUN_00369e80.param_1, FUN_0036a468.param_1, FUN_0036a63c.param_1, FUN_0036a73c.param_1, FUN_0036a850.param_1
   +0x234  uint
   +0x238  byte
@@ -5814,7 +5800,7 @@ users: FUN_0021ea20.param_4, FUN_0021ea94.param_1, FUN_00294348.param_1, FUN_003
   +0x948  byte
   +0x94c  uint
 
-## STRUCT_285  (>= 0x24 bytes, 9 observed fields, 7 function-parameter nodes)
+## STRUCT_284  (>= 0x24 bytes, 9 observed fields, 7 function-parameter nodes)
 users: FUN_001006e0.param_3, FUN_00100808.param_3, FUN_00100870.param_3, FUN_0010098c.param_3, FUN_00100a70.param_3, FUN_00100de8.param_2, FUN_00102856.param_3
   +0x000  uint
   +0x004  byte/uint
@@ -5826,7 +5812,7 @@ users: FUN_001006e0.param_3, FUN_00100808.param_3, FUN_00100870.param_3, FUN_001
   +0x01c  uint
   +0x020  uint
 
-## STRUCT_286  (>= 0x2a bytes, 9 observed fields, 5 function-parameter nodes)
+## STRUCT_285  (>= 0x2a bytes, 9 observed fields, 5 function-parameter nodes)
 users: FUN_002caa78.param_3, FUN_002cb76c.param_3, FUN_002cb7b0.param_3, FUN_002cb870.param_3, FUN_002cb8d4.param_3
   +0x000  uint
   +0x004  uint
@@ -5838,7 +5824,7 @@ users: FUN_002caa78.param_3, FUN_002cb76c.param_3, FUN_002cb7b0.param_3, FUN_002
   +0x028  byte
   +0x029  byte
 
-## STRUCT_287  (>= 0x238 bytes, 9 observed fields, 4 function-parameter nodes)
+## STRUCT_286  (>= 0x238 bytes, 9 observed fields, 4 function-parameter nodes)
 users: FUN_002035b0.param_1, FUN_00203828.param_1, FUN_00203c94.param_1, FUN_00256114.param_1
   +0x000  uint
   +0x004  uint
@@ -5850,7 +5836,7 @@ users: FUN_002035b0.param_1, FUN_00203828.param_1, FUN_00203c94.param_1, FUN_002
   +0x228  uint
   +0x234  uint
 
-## STRUCT_288  (>= 0x1618 bytes, 9 observed fields, 4 function-parameter nodes)
+## STRUCT_287  (>= 0x1618 bytes, 9 observed fields, 4 function-parameter nodes)
 users: FUN_0023b86c.param_1, FUN_0023bf18.param_1, FUN_0023c0b8.param_1, FUN_002fbfb0.param_1
   +0x274  uint
   +0x278  byte
@@ -5862,7 +5848,7 @@ users: FUN_0023b86c.param_1, FUN_0023bf18.param_1, FUN_0023c0b8.param_1, FUN_002
   +0x10ac  uint
   +0x1614  float
 
-## STRUCT_289  (>= 0x6c bytes, 9 observed fields, 4 function-parameter nodes)
+## STRUCT_288  (>= 0x6c bytes, 9 observed fields, 4 function-parameter nodes)
 users: FUN_0024e9e0.param_1, FUN_003744cc.param_1, FUN_00374654.param_1, FUN_00374c04.param_1
   +0x008  uint
   +0x014  uint
@@ -5874,7 +5860,7 @@ users: FUN_0024e9e0.param_1, FUN_003744cc.param_1, FUN_00374654.param_1, FUN_003
   +0x064  uint
   +0x068  uint
 
-## STRUCT_290  (>= 0x6e bytes, 9 observed fields, 3 function-parameter nodes)
+## STRUCT_289  (>= 0x6e bytes, 9 observed fields, 3 function-parameter nodes)
 users: FUN_001eb15c.param_2, FUN_001ee03c.param_1, FUN_001ee1cc.param_1
   +0x000  uint
   +0x004  byte/ushort
@@ -5886,7 +5872,7 @@ users: FUN_001eb15c.param_2, FUN_001ee03c.param_1, FUN_001ee1cc.param_1
   +0x068  uint
   +0x06c  ushort
 
-## STRUCT_291  (>= 0xf76 bytes, 9 observed fields, 3 function-parameter nodes)
+## STRUCT_290  (>= 0xf76 bytes, 9 observed fields, 3 function-parameter nodes)
 users: FUN_0020c6d4.param_1, FUN_002f3840.param_1, FUN_002f3938.param_1
   +0x000  uint
   +0x004  uint
@@ -5898,7 +5884,7 @@ users: FUN_0020c6d4.param_1, FUN_002f3840.param_1, FUN_002f3938.param_1
   +0xf70  uint
   +0xf74  ushort
 
-## STRUCT_292  (>= 0x1a bytes, 9 observed fields, 3 function-parameter nodes)
+## STRUCT_291  (>= 0x1a bytes, 9 observed fields, 3 function-parameter nodes)
 users: FUN_0024a7a0.param_4, FUN_002cc1c8.param_4, FUN_002ccaa4.param_4
   +0x000  uint
   +0x004  uint
@@ -5910,7 +5896,7 @@ users: FUN_0024a7a0.param_4, FUN_002cc1c8.param_4, FUN_002ccaa4.param_4
   +0x018  byte
   +0x019  char
 
-## STRUCT_293  (>= 0x90 bytes, 9 observed fields, 3 function-parameter nodes)
+## STRUCT_292  (>= 0x90 bytes, 9 observed fields, 3 function-parameter nodes)
 users: FUN_002ecb90.param_1, FUN_002efad0.param_1, FUN_002eff88.param_1
   +0x010  uint
   +0x044  byte
@@ -5922,7 +5908,7 @@ users: FUN_002ecb90.param_1, FUN_002efad0.param_1, FUN_002eff88.param_1
   +0x088  uint
   +0x08c  uint
 
-## STRUCT_294  (>= 0x345 bytes, 9 observed fields, 3 function-parameter nodes)
+## STRUCT_293  (>= 0x345 bytes, 9 observed fields, 3 function-parameter nodes)
 users: FUN_00300f80.param_1, FUN_00301830.param_1, FUN_00301b60.param_1
   +0x000  uint
   +0x004  uint
@@ -5934,7 +5920,7 @@ users: FUN_00300f80.param_1, FUN_00301830.param_1, FUN_00301b60.param_1
   +0x340  uint
   +0x344  byte
 
-## STRUCT_295  (>= 0x38 bytes, 9 observed fields, 3 function-parameter nodes)
+## STRUCT_294  (>= 0x38 bytes, 9 observed fields, 3 function-parameter nodes)
 users: FUN_0030c9d8.param_1, FUN_0030d024.param_1, FUN_0030d6f0.param_1
   +0x004  uint
   +0x008  uint
@@ -5946,7 +5932,7 @@ users: FUN_0030c9d8.param_1, FUN_0030d024.param_1, FUN_0030d6f0.param_1
   +0x030  uint
   +0x034  uint
 
-## STRUCT_296  (>= 0x330 bytes, 9 observed fields, 2 function-parameter nodes)
+## STRUCT_295  (>= 0x330 bytes, 9 observed fields, 2 function-parameter nodes)
 users: FUN_001ffe64.param_1, FUN_00200468.param_1
   +0x0a0  byte
   +0x0a1  byte
@@ -5958,7 +5944,7 @@ users: FUN_001ffe64.param_1, FUN_00200468.param_1
   +0x328  uint
   +0x32c  uint
 
-## STRUCT_297  (>= 0x1e bytes, 9 observed fields, 2 function-parameter nodes)
+## STRUCT_296  (>= 0x1e bytes, 9 observed fields, 2 function-parameter nodes)
 users: FUN_00249934.param_1, FUN_002dc6d4.param_1
   +0x000  uint
   +0x004  uint
@@ -5970,19 +5956,7 @@ users: FUN_00249934.param_1, FUN_002dc6d4.param_1
   +0x01c  byte
   +0x01d  byte
 
-## STRUCT_298  (>= 0x24 bytes, 9 observed fields, 2 function-parameter nodes)
-users: FUN_002ca400.param_2, FUN_002cba30.param_2
-  +0x000  uint
-  +0x004  float
-  +0x008  uint
-  +0x00c  uint
-  +0x010  uint
-  +0x014  uint
-  +0x018  uint
-  +0x01c  uint
-  +0x020  float
-
-## STRUCT_299  (>= 0x1ac bytes, 9 observed fields, 2 function-parameter nodes)
+## STRUCT_297  (>= 0x1ac bytes, 9 observed fields, 2 function-parameter nodes)
 users: FUN_002dbb10.param_1, FUN_002dbd78.param_1
   +0x078  uint
   +0x07c  uint
@@ -5994,7 +5968,7 @@ users: FUN_002dbb10.param_1, FUN_002dbd78.param_1
   +0x197  byte
   +0x1a8  uint
 
-## STRUCT_300  (>= 0x30 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_298  (>= 0x30 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_001e1c9c.param_1
   +0x000  uint
   +0x004  uint
@@ -6006,7 +5980,7 @@ users: FUN_001e1c9c.param_1
   +0x028  uint
   +0x02c  uint
 
-## STRUCT_301  (>= 0x21 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_299  (>= 0x21 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_001ea84c.param_2
   +0x000  uint
   +0x004  uint
@@ -6018,7 +5992,7 @@ users: FUN_001ea84c.param_2
   +0x01c  float/uint
   +0x020  byte
 
-## STRUCT_302  (>= 0x30 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_300  (>= 0x30 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_001f183c.param_2
   +0x000  uint
   +0x004  uint
@@ -6030,7 +6004,7 @@ users: FUN_001f183c.param_2
   +0x01c  uint
   +0x02c  uint
 
-## STRUCT_303  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_301  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00208880.param_3
   +0x000  float/uint
   +0x004  float/uint
@@ -6042,7 +6016,7 @@ users: FUN_00208880.param_3
   +0x01c  uint
   +0x020  uint
 
-## STRUCT_304  (>= 0x6c bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_302  (>= 0x6c bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0021378c.param_1
   +0x024  uint
   +0x038  uint
@@ -6054,7 +6028,7 @@ users: FUN_0021378c.param_1
   +0x060  uint
   +0x068  uint
 
-## STRUCT_305  (>= 0x2c bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_303  (>= 0x2c bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00217494.param_2
   +0x000  uint
   +0x004  float
@@ -6066,7 +6040,7 @@ users: FUN_00217494.param_2
   +0x024  float
   +0x028  float
 
-## STRUCT_306  (>= 0x1e bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_304  (>= 0x1e bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002451bc.param_1
   +0x000  uint
   +0x004  uint
@@ -6078,7 +6052,7 @@ users: FUN_002451bc.param_1
   +0x01c  byte
   +0x01d  byte
 
-## STRUCT_307  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_305  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0024efe0.param_2
   +0x000  uint
   +0x004  uint
@@ -6090,7 +6064,7 @@ users: FUN_0024efe0.param_2
   +0x01c  uint
   +0x020  uint
 
-## STRUCT_308  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_306  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0025096c.param_1
   +0x000  float
   +0x004  uint
@@ -6102,7 +6076,7 @@ users: FUN_0025096c.param_1
   +0x01c  float
   +0x020  float
 
-## STRUCT_309  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_307  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00250b08.param_1
   +0x000  uint
   +0x004  uint
@@ -6114,7 +6088,7 @@ users: FUN_00250b08.param_1
   +0x01c  float
   +0x020  float
 
-## STRUCT_310  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_308  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00250b38.param_2
   +0x000  float
   +0x004  float
@@ -6126,7 +6100,7 @@ users: FUN_00250b38.param_2
   +0x01c  float
   +0x020  float
 
-## STRUCT_311  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_309  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00250b74.param_2
   +0x000  float
   +0x004  float
@@ -6138,7 +6112,7 @@ users: FUN_00250b74.param_2
   +0x01c  float
   +0x020  float
 
-## STRUCT_312  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_310  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00250cb8.param_1
   +0x000  uint
   +0x004  uint
@@ -6150,7 +6124,7 @@ users: FUN_00250cb8.param_1
   +0x01c  float
   +0x020  float
 
-## STRUCT_313  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_311  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00250e68.param_1
   +0x000  uint
   +0x004  uint
@@ -6162,7 +6136,7 @@ users: FUN_00250e68.param_1
   +0x01c  uint
   +0x020  float
 
-## STRUCT_314  (>= 0x30 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_312  (>= 0x30 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00253838.param_1
   +0x000  float
   +0x004  float
@@ -6174,7 +6148,7 @@ users: FUN_00253838.param_1
   +0x028  float
   +0x02c  uint
 
-## STRUCT_315  (>= 0x23c bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_313  (>= 0x23c bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00255ff0.param_1
   +0x000  uint
   +0x004  uint
@@ -6186,7 +6160,7 @@ users: FUN_00255ff0.param_1
   +0x234  uint
   +0x238  uint
 
-## STRUCT_316  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_314  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00263810.param_1
   +0x000  uint
   +0x004  uint
@@ -6198,7 +6172,7 @@ users: FUN_00263810.param_1
   +0x01c  byte
   +0x020  uint
 
-## STRUCT_317  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_315  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00264d14.param_1
   +0x000  uint
   +0x004  uint
@@ -6210,7 +6184,7 @@ users: FUN_00264d14.param_1
   +0x01c  byte
   +0x020  uint
 
-## STRUCT_318  (>= 0xa4 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_316  (>= 0xa4 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0026fd3c.param_1
   +0x010  uint
   +0x098  byte
@@ -6222,7 +6196,7 @@ users: FUN_0026fd3c.param_1
   +0x0a2  byte
   +0x0a3  byte
 
-## STRUCT_319  (>= 0x188 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_317  (>= 0x188 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002adb64.param_1
   +0x000  uint
   +0x004  uint
@@ -6234,7 +6208,7 @@ users: FUN_002adb64.param_1
   +0x180  uint
   +0x184  uint
 
-## STRUCT_320  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_318  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002ca410.param_1
   +0x004  uint
   +0x008  uint
@@ -6246,7 +6220,7 @@ users: FUN_002ca410.param_1
   +0x01e  byte
   +0x020  uint
 
-## STRUCT_321  (>= 0x39 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_319  (>= 0x39 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002cae68.param_1
   +0x000  uint
   +0x004  uint
@@ -6258,7 +6232,19 @@ users: FUN_002cae68.param_1
   +0x034  uint
   +0x038  byte
 
-## STRUCT_322  (>= 0x10f bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_320  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+users: FUN_002cba30.param_2
+  +0x000  uint
+  +0x004  float
+  +0x008  uint
+  +0x00c  uint
+  +0x010  uint
+  +0x014  uint
+  +0x018  uint
+  +0x01c  uint
+  +0x020  float
+
+## STRUCT_321  (>= 0x10f bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002ce154.param_1
   +0x020  uint
   +0x040  uint
@@ -6270,7 +6256,7 @@ users: FUN_002ce154.param_1
   +0x10d  byte
   +0x10e  byte
 
-## STRUCT_323  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_322  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002cf340.param_1
   +0x000  uint
   +0x004  uint
@@ -6282,7 +6268,7 @@ users: FUN_002cf340.param_1
   +0x01c  uint
   +0x020  uint
 
-## STRUCT_324  (>= 0x28 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_323  (>= 0x28 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002d11f0.param_1
   +0x000  uint
   +0x004  byte
@@ -6294,7 +6280,7 @@ users: FUN_002d11f0.param_1
   +0x020  uint
   +0x024  uint
 
-## STRUCT_325  (>= 0x41 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_324  (>= 0x41 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002d5d14.param_1
   +0x01c  uint
   +0x020  uint
@@ -6306,7 +6292,7 @@ users: FUN_002d5d14.param_1
   +0x03c  uint
   +0x040  byte
 
-## STRUCT_326  (>= 0xfc bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_325  (>= 0xfc bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_002da10c.param_1
   +0x00c  byte
   +0x057  byte
@@ -6318,7 +6304,7 @@ users: FUN_002da10c.param_1
   +0x0f4  uint
   +0x0f8  uint
 
-## STRUCT_327  (>= 0x60 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_326  (>= 0x60 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_003021a8.param_1
   +0x000  uint
   +0x004  uint
@@ -6330,7 +6316,7 @@ users: FUN_003021a8.param_1
   +0x034  uint
   +0x05c  uint
 
-## STRUCT_328  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_327  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00302e78.param_1
   +0x004  uint
   +0x008  uint
@@ -6342,7 +6328,7 @@ users: FUN_00302e78.param_1
   +0x022  byte
   +0x023  byte
 
-## STRUCT_329  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_328  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00302e78.param_2
   +0x004  uint
   +0x008  uint
@@ -6354,7 +6340,7 @@ users: FUN_00302e78.param_2
   +0x022  byte
   +0x023  byte
 
-## STRUCT_330  (>= 0x1492 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_329  (>= 0x1492 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0030514c.param_1
   +0x000  uint
   +0x004  uint
@@ -6366,7 +6352,7 @@ users: FUN_0030514c.param_1
   +0x148f  byte
   +0x1491  byte
 
-## STRUCT_331  (>= 0x164 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_330  (>= 0x164 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0030bb14.param_1
   +0x01c  uint
   +0x024  byte
@@ -6378,7 +6364,7 @@ users: FUN_0030bb14.param_1
   +0x15c  uint
   +0x160  uint
 
-## STRUCT_332  (>= 0x134 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_331  (>= 0x134 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0030ea4c.param_1
   +0x08c  byte
   +0x090  uint
@@ -6390,7 +6376,7 @@ users: FUN_0030ea4c.param_1
   +0x0d4  uint
   +0x130  uint
 
-## STRUCT_333  (>= 0x85 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_332  (>= 0x85 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_003106e0.param_1
   +0x004  uint
   +0x010  uint
@@ -6402,7 +6388,7 @@ users: FUN_003106e0.param_1
   +0x080  uint
   +0x084  byte
 
-## STRUCT_334  (>= 0x7a bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_333  (>= 0x7a bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_003186d8.param_1
   +0x004  uint
   +0x02c  uint
@@ -6414,7 +6400,7 @@ users: FUN_003186d8.param_1
   +0x078  byte
   +0x079  byte
 
-## STRUCT_335  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_334  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00351ca0.param_1
   +0x000  uint
   +0x004  uint
@@ -6426,7 +6412,7 @@ users: FUN_00351ca0.param_1
   +0x01c  uint
   +0x020  uint
 
-## STRUCT_336  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_335  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00374654.param_4
   +0x000  uint
   +0x004  uint
@@ -6438,7 +6424,7 @@ users: FUN_00374654.param_4
   +0x01c  uint
   +0x020  uint
 
-## STRUCT_337  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_336  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_00374c04.param_4
   +0x000  float/uint
   +0x004  float/uint
@@ -6450,7 +6436,7 @@ users: FUN_00374c04.param_4
   +0x01c  float
   +0x020  float
 
-## STRUCT_338  (>= 0x17 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_337  (>= 0x17 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_003774f4.param_2
   +0x000  uint
   +0x004  uint
@@ -6462,7 +6448,7 @@ users: FUN_003774f4.param_2
   +0x015  byte
   +0x016  byte
 
-## STRUCT_339  (>= 0x68 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_338  (>= 0x68 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0037e588.param_1
   +0x008  uint
   +0x00c  uint
@@ -6474,7 +6460,7 @@ users: FUN_0037e588.param_1
   +0x060  uint
   +0x064  uint
 
-## STRUCT_340  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_339  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0037e95c.param_2
   +0x004  uint
   +0x008  uint
@@ -6486,7 +6472,7 @@ users: FUN_0037e95c.param_2
   +0x022  byte
   +0x023  byte
 
-## STRUCT_341  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
+## STRUCT_340  (>= 0x24 bytes, 9 observed fields, 1 function-parameter nodes)
 users: FUN_0037e95c.param_1
   +0x004  uint
   +0x008  uint
@@ -6498,7 +6484,29 @@ users: FUN_0037e95c.param_1
   +0x022  byte
   +0x023  byte
 
-## STRUCT_342  (>= 0x22c bytes, 8 observed fields, 14 function-parameter nodes)
+## STRUCT_341  (>= 0x20b0 bytes, 8 observed fields, 15 function-parameter nodes)
+users: FUN_0023a18c.param_4, FUN_0023e650.param_4, FUN_00294768.param_1, FUN_002f85b8.param_1, FUN_002f870c.param_1, FUN_002f87b4.param_1, FUN_002f8970.param_1, FUN_002f8b70.param_1 ...
+  +0x1d68  uint
+  +0x1d80  uint
+  +0x1db4  uint
+  +0x1dc0  byte
+  +0x1dc3  byte
+  +0x1dc4  uint
+  +0x2054  uint
+  +0x20ac  uint
+
+## STRUCT_342  (>= 0x2d78 bytes, 8 observed fields, 14 function-parameter nodes)
+users: FUN_001b1540.param_1, FUN_001b18b8.param_1, FUN_001b1b84.param_1, FUN_001b1c14.param_1, FUN_001b2058.param_1, FUN_001b2274.param_1, FUN_001b23a0.param_1, FUN_001b24e4.param_1 ...
+  +0x000  uint
+  +0x004  uint
+  +0x008  uint
+  +0x00c  uint
+  +0x2d40  uint
+  +0x2d70  byte
+  +0x2d71  byte
+  +0x2d74  float/uint
+
+## STRUCT_343  (>= 0x22c bytes, 8 observed fields, 14 function-parameter nodes)
 users: FUN_001ffc60.param_2, FUN_00202894.param_2, FUN_002029cc.param_2, FUN_00256d28.param_2, FUN_002570b4.param_1, FUN_0025713c.param_1, FUN_002571a0.param_2, FUN_00257530.param_2 ...
   +0x208  uint
   +0x20c  uint
@@ -6509,7 +6517,7 @@ users: FUN_001ffc60.param_2, FUN_00202894.param_2, FUN_002029cc.param_2, FUN_002
   +0x224  uint
   +0x228  uint
 
-## STRUCT_343  (>= 0x1a bytes, 8 observed fields, 9 function-parameter nodes)
+## STRUCT_344  (>= 0x1a bytes, 8 observed fields, 9 function-parameter nodes)
 users: FUN_00219514.param_1, FUN_0021951c.param_1, FUN_00220510.param_1, FUN_002447d4.param_1, FUN_00244904.param_2, FUN_002e6de0.param_1, FUN_00361224.param_1, FUN_00381ef4.param_1 ...
   +0x000  uint
   +0x004  uint
@@ -6520,7 +6528,7 @@ users: FUN_00219514.param_1, FUN_0021951c.param_1, FUN_00220510.param_1, FUN_002
   +0x018  byte
   +0x019  byte
 
-## STRUCT_344  (>= 0xfba bytes, 8 observed fields, 9 function-parameter nodes)
+## STRUCT_345  (>= 0xfba bytes, 8 observed fields, 9 function-parameter nodes)
 users: FUN_0026f37c.param_1, FUN_00276c58.param_1, FUN_00306408.param_1, FUN_003065a8.param_1, FUN_003066e0.param_1, FUN_00307220.param_1, FUN_0030766c.param_1, FUN_003076b4.param_1 ...
   +0x568  char
   +0xeb8  uint/ushort
@@ -6531,7 +6539,7 @@ users: FUN_0026f37c.param_1, FUN_00276c58.param_1, FUN_00306408.param_1, FUN_003
   +0xfb8  byte/char
   +0xfb9  byte
 
-## STRUCT_345  (>= 0x23e0 bytes, 8 observed fields, 8 function-parameter nodes)
+## STRUCT_346  (>= 0x23e0 bytes, 8 observed fields, 8 function-parameter nodes)
 users: FUN_00189c6c.param_1, FUN_00189ce8.param_1, FUN_00189d50.param_1, FUN_00189e28.param_1, FUN_00189ea8.param_1, FUN_0018a04c.param_1, FUN_0018a160.param_1, FUN_002789a0.param_4
   +0x070  uint
   +0x4d0  char
@@ -6542,7 +6550,7 @@ users: FUN_00189c6c.param_1, FUN_00189ce8.param_1, FUN_00189d50.param_1, FUN_001
   +0x4ec  uint
   +0x23dc  uint
 
-## STRUCT_346  (>= 0x611 bytes, 8 observed fields, 8 function-parameter nodes)
+## STRUCT_347  (>= 0x611 bytes, 8 observed fields, 8 function-parameter nodes)
 users: FUN_0021eda4.param_1, FUN_0027afb8.param_1, FUN_003687c0.param_1, FUN_00368914.param_1, FUN_003689f8.param_1, FUN_00368b14.param_1, FUN_00368cfc.param_1, FUN_00369518.param_1
   +0x00c  uint
   +0x010  uint
@@ -6553,7 +6561,7 @@ users: FUN_0021eda4.param_1, FUN_0027afb8.param_1, FUN_003687c0.param_1, FUN_003
   +0x60c  uint
   +0x610  byte
 
-## STRUCT_347  (>= 0x978 bytes, 8 observed fields, 7 function-parameter nodes)
+## STRUCT_348  (>= 0x978 bytes, 8 observed fields, 7 function-parameter nodes)
 users: FUN_0016ec40.param_1, FUN_00170a1c.param_1, FUN_001a729c.param_1, FUN_001af0b0.param_1, FUN_001c6408.param_1, FUN_0023fef4.param_2, FUN_00292a24.param_1
   +0x008  uint
   +0x070  uint
@@ -6564,7 +6572,7 @@ users: FUN_0016ec40.param_1, FUN_00170a1c.param_1, FUN_001a729c.param_1, FUN_001
   +0x46c  uint
   +0x974  uint
 
-## STRUCT_348  (>= 0x2c61 bytes, 8 observed fields, 7 function-parameter nodes)
+## STRUCT_349  (>= 0x2c61 bytes, 8 observed fields, 7 function-parameter nodes)
 users: FUN_00220e8c.param_4, FUN_0035bd10.param_1, FUN_0035be8c.param_1, FUN_0035bfe4.param_1, FUN_0035c3c8.param_1, FUN_0035c62c.param_1, FUN_0035c7c0.param_1
   +0xeb0  uint
   +0xeb4  byte
@@ -6575,7 +6583,7 @@ users: FUN_00220e8c.param_4, FUN_0035bd10.param_1, FUN_0035be8c.param_1, FUN_003
   +0xf00  uint
   +0x2c60  byte
 
-## STRUCT_349  (>= 0x3bc bytes, 8 observed fields, 6 function-parameter nodes)
+## STRUCT_350  (>= 0x3bc bytes, 8 observed fields, 6 function-parameter nodes)
 users: FUN_0012f704.param_1, FUN_00130ae4.param_1, FUN_00131468.param_1, FUN_0013147c.param_1, FUN_001333a0.param_1, FUN_00133d70.param_1
   +0x000  uint/ushort
   +0x004  uint
@@ -6586,7 +6594,7 @@ users: FUN_0012f704.param_1, FUN_00130ae4.param_1, FUN_00131468.param_1, FUN_001
   +0x04c  uint
   +0x3b8  uint
 
-## STRUCT_350  (>= 0x3bc bytes, 8 observed fields, 6 function-parameter nodes)
+## STRUCT_351  (>= 0x3bc bytes, 8 observed fields, 6 function-parameter nodes)
 users: FUN_00135d04.param_1, FUN_001370e4.param_1, FUN_00137a68.param_1, FUN_00137a7c.param_1, FUN_001399a0.param_1, FUN_0013a370.param_1
   +0x000  uint/ushort
   +0x004  uint
@@ -6597,7 +6605,7 @@ users: FUN_00135d04.param_1, FUN_001370e4.param_1, FUN_00137a68.param_1, FUN_001
   +0x04c  uint
   +0x3b8  uint
 
-## STRUCT_351  (>= 0x3bc bytes, 8 observed fields, 6 function-parameter nodes)
+## STRUCT_352  (>= 0x3bc bytes, 8 observed fields, 6 function-parameter nodes)
 users: FUN_0013c304.param_1, FUN_0013d6e4.param_1, FUN_0013e068.param_1, FUN_0013e07c.param_1, FUN_0013ffa0.param_1, FUN_00140970.param_1
   +0x000  uint/ushort
   +0x004  uint
@@ -6608,7 +6616,7 @@ users: FUN_0013c304.param_1, FUN_0013d6e4.param_1, FUN_0013e068.param_1, FUN_001
   +0x04c  uint
   +0x3b8  uint
 
-## STRUCT_352  (>= 0x20a bytes, 8 observed fields, 6 function-parameter nodes)
+## STRUCT_353  (>= 0x20a bytes, 8 observed fields, 6 function-parameter nodes)
 users: FUN_0022b56c.param_1, FUN_003233a8.param_1, FUN_003238f8.param_1, FUN_00323940.param_1, FUN_00325ab8.param_1, FUN_00325cd0.param_1
   +0x028  uint
   +0x02c  uint
@@ -6619,7 +6627,7 @@ users: FUN_0022b56c.param_1, FUN_003233a8.param_1, FUN_003238f8.param_1, FUN_003
   +0x208  byte
   +0x209  byte
 
-## STRUCT_353  (>= 0x20 bytes, 8 observed fields, 6 function-parameter nodes)
+## STRUCT_354  (>= 0x20 bytes, 8 observed fields, 6 function-parameter nodes)
 users: FUN_00372294.param_2, FUN_0037b7c0.param_2, FUN_0037b908.param_2, FUN_0037ba0c.param_2, FUN_0037bc30.param_2, FUN_0037bd48.param_2
   +0x000  byte/float/uint
   +0x004  float/uint
@@ -6630,7 +6638,7 @@ users: FUN_00372294.param_2, FUN_0037b7c0.param_2, FUN_0037b908.param_2, FUN_003
   +0x018  float
   +0x01c  float
 
-## STRUCT_354  (>= 0x1c bytes, 8 observed fields, 4 function-parameter nodes)
+## STRUCT_355  (>= 0x1c bytes, 8 observed fields, 4 function-parameter nodes)
 users: FUN_00247f9c.param_1, FUN_00248b04.param_2, FUN_002d38c0.param_2, FUN_002d3910.param_2
   +0x000  uint
   +0x008  uint
@@ -6641,7 +6649,7 @@ users: FUN_00247f9c.param_1, FUN_00248b04.param_2, FUN_002d38c0.param_2, FUN_002
   +0x01a  byte
   +0x01b  byte
 
-## STRUCT_355  (>= 0x44 bytes, 8 observed fields, 4 function-parameter nodes)
+## STRUCT_356  (>= 0x44 bytes, 8 observed fields, 4 function-parameter nodes)
 users: FUN_002b97f0.param_2, FUN_002bafa4.param_2, FUN_002bb184.param_2, FUN_002bb2dc.param_2
   +0x000  uint
   +0x018  ushort
@@ -6652,7 +6660,7 @@ users: FUN_002b97f0.param_2, FUN_002bafa4.param_2, FUN_002bb184.param_2, FUN_002
   +0x03c  byte
   +0x040  float
 
-## STRUCT_356  (>= 0x4c bytes, 8 observed fields, 4 function-parameter nodes)
+## STRUCT_357  (>= 0x4c bytes, 8 observed fields, 4 function-parameter nodes)
 users: FUN_002c3fe8.param_1, FUN_002c40a0.param_1, FUN_002c44a0.param_1, FUN_002c45fc.param_1
   +0x008  uint
   +0x010  uint
@@ -6663,7 +6671,7 @@ users: FUN_002c3fe8.param_1, FUN_002c40a0.param_1, FUN_002c44a0.param_1, FUN_002
   +0x044  uint
   +0x048  uint
 
-## STRUCT_357  (>= 0x348 bytes, 8 observed fields, 3 function-parameter nodes)
+## STRUCT_358  (>= 0x348 bytes, 8 observed fields, 3 function-parameter nodes)
 users: FUN_00160adc.param_1, FUN_0016924c.param_1, FUN_00292738.param_1
   +0x12c  uint
   +0x2d0  byte
@@ -6673,17 +6681,6 @@ users: FUN_00160adc.param_1, FUN_0016924c.param_1, FUN_00292738.param_1
   +0x338  uint
   +0x340  uint
   +0x344  float
-
-## STRUCT_358  (>= 0x20 bytes, 8 observed fields, 3 function-parameter nodes)
-users: FUN_00208e34.param_1, FUN_00208f4c.param_2, FUN_0029cf24.param_1
-  +0x000  uint
-  +0x004  uint
-  +0x008  uint
-  +0x00c  uint
-  +0x010  uint
-  +0x014  uint
-  +0x018  uint
-  +0x01c  uint
 
 ## STRUCT_359  (>= 0x2c bytes, 8 observed fields, 3 function-parameter nodes)
 users: FUN_00229488.param_1, FUN_0032d7a4.param_1, FUN_0032e2bc.param_1
@@ -6740,18 +6737,7 @@ users: FUN_00264770.param_1, FUN_0032e418.param_1, FUN_0032eb04.param_1
   +0x024  byte
   +0x028  uint
 
-## STRUCT_364  (>= 0x2ea bytes, 8 observed fields, 3 function-parameter nodes)
-users: FUN_00224038.param_1, FUN_00340cf8.param_1, FUN_0034332c.param_1
-  +0x240  uint
-  +0x290  uint
-  +0x2b5  byte
-  +0x2d0  uint
-  +0x2dc  uint
-  +0x2e7  byte
-  +0x2e8  byte
-  +0x2e9  byte
-
-## STRUCT_365  (>= 0x1d bytes, 8 observed fields, 3 function-parameter nodes)
+## STRUCT_364  (>= 0x1d bytes, 8 observed fields, 3 function-parameter nodes)
 users: FUN_00396244.param_1, FUN_00396c04.param_2, FUN_003aeec0.param_2
   +0x000  uint
   +0x004  uint
@@ -6762,7 +6748,7 @@ users: FUN_00396244.param_1, FUN_00396c04.param_2, FUN_003aeec0.param_2
   +0x018  uint
   +0x01c  byte
 
-## STRUCT_366  (>= 0x4ef bytes, 8 observed fields, 2 function-parameter nodes)
+## STRUCT_365  (>= 0x4ef bytes, 8 observed fields, 2 function-parameter nodes)
 users: FUN_0015708c.param_1, FUN_00157b34.param_1
   +0x2fc  uint
   +0x300  uint
@@ -6773,7 +6759,7 @@ users: FUN_0015708c.param_1, FUN_00157b34.param_1
   +0x4ed  byte
   +0x4ee  byte
 
-## STRUCT_367  (>= 0x654 bytes, 8 observed fields, 2 function-parameter nodes)
+## STRUCT_366  (>= 0x654 bytes, 8 observed fields, 2 function-parameter nodes)
 users: FUN_001a4c18.param_1, FUN_00368e78.param_1
   +0x004  uint
   +0x00c  uint
@@ -6784,7 +6770,7 @@ users: FUN_001a4c18.param_1, FUN_00368e78.param_1
   +0x610  byte
   +0x650  uint
 
-## STRUCT_368  (>= 0x1a4 bytes, 8 observed fields, 2 function-parameter nodes)
+## STRUCT_367  (>= 0x1a4 bytes, 8 observed fields, 2 function-parameter nodes)
 users: FUN_001e0a24.param_1, FUN_001e0bf4.param_1
   +0x164  uint
   +0x168  uint
@@ -6795,7 +6781,7 @@ users: FUN_001e0a24.param_1, FUN_001e0bf4.param_1
   +0x183  byte
   +0x1a0  uint
 
-## STRUCT_369  (>= 0x14 bytes, 8 observed fields, 2 function-parameter nodes)
+## STRUCT_368  (>= 0x14 bytes, 8 observed fields, 2 function-parameter nodes)
 users: FUN_001ec084.param_3, FUN_0029d468.param_3
   +0x000  ushort
   +0x002  ushort
@@ -6806,7 +6792,7 @@ users: FUN_001ec084.param_3, FUN_0029d468.param_3
   +0x010  ushort
   +0x012  ushort
 
-## STRUCT_370  (>= 0x70 bytes, 8 observed fields, 2 function-parameter nodes)
+## STRUCT_369  (>= 0x70 bytes, 8 observed fields, 2 function-parameter nodes)
 users: FUN_001edcec.param_1, FUN_001ee0e4.param_1
   +0x000  uint
   +0x00d  byte
@@ -6816,6 +6802,17 @@ users: FUN_001edcec.param_1, FUN_001ee0e4.param_1
   +0x036  short/ushort
   +0x06e  byte
   +0x06f  byte
+
+## STRUCT_370  (>= 0x20 bytes, 8 observed fields, 2 function-parameter nodes)
+users: FUN_00208e34.param_1, FUN_00208f4c.param_2
+  +0x000  uint
+  +0x004  uint
+  +0x008  uint
+  +0x00c  uint
+  +0x010  uint
+  +0x014  uint
+  +0x018  uint
+  +0x01c  uint
 
 ## STRUCT_371  (>= 0xe8 bytes, 8 observed fields, 2 function-parameter nodes)
 users: FUN_0021489c.param_2, FUN_00214978.param_2
@@ -6861,7 +6858,18 @@ users: FUN_0025837c.param_1, FUN_00258a24.param_1
   +0x018  uint
   +0x01c  uint
 
-## STRUCT_375  (>= 0x28 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_375  (>= 0x2ea bytes, 8 observed fields, 2 function-parameter nodes)
+users: FUN_00340cf8.param_1, FUN_0034332c.param_1
+  +0x240  uint
+  +0x290  uint
+  +0x2b5  byte
+  +0x2d0  uint
+  +0x2dc  uint
+  +0x2e7  byte
+  +0x2e8  byte
+  +0x2e9  byte
+
+## STRUCT_376  (>= 0x28 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_0010a9f8.param_1
   +0x000  uint
   +0x004  uint
@@ -6872,7 +6880,7 @@ users: FUN_0010a9f8.param_1
   +0x020  uint
   +0x024  uint
 
-## STRUCT_376  (>= 0x34 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_377  (>= 0x34 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_0010f7f8.param_1
   +0x001  byte
   +0x002  byte
@@ -6883,7 +6891,7 @@ users: FUN_0010f7f8.param_1
   +0x02c  uint
   +0x032  ushort
 
-## STRUCT_377  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_378  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00148050.param_1
   +0x000  uint
   +0x004  uint
@@ -6894,7 +6902,7 @@ users: FUN_00148050.param_1
   +0x018  uint
   +0x01c  uint
 
-## STRUCT_378  (>= 0x8c9 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_379  (>= 0x8c9 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_001a16b4.param_1
   +0x0ac  uint
   +0x0b0  byte
@@ -6905,7 +6913,7 @@ users: FUN_001a16b4.param_1
   +0x8c1  byte
   +0x8c8  byte
 
-## STRUCT_379  (>= 0xd6 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_380  (>= 0xd6 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_001ac22c.param_1
   +0x0c0  uint
   +0x0c4  byte
@@ -6916,7 +6924,7 @@ users: FUN_001ac22c.param_1
   +0x0d4  byte
   +0x0d5  byte
 
-## STRUCT_380  (>= 0xc4 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_381  (>= 0xc4 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_001ac2b4.param_1
   +0x02c  uint
   +0x030  uint
@@ -6927,7 +6935,7 @@ users: FUN_001ac2b4.param_1
   +0x0bc  byte
   +0x0c0  uint
 
-## STRUCT_381  (>= 0xd6 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_382  (>= 0xd6 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_001ac78c.param_1
   +0x0c0  uint
   +0x0c4  byte
@@ -6938,7 +6946,7 @@ users: FUN_001ac78c.param_1
   +0x0d4  byte
   +0x0d5  byte
 
-## STRUCT_382  (>= 0x4a bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_383  (>= 0x4a bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_001d66c0.param_1
   +0x000  uint
   +0x004  uint
@@ -6949,7 +6957,7 @@ users: FUN_001d66c0.param_1
   +0x048  byte
   +0x049  byte/char
 
-## STRUCT_383  (>= 0x28 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_384  (>= 0x28 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_001fdf50.param_1
   +0x004  uint
   +0x014  uint
@@ -6960,7 +6968,7 @@ users: FUN_001fdf50.param_1
   +0x026  byte
   +0x027  byte
 
-## STRUCT_384  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_385  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_0020a474.param_1
   +0x000  uint
   +0x004  uint
@@ -6971,7 +6979,7 @@ users: FUN_0020a474.param_1
   +0x018  uint
   +0x01c  uint
 
-## STRUCT_385  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_386  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_0020ae70.param_1
   +0x000  uint
   +0x004  byte
@@ -6982,7 +6990,7 @@ users: FUN_0020ae70.param_1
   +0x018  uint
   +0x01c  uint
 
-## STRUCT_386  (>= 0x31 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_387  (>= 0x31 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_0020e828.param_1
   +0x000  uint
   +0x014  uint
@@ -6993,7 +7001,7 @@ users: FUN_0020e828.param_1
   +0x02c  byte
   +0x030  byte
 
-## STRUCT_387  (>= 0x1e8 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_388  (>= 0x1e8 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00218ee8.param_3
   +0x1c8  uint
   +0x1cc  uint
@@ -7004,7 +7012,7 @@ users: FUN_00218ee8.param_3
   +0x1e0  uint
   +0x1e4  uint
 
-## STRUCT_388  (>= 0x2c bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_389  (>= 0x2c bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00224098.param_1
   +0x000  uint
   +0x004  uint
@@ -7015,7 +7023,7 @@ users: FUN_00224098.param_1
   +0x024  uint
   +0x028  uint
 
-## STRUCT_389  (>= 0x8 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_390  (>= 0x8 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00229938.param_2
   +0x000  byte
   +0x001  byte
@@ -7026,7 +7034,7 @@ users: FUN_00229938.param_2
   +0x006  byte
   +0x007  byte
 
-## STRUCT_390  (>= 0x1a bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_391  (>= 0x1a bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_0023f9ac.param_1
   +0x000  uint
   +0x004  uint
@@ -7037,7 +7045,7 @@ users: FUN_0023f9ac.param_1
   +0x018  byte
   +0x019  byte
 
-## STRUCT_391  (>= 0x8 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_392  (>= 0x8 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_002474b4.param_2
   +0x000  byte
   +0x001  byte
@@ -7048,7 +7056,7 @@ users: FUN_002474b4.param_2
   +0x006  byte
   +0x007  byte
 
-## STRUCT_392  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_393  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00250944.param_2
   +0x000  uint
   +0x004  float
@@ -7059,7 +7067,7 @@ users: FUN_00250944.param_2
   +0x018  float
   +0x01c  float
 
-## STRUCT_393  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_394  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00250944.param_1
   +0x000  float
   +0x004  float
@@ -7070,7 +7078,7 @@ users: FUN_00250944.param_1
   +0x018  float
   +0x01c  float
 
-## STRUCT_394  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_395  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_0025096c.param_2
   +0x000  float
   +0x004  float
@@ -7081,7 +7089,7 @@ users: FUN_0025096c.param_2
   +0x018  float
   +0x01c  float
 
-## STRUCT_395  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_396  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00250adc.param_1
   +0x000  uint
   +0x004  float
@@ -7092,7 +7100,7 @@ users: FUN_00250adc.param_1
   +0x018  float
   +0x01c  float
 
-## STRUCT_396  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_397  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00250c8c.param_1
   +0x000  uint
   +0x004  uint
@@ -7103,7 +7111,7 @@ users: FUN_00250c8c.param_1
   +0x018  float
   +0x01c  float
 
-## STRUCT_397  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_398  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00250d64.param_2
   +0x000  float
   +0x004  float
@@ -7114,7 +7122,7 @@ users: FUN_00250d64.param_2
   +0x018  float
   +0x01c  float
 
-## STRUCT_398  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_399  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00250db0.param_2
   +0x000  float
   +0x004  float
@@ -7125,7 +7133,7 @@ users: FUN_00250db0.param_2
   +0x018  float
   +0x01c  float
 
-## STRUCT_399  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
+## STRUCT_400  (>= 0x20 bytes, 8 observed fields, 1 function-parameter nodes)
 users: FUN_00250e3c.param_1
   +0x000  uint
   +0x004  uint
@@ -7135,15 +7143,4 @@ users: FUN_00250e3c.param_1
   +0x014  uint
   +0x018  uint
   +0x01c  float
-
-## STRUCT_400  (>= 0x70 bytes, 8 observed fields, 1 function-parameter nodes)
-users: FUN_00252fac.param_1
-  +0x050  uint
-  +0x054  uint
-  +0x058  uint
-  +0x05c  uint
-  +0x060  uint
-  +0x064  uint
-  +0x068  uint
-  +0x06c  uint
 
