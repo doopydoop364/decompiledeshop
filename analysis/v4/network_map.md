@@ -204,8 +204,16 @@ Method hints come from the path markers in the format string (`!put`, `!delete`,
 
 ## URL-path classifiers (strstr on the request URL; reached through pointer tables, no direct callers)
 
-count: 0
+count: 8
 
+- `url_find_path_ccif_credit_card_input` @003222c0
+- `url_find_path_cp3s_contentset_n` @00322230
+- `url_find_path_ninja_my_balance_current_cc_add` @00322450
+- `url_find_path_ninja_my_balance_current_cc_prepare` @00322498
+- `url_find_path_ninja_my_balance_current_wallet_add` @003224e0
+- `url_find_path_ninja_my_credit_card` @00322278
+- `url_find_path_ninja_my_credit_card_delete` @00322378
+- `url_find_path_ninja_my_votes` @003221e8
 
 ## Shared layers observed
 

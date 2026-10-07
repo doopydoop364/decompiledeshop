@@ -146,7 +146,7 @@ def pass2(N, body, fn, callers, callees, strs, sx):
         st = stmts(code)
         lit = re.findall(r'"((?:[^"\\]|\\.)*)"', code)
         # URL path matcher: strstr(haystack, "/path")
-        if strstr is not None and strstr in callees.get(a, ()) and len(st) <= 10:
+        if strstr is not None and strstr in callees.get(a, ()) and len(st) <= 20:
             paths = [l for l in lit if l.startswith('/')]
             if len(paths) == 1 and len(lit) == 1:
                 N.set(a, 'url_find_path_' + slug(paths[0].replace('\\n', '')), 'MEDIUM',

@@ -362,16 +362,24 @@ address,name,confidence,evidence,pass
 00321d14,build_url_ninja_ws_my_abandoned_transactions,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/abandoned_transactions?tracing_transaction_id=%llu&l...""; builds the request URL for that endpoint",S2-strings
 00321d8c,build_url_ninja_ws_my_session_open_without_nna,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/session/!open_without_nna""; builds the request URL for that endpoint",S2-strings
 003221dc,get_addr_of_DAT_003e1d90,HIGH,body returns the address of global DAT_003e1d90,S1-library
+003221e8,url_find_path_ninja_my_votes,MEDIUM,"calls strstr(*param_2, ""/ninja/ws/my/votes?"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 00322224,get_addr_of_DAT_003e1d6c,HIGH,body returns the address of global DAT_003e1d6c,S1-library
+00322230,url_find_path_cp3s_contentset_n,MEDIUM,"calls strstr(*param_2, ""/cp3s/contentset/n/"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 0032226c,get_addr_of_DAT_003e1d7c,HIGH,body returns the address of global DAT_003e1d7c,S1-library
+00322278,url_find_path_ninja_my_credit_card,MEDIUM,"calls strstr(*param_2, ""/ninja/ws/my/credit_card/"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 003222b4,get_addr_of_DAT_003e1d8c,HIGH,body returns the address of global DAT_003e1d8c,S1-library
+003222c0,url_find_path_ccif_credit_card_input,MEDIUM,"calls strstr(*param_2, ""/ccif/credit_card/!input"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 003222fc,get_addr_of_DAT_003e1d88,HIGH,body returns the address of global DAT_003e1d88,S1-library
 0032236c,get_addr_of_DAT_003e1d80,HIGH,body returns the address of global DAT_003e1d80,S1-library
+00322378,url_find_path_ninja_my_credit_card_delete,MEDIUM,"calls strstr(*param_2, ""/ninja/ws/my/credit_card/!delete"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 003223b4,get_addr_of_DAT_003e1d84,HIGH,body returns the address of global DAT_003e1d84,S1-library
 003223fc,get_addr_of_DAT_003e1d68,HIGH,body returns the address of global DAT_003e1d68,S1-library
 00322444,get_addr_of_DAT_003e1d74,HIGH,body returns the address of global DAT_003e1d74,S1-library
+00322450,url_find_path_ninja_my_balance_current_cc_add,MEDIUM,"calls strstr(*param_2, ""/ninja/ws/my/balance/current/!cc_add"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 0032248c,get_addr_of_DAT_003e1d70,HIGH,body returns the address of global DAT_003e1d70,S1-library
+00322498,url_find_path_ninja_my_balance_current_cc_prepare,MEDIUM,"calls strstr(*param_2, ""/ninja/ws/my/balance/current/!cc_prepare"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 003224d4,get_addr_of_DAT_003e1d78,HIGH,body returns the address of global DAT_003e1d78,S1-library
+003224e0,url_find_path_ninja_my_balance_current_wallet_add,MEDIUM,"calls strstr(*param_2, ""/ninja/ws/my/balance/current/!wallet_add"") and returns found-offset/flag; one literal; likely a request-URL classifier",S2-strings
 003233a8,shop_initialize,MEDIUM,trace log InitializeForShop / Shop::SetApplicationId / SetTin / NeedsSystemUpdate,S2-anchors
 00323b68,shop_unregister,MEDIUM,"trace log ""Shop::Unregister();""",S2-anchors
 00323c60,shop_start_download_content,MEDIUM,trace logs RegisterTask / StartDownload / Download Content -> Failure/Cancel/SD Error,S2-anchors

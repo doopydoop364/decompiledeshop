@@ -1,8 +1,8 @@
 {
- "named": 658,
+ "named": 666,
  "by_confidence": {
   "HIGH": 510,
-  "MEDIUM": 148
+  "MEDIUM": 156
  },
  "log": [
   [
@@ -11,7 +11,7 @@
   ],
   [
    "S2-strings",
-   74
+   82
   ],
   [
    "S2-anchors",

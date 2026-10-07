@@ -16,7 +16,7 @@ uint crt_entry_point(void)
   uVar6 = FUN_00102520(uVar5);
   uVar7 = FUN_00103de8(uVar6);
   uVar11 = FUN_00103e70(uVar7);
-  uVar15 = FUN_00103b48(uVar11);
+  uVar15 = app_main(uVar11);
   uVar16 = __svc_ExitProcess();
   return uVar16;
 }
@@ -6092,9 +6092,9 @@ uint FUN_00103a7c(uint param_1, uint param_2, uint param_3)
 
 
 // ==== Function @ 00103b48  file_off 003b48  ARM  size 0x2a0  insns 161 ====
-// id: FUN_00103b48  name_confidence: UNNAMED  discovery: call
+// id: FUN_00103b48  name_confidence: MEDIUM  discovery: call
 // callers: 1 (00100000)  callees: 39  sig: nparams=4 ret=r0 NORETURN?
-uint FUN_00103b48(uint param_1, uint param_2, uint param_3, uint param_4)
+uint app_main(uint param_1, uint param_2, uint param_3, uint param_4)
 {
   uint uVar5, uVar7, uVar16, uVar20, uVar24, uVar34, uVar41, uVar45;
   uint uVar48, uVar49, uVar51, uVar55, uVar65, uVar66, cc17, cc18;
@@ -244768,7 +244768,7 @@ void FUN_0023090c(uint param_1)
 // id: FUN_002309a8  name_confidence: MEDIUM  discovery: prologue
 // callers: 2 (002309a8, 00319a60)  callees: 13  sig: nparams=2 ret=r0
 // strings: DTL download failure: %08x (%07d; internal = %08
-uint shop_download_dtl(uint param_1, uint param_2)
+uint shop_register_npns_and_download_dtl(uint param_1, uint param_2)
 {
   uint uVar5, uVar7, uVar8, uVar20, uVar21, uVar27, cc6, cc7;
   uint cc8, uVar40, uVar41, uVar42, uVar46, uVar47, cc15, uVar52;
@@ -244838,7 +244838,7 @@ uint shop_download_dtl(uint param_1, uint param_2)
   uVar52 = FUN_00230c18(uVar47);
   uVar56 = svc_SendSyncRequest_001e7750(uVar52);
   if ((uVar56 & 0x80000000) == 0) {
-    uVar66 = shop_download_dtl(param_1, 1);
+    uVar66 = shop_register_npns_and_download_dtl(param_1, 1);
     FUN_002a7f5c(uVar47);
     return uVar66;
   }
@@ -445734,7 +445734,7 @@ uint FUN_00319a60(uint param_1)
   FUN_002308d4(&local_18, local_1c);
   uVar19 = local_14;
   if (uVar19 + 1 == 0) {
-    uVar25 = shop_download_dtl(param_1, 0);
+    uVar25 = shop_register_npns_and_download_dtl(param_1, 0);
     cc3 = uVar25;
     if (uVar25 != 0) uVar25 = 2;
     if (cc3 != 0) *(byte *)(param_1 + 0x28) = uVar25;
