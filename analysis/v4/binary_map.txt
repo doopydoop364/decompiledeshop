@@ -1,0 +1,19 @@
+Nintendo 3DS eShop (ExHeader name "tiger") - binary map (verified by analysis/v4_pass0_map.py)
+
+code.bin               size=1709536   sha256=41b510d61975556195c233925da74afa932d2304baa02e1bab9bd9cae2c19d5a
+code_decompressed.bin  size=3080192   sha256=34a50e03d648bd85f34c3e3acd00b8a67f18c002f994c9d3292966dbc14c58d7
+extheader.bin          size=2048      sha256=eef4afd5e43a1af982a67c19fbfe7e845e35577fdee275b66f1d722256c59bfa
+
+code.bin is BLZ-compressed (ExHeader flag bit0 = 1); independent decompression MATCHES code_decompressed.bin
+BLZ footer: enc_len=0x1a14ce hdr_len=11 inc_len=0x14ea20
+
+seg     VA         size       end VA     file_off  
+TEXT    00100000   002b2638   003b2638   00000000
+RODATA  003b3000   00026370   003d9370   002b3000
+DATA    003da000   00015d68   003efd68   002da000
+BSS     003f0000   00061e30   (follows DATA pages; not present in file)
+stack size 0x4000
+
+Architecture: ARM11 (ARMv6K), ARM + Thumb-1 (BL/BLX pairs), VFPv2 float code present
+Entry: 0x00100000
+Alignment: segments page (0x1000) aligned, segment sizes not page multiples.

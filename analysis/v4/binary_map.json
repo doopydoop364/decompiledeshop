@@ -1,0 +1,74 @@
+{
+ "files": {
+  "code.bin": {
+   "size": 1709536,
+   "sha256": "41b510d61975556195c233925da74afa932d2304baa02e1bab9bd9cae2c19d5a"
+  },
+  "code_decompressed.bin": {
+   "size": 3080192,
+   "sha256": "34a50e03d648bd85f34c3e3acd00b8a67f18c002f994c9d3292966dbc14c58d7"
+  },
+  "extheader.bin": {
+   "size": 2048,
+   "sha256": "eef4afd5e43a1af982a67c19fbfe7e845e35577fdee275b66f1d722256c59bfa"
+  }
+ },
+ "blz": {
+  "footer_enc_len": 1709262,
+  "footer_hdr_len": 11,
+  "inc_len": 1370656,
+  "independent_decompress_matches_code_decompressed": true
+ },
+ "extheader": {
+  "name": "tiger",
+  "flag_byte_0xd": 1,
+  "code_compressed_flag": true,
+  "stack_size": 16384,
+  "bss_size": 400944
+ },
+ "segments": [
+  {
+   "name": "TEXT",
+   "va": 1048576,
+   "size": 2827832,
+   "file_offset": 0,
+   "end_va": 3876408
+  },
+  {
+   "name": "RODATA",
+   "va": 3878912,
+   "size": 156528,
+   "file_offset": 2830336,
+   "end_va": 4035440
+  },
+  {
+   "name": "DATA",
+   "va": 4038656,
+   "size": 89448,
+   "file_offset": 2990080,
+   "end_va": 4128104
+  }
+ ],
+ "bss": {
+  "va": 4128768,
+  "size": 400944,
+  "note": "BSS follows DATA pages (page-aligned); size from SCI offset 0x3C"
+ },
+ "arch": "ARM11 (ARMv6K), ARM + Thumb-1 (BL/BLX pairs), VFPv2 float code present",
+ "entry_va": 1048576,
+ "entry_note": "first TEXT word is the .code entry (3DS process start); TEXT page size 0x1000",
+ "page_pages": {
+  "text": 691,
+  "ro": 39,
+  "data": 22
+ },
+ "file_len_check": {
+  "text_pages+ro_pages+data_pages_bytes": 3080192,
+  "decompressed_len": 3080192
+ },
+ "first_words": [
+  "0xeb000007",
+  "0xeb000f84",
+  "0xeb069b25"
+ ]
+}
