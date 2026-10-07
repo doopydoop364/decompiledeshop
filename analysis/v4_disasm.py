@@ -140,8 +140,10 @@ class Disasm:
                 i.kind = 'ret'
             elif ins.id == A.ARM_INS_MOV and ins.operands[1].type == A.ARM_OP_REG and ins.operands[1].reg == A.ARM_REG_LR:
                 i.kind = 'ret'
+            elif ins.id in (A.ARM_INS_ADD, A.ARM_INS_LDR, A.ARM_INS_MOV):
+                i.kind = 'switch'                       # add pc / ldr pc,[pc,..] / ldr pc,[rX] / mov pc,rX
             else:
-                i.kind = 'switch'                       # add pc / ldr pc,[pc,..] / other
+                i.kind = 'undef'; i.fall = False; return i   # data decoded as a PC write
             i.fall = not alw
             return i
         if i.mn.startswith('ldr') and ' pc,' in (' ' + i.ops) and False:
@@ -176,7 +178,7 @@ def looks_like_entry(d, t, thumb):
 class Func:
     def __init__(self, entry, thumb=False):
         self.entry = entry; self.thumb = thumb; self.insns = {}; self.pools = set(); self.calls = {}   # call site -> target (|1 = thumb; None = indirect)
-        self.tail = {}; self.switches = {}; self.bad = []; self.rets = []; self.edges = {}
+        self.tail = {}; self.tailthumb = set(); self.switches = {}; self.bad = []; self.rets = []; self.edges = {}
         self.xfall = []
     @property
     def end(self):
@@ -219,31 +221,50 @@ def trace(d, entry, stops, thumb=False):
             elif i.kind == 'ret':
                 f.rets.append(a)
             elif i.kind == 'bx':
-                f.switches[a] = None
+                pj = d.decode(a - 4, th) if not th else None
+                rm = i.ops.strip()
+                if pj is not None and pj.mn == 'add' and pj.ops.replace(' ', '') == '%s,pc,#1' % rm:
+                    f.tail[a] = a + 4; f.tailthumb.add(a)       # ARM->Thumb veneer: jumps to the Thumb code that follows
+                else:
+                    f.switches[a] = None
             elif i.kind == 'switch' and not th:
                 tg = []
-                b = a + 4
-                while True:                              # branch-table form (add pc,pc,rX lsl 2)
-                    j = d.decode(b)
-                    if j is not None and j.kind == 'b' and j.cond == 0xE: tg.append(j.targets[0]); b += 4
-                    else: break
-                    if len(tg) > 1024: break
-                if tg:
-                    for k in range(a + 4, b, 4): f.insns[k] = d.decode(k)
-                    for t in tg:
-                        if d.in_text(t) and t not in stops: work.append((t, False))
-                        elif t in stops: f.tail[a] = t
-                    f.switches[a] = tg
-                else:                                    # word table form (ldr pc,[pc,rX,lsl #2])
+                is_ldr = i.mn.startswith('ldr')
+                if is_ldr and not i.ops.replace(' ', '').startswith('pc,[pc,'):
+                    f.switches[a] = None                 # ldr pc,[rX,..]: indirect jump through memory
+                elif not is_ldr and not i.ops.replace(' ', '').startswith('pc,pc,'):
+                    f.switches[a] = None                 # mov pc,rX / add pc,rX,..
+                elif is_ldr:                             # word table at a+8, default `b` at a+4
+                    n = None
+                    pj = d.decode(a - 4)
+                    if pj is not None and pj.mn == 'cmp' and '#' in pj.ops:
+                        try: n = int(pj.ops.split('#')[-1], 0) + 1
+                        except ValueError: n = None
+                    dj = d.decode(a + 4)
+                    if dj is not None and dj.kind == 'b':
+                        f.insns[a + 4] = dj; tg.append(dj.targets[0])
                     b = a + 8
-                    while True:
+                    while n is None or len(tg) - 1 < n:
                         v = d.m.u32(b) if d.in_text(b) else None
-                        if v is not None and d.in_text(v) and not v & 3 and len(tg) < 1024 and (not tg or abs(v - a) < 0x4000):
+                        if v is not None and d.in_text(v) and not v & 3 and len(tg) < 1025 and (n is not None or abs(v - a) < 0x4000):
                             tg.append(v); f.pools.add(b); b += 4
                         else: break
                     f.switches[a] = tg
-                    for t in tg: work.append((t, False))
-                if i.fall: a += 4; continue
+                    for t in tg:
+                        if t in stops: f.tail[a] = t
+                        else: work.append((t, False))
+                else:                                    # branch table (add pc,pc,rX,lsl #2): entry0 = default
+                    b = a + 4
+                    while True:
+                        j = d.decode(b)
+                        if j is not None and j.kind == 'b' and j.cond == 0xE: tg.append(j.targets[0]); b += 4
+                        else: break
+                        if len(tg) > 1024: break
+                    for k in range(a + 4, b, 4): f.insns[k] = d.decode(k)
+                    for t in tg:
+                        if t in stops: f.tail[a] = t
+                        elif d.in_text(t): work.append((t, False))
+                    f.switches[a] = tg
                 break
             elif i.kind == 'switch':
                 f.switches[a] = None
@@ -297,7 +318,7 @@ class Discovery:
             for f in list(self.funcs.values()):
                 for site, t in f.tail.items():
                     if d.in_text(t) and t not in self.entries and t not in self.rejected:
-                        self.entries[t] = f.thumb; self.why[t] = 'tail'; new = True
+                        self.entries[t] = f.thumb or site in f.tailthumb; self.why[t] = 'tail'; new = True
             if new: continue
             changed = False
             for e in sorted(self.entries):
@@ -361,7 +382,7 @@ def save_db(m, d, funcs, entries, path):
     db = {'entries': entries, 'funcs': {}}
     for e, f in funcs.items():
         db['funcs'][e] = {'thumb': f.thumb, 'end': f.end, 'insns': sorted((a, i.size) for a, i in f.insns.items()), 'pools': sorted(f.pools),
-                          'calls': f.calls, 'tail': f.tail, 'switches': f.switches, 'bad': f.bad, 'rets': f.rets, 'xfall': f.xfall}
+                          'calls': f.calls, 'tail': f.tail, 'tailthumb': sorted(f.tailthumb), 'switches': f.switches, 'bad': f.bad, 'rets': f.rets, 'xfall': f.xfall}
     pickle.dump(db, open(path, 'wb'))
 
 if __name__ == '__main__':
@@ -380,7 +401,7 @@ def load_db(m=None):
     for e, r in db['funcs'].items():
         f = Func(e, r['thumb'])
         for a, sz in r['insns']: f.insns[a] = d.decode(a, r['thumb'])
-        f.pools = set(r['pools']); f.calls = r['calls']; f.tail = r['tail']; f.switches = r['switches']
+        f.pools = set(r['pools']); f.calls = r['calls']; f.tail = r['tail']; f.tailthumb = set(r.get('tailthumb', [])); f.switches = r['switches']
         f.bad = r['bad']; f.rets = r['rets']; f.xfall = r['xfall']
         funcs[e] = f
     return m, d, funcs, db['entries']
