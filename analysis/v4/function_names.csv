@@ -1,18 +1,10 @@
 address,name,confidence,evidence,pass
 00100000,crt_entry_point,HIGH,first TEXT word (process entry); calls init routines then svc ExitProcess,S1-library
 00100024,crt_zero_startup_region,HIGH,zero-fills the word range between two literal-pool pointers (startup BSS clear),S1-library
-00105470,svc_GetResourceLimit,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to GetResourceLimit),S1-library
-00109170,svc_CreateAddressArbiter,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateAddressArbiter),S1-library
-0010e804,svc_CreateThread,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateThread),S1-library
-0010e844,svc_GetSystemTick,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to GetSystemTick),S1-library
-0011c27c,svc_ConnectToPort,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to ConnectToPort),S1-library
 0011cd6c,svc_SendSyncRequest_0011cd6c,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
 0011cd94,svc_SendSyncRequest_0011cd94,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
 00120ff0,svc_SleepThread_00120ff0,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SleepThread),S1-library
 00121618,svc_SendSyncRequest_00121618,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
-00122600,svc_CreateMemoryBlock,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateMemoryBlock),S1-library
-0012261c,svc_CreateMutex,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateMutex),S1-library
-00122634,svc_DuplicateHandle,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to DuplicateHandle),S1-library
 0016b9fc,get_char_at_0x38c,HIGH,single load: return *(char*)(param_1+0x38c),S1-library
 001797dc,get_uint_at_0x1af0,HIGH,single load: return *(uint*)(param_1+0x1af0),S1-library
 00192124,get_char_at_0x3f9,HIGH,single load: return *(char*)(param_1+0x3f9),S1-library
@@ -21,7 +13,6 @@ address,name,confidence,evidence,pass
 001a334c,get_uint_at_0x3fc0,HIGH,single load: return *(uint*)(param_1+0x3fc0),S1-library
 001a3358,get_uint_at_0x3fbc,HIGH,single load: return *(uint*)(param_1+0x3fbc),S1-library
 001ac210,get_char_at_0xd4,HIGH,single load: return *(char*)(param_1+0xd4),S1-library
-001b8c40,svc_0xeccccc,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to 0xeccccc),S1-library
 001cef38,set_uint_at_0x290,HIGH,single store: *(uint*)(param_1+0x290)=param_2,S1-library
 001e0be4,get_uint_at_0x148,HIGH,single load: return *(uint*)(param_1+0x148),S1-library
 001e558c,svc_SendSyncRequest_001e558c,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
@@ -79,15 +70,9 @@ address,name,confidence,evidence,pass
 002958f4,get_uint_at_0x210c,HIGH,single load: return *(uint*)(param_1+0x210c),S1-library
 00299c28,get_uint_at_0x20_00299c28,HIGH,single load: return *(uint*)(param_1+0x20),S1-library
 0029c420,svc_SendSyncRequest_0029c420,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to SendSyncRequest),S1-library
-0029c500,svc_ArbitrateAddress,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to ArbitrateAddress),S1-library
-0029cc90,svc_WaitSynchronizationN,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to WaitSynchronizationN),S1-library
-0029d634,svc_GetProcessId,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to GetProcessId),S1-library
 0029e4e4,memcmp_thunk,MEDIUM,forwarding wrapper: only tail-calls memcmp,S9-propagate
 0029e4f0,memcmp,HIGH,"compares word-wise then byte-wise for count bytes, returns first byte difference",S1-library
-0029ee6c,svc_CreateEvent,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to CreateEvent),S1-library
 002a0964,strlen16,HIGH,counts nonzero 16-bit units (UTF-16 style length),S1-library
-002a680c,svc_Break,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to Break),S1-library
-002a69c4,svc_ControlMemory,HIGH,body is a single `svc` instruction wrapper (3DS SVC number maps to ControlMemory),S1-library
 002a783c,once_guard_acquire,HIGH,if *p==0 {*p=1; return 1} else return 0 (non-atomic once-flag),S1-library
 002a8eac,heap_alloc_checked,MEDIUM,"calls allocator object (DAT_003e25a0) vtable slot 0x1c with (size, 4); calls an error handler if null; 84 callers",S1-library
 002a8ef8,heap_free_nullable,MEDIUM,null guard then allocator object vtable slot 0x24 (free),S1-library
@@ -119,7 +104,6 @@ address,name,confidence,evidence,pass
 0031edfc,build_url_ninja_ws_service_hosts,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/service_hosts?country=%s&lang=%s&shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings
 0031f268,build_url_ninja_ws_my_account_ctr_migrate_without_nna,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/account/ctr/!migrate_without_nna?shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings
 0031f6b0,build_url_samurai_ws_ID_ranking_ID,MEDIUM,"snprintf with the only service format ""%s/samurai/ws/%s/ranking/%u?shop_id=1&limit=%u&offset=%u&lang=%s&_t...""; builds the request URL for that endpoint",S2-strings
-0031fa3c,build_url_ninja_ws_ID_title_ID_prepurchase_info,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/%s/title/%llu/prepurchase_info?%s=%s&shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings
 0031fec4,build_url_ninja_ws_ID_titles_online_prices_0031fec4,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/%s/titles/online_prices?title%%5B%%5D=%s&lang=%s&includ...""; builds the request URL for that endpoint",S2-strings
 00320220,build_url_ninja_ws_my_recommend_title,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/recommend_title?directory_id=%llu&friend_code=%016ll...""; builds the request URL for that endpoint",S2-strings
 00320314,build_url_ninja_ws_my_shared_titles,MEDIUM,"snprintf with the only service format ""%s/ninja/ws/my/shared_titles?limit=%u&offset=%u&shop_id=1&_type=json""; builds the request URL for that endpoint",S2-strings

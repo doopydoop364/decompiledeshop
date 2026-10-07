@@ -43,6 +43,29 @@ def main():
             if i.pool is not None and not i.thumb or (i.pool is not None and i.thumb):
                 v = m.u32(i.pool)
                 if v is not None: refs.append(('lit', e, a, i.pool, v))
+    # pc-relative address generation: add/sub rX, pc, #imm (optionally followed by add rX, rX, #imm); adr
+    import re as _re
+    RX = _re.compile(r'^(r\d+|ip|sb|sl|fp), (pc|r\d+|ip|sb|sl|fp), #(-?0x[0-9a-f]+|-?\d+)$')
+    for e, f in funcs.items():
+        for a in sorted(f.insns):
+            i = f.insns[a]
+            mn = i.mn.split('.')[0]
+            if mn not in ('add', 'sub', 'adr', 'adds', 'subs'): continue
+            mt = RX.match(i.ops) if mn != 'adr' else None
+            if mn == 'adr':
+                mm = _re.match(r'^(\w+), #(0x[0-9a-f]+)$', i.ops)
+                if mm: refs.append(('adr', e, a, a, int(mm.group(2), 16))); continue
+                continue
+            if not mt or mt.group(2) != 'pc': continue
+            imm = int(mt.group(3), 0)
+            base = ((a + 4) & ~3) if i.thumb else a + 8
+            v = base + imm if mn.startswith('add') else base - imm
+            nxt = f.insns.get(a + i.size)
+            if nxt is not None and nxt.mn.split('.')[0] in ('add', 'sub'):
+                m2 = RX.match(nxt.ops)
+                if m2 and m2.group(1) == mt.group(1) and m2.group(2) == mt.group(1):
+                    v2 = int(m2.group(3), 0); v = v + v2 if nxt.mn.startswith('add') else v - v2
+            refs.append(('adr', e, a, a, v & 0xFFFFFFFF))
     # data pointers in RODATA/DATA
     for n, a, s, o in m.segs()[1:]:
         for k in range(0, s - 3, 4):
@@ -71,14 +94,14 @@ def main():
     with open(os.path.join(V4, 'string_xrefs.csv'), 'w', newline='') as fh:
         w = csv.writer(fh); w.writerow(['string_addr', 'offset_in_string', 'kind', 'from_func', 'site', 'slot_addr'])
         for a, off, kind, fe, site, pool in sorted(sx):
-            w.writerow(['%08x' % a, off, 'literal_pool' if kind == 'lit' else 'data_pointer', '' if fe is None else '%08x' % fe, '%08x' % site, '%08x' % pool])
+            w.writerow(['%08x' % a, off, {'lit': 'literal_pool', 'adr': 'pc_relative_add', 'ptr': 'data_pointer'}[kind], '' if fe is None else '%08x' % fe, '%08x' % site, '%08x' % pool])
     with open(os.path.join(V4, 'data_xrefs.csv'), 'w', newline='') as fh:
         w = csv.writer(fh); w.writerow(['addr', 'segment', 'refs', 'literal_refs', 'pointer_refs', 'n_funcs', 'funcs(first5)'])
         for v in sorted(dx):
             c, fs, kc = dx[v]
             w.writerow(['%08x' % v, m.seg_of(v), c, kc['lit'], kc['ptr'], len(fs), ' '.join('%08x' % x for x in sorted(fs)[:5])])
     pickle.dump({'strings': strs, 'refs': refs}, open(os.path.join(V4, 'refs.pkl'), 'wb'))
-    nlit = sum(1 for r in sx if r[2] == 'lit')
+    nlit = sum(1 for r in sx if r[2] in ('lit', 'adr'))
     print('strings', len(strs), 'ascii', sum(1 for s in strs if s[2] == 'ascii'), 'utf16', sum(1 for s in strs if s[2] == 'utf16'))
     print('refs', len(refs), 'string xrefs', len(sx), 'via literal pool', nlit, 'via data pointer', len(sx) - nlit)
     print('strings with >=1 xref', len({r[0] for r in sx}))
